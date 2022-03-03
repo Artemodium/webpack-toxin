@@ -1,0 +1,23 @@
+extends ../../../src/baseTemplates/iuBaseTemplate.pug
+include ../../components/headerUI/headerUI.pug
+include ../../components/colors/colors.pug
+include ../../components/types/types.pug
+
+block content
+  div.wrapper 
+    +logo
+    div.content
+      div.colors-and-types
+        div.colors-and-types__colors 
+          +colors__color([{desc: "Dark Shade 100%", color: "#1F2041", modificator: "full-opacity"},
+                          {desc: "Dark Shade 75%", color: "#1F2041", modificator: "opacity-75"},
+                          {desc: "Dark Shade 50%", color: "#1F2041", modificator: "opacity-50"},
+                          {desc: "Dark Shade 25%", color: "#1F2041", modificator: "opacity-25"},
+                          {desc: "Dark Shade 5%", color: "#1F2041", modificator: "min-opacity"},
+                          {desc: "Purple", color: "#BC9CFF", modificator: "purple"},
+                          {desc: "Green", color: "#6FCF97", modificator: "green"}])
+        div.colors-and-types__types
+          +types([{style: "H1", example: "This one is the sub-section or widget title", modificator: "h1"},
+                  {style: "H2", example: "Next one is the item title inside widgets", modificator: "h2"},
+                  {style: "H3", example: "THIS IS A LABEL OR CTA TEXT", modificator: "h3"},
+                  {style: "Body", example: "This is the body text which is used for most of the design, like paragraphs, lists, etc.", modificator: "body"}])

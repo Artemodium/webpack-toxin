@@ -1,0 +1,5 @@
+mixin types(types)
+  each element in types
+    div.types__type
+      div(class= 'types__type__style' + ' types__type_' + element.style)= element.style
+      div(class= 'types__type__example' + ' types__type_' + element.modificator)= element.example

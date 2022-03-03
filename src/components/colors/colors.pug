@@ -1,0 +1,7 @@
+mixin colors__color(colors)
+  each element in colors
+    div.colors__color
+      div(class = 'color__shape' + ' shape_' + element.modificator)
+      div.color__description
+        p.color__desc= element.desc
+        p.color__code= element.color
