@@ -1,0 +1,13 @@
+extends ../../../src/baseTemplates/iuBaseTemplate.pug
+include ../../components/headerUI/headerUI.pug
+include ../../components/input/inputs.pug
+
+block title  
+    title Form elements
+
+block content
+    div.wrapper 
+        +logo
+        div.content
+            div.text-fields-and-buttons
+                +inputs({modificator:'normal', variant:'TEXT FIELD', type:'DEFAULT', placeholder:'Email'})
