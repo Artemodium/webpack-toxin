@@ -1,0 +1,6 @@
+mixin checkbox(title, checkboxes)
+    p.checkbox__title= title
+    each el in checkboxes
+        input.checkbox(type='checkbox' id=el.id checked=el.checked)
+        label.checkbox__label(for=el.id)
+            p.label__text=el.label

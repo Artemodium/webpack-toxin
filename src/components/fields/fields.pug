@@ -1,0 +1,39 @@
+include ../checkmark/checkmark.pug
+include ../arrow/arrow.pug
+
+mixin fields(args)
+    each element in args
+        if element.modificator === 'hovered-focused'
+            div.column-one__field
+                div.desc
+                    p.title= element.title
+                    p.comment= element.comment
+                div.inputs
+                    input(class= 'input ' + 'input_hovered-focused', placeholder=element.placeholder)            
+        else if element.checkmark
+            div.column-one__field
+                div.desc
+                    p.title= element.title
+                    p.comment= element.comment
+                div(class= 'dropdown')
+                    div.internal
+                        div.guest
+                            p.text= element.placeholder
+                        div.checkmark-box
+                            +checkmark
+        else if element.modificator === 'subscription'
+            div(class= 'column-one__field' + '_subscription')
+                div.desc
+                    p.title= element.title
+                    p.comment= element.comment
+                div(class= 'inputs' + '__subscription')
+                    input(class= 'input' + '__subscription', placeholder=element.placeholder)
+                    div.arrow-box
+                        +arrow
+        else    
+            div.column-one__field
+                div.desc
+                    p.title= element.title
+                    p.comment= element.comment
+                div.inputs
+                    input.input(placeholder=element.placeholder)
