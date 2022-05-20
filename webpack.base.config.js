@@ -95,6 +95,7 @@ module.exports = {
             patterns: [
                 { from: `${PATHS.src}/favicons`, to: 'favicons' },
                 { from: `${PATHS.src}/img`, to: `img` },
+                { from: `${PATHS.src}/libs`, to: `libs` },
             ],
         }),
         ...PAGES.map(

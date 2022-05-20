@@ -1,0 +1,43 @@
+include ../../components/buttons/button.pug
+
+mixin dropdown(args)
+    -var className= 'dropdown-' + args.size
+
+    div(class=className)
+        div(class=className + '__header')
+            .header__title= args.title
+            .header__desc= args.comment
+        div(class=className + '__field-and-content')
+            div(class=className + '__field')
+                div(class='field__text-field_' + args.size + args.status)
+                    .text-field__placeholder
+                        span.text-field__placeholder-text= args.placeholder
+                    .text-field__chekmark
+                            span.text-field__placeholder-checkmark &#xe5cf;
+            if args.content
+                div(class=className + '__content-wrapper_' + args.size)
+                    div(class=className + '__content_' + args.size)
+                        each key, val in args.content
+                            div.content__item
+                                span.item__name=`${val}`
+                                div.item__count
+                                    div.count__minus
+                                        span.count__minus-symb= '-' 
+                                    span.item__key= `${key}`
+                                    div.count__plus
+                                        span.count__plus-symb=  '+'
+                        if args.clear || args.apply
+                            div.buttns-wrapper
+                                div.buttns
+                                    if args.clear
+                                        div.btn__clear
+                                            +button({theme: '_unbordered', font: '_color-font', placeholder: 'очистить', size: 'small', isArrow: false})
+                                    if args.apply
+                                        div.btn__apply
+                                            +button({theme: '_unbordered', font: '_color-font', placeholder: 'применить', size: 'small', isArrow: false})   
+                            
+                                        
+
+
+
+    

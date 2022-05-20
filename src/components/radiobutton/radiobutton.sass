@@ -1,0 +1,84 @@
+.radiobutton__title
+    font-size: 12px
+    font-weight: 700
+    line-height: 15px
+    letter-spacing: 0em
+    text-align: left
+    color: #1F2041
+
+.radiobutton__buttons
+    display: flex
+    margin: 0
+
+.radiobutton__button
+    margin:0 20px 0 0
+    width: 105px
+
+.radiobutton__label
+    font-size: 14px
+    font-weight: 400
+    line-height: 24px
+    letter-spacing: 0em
+    text-align: left
+    color: rgba(31, 32, 65, 0.5)
+
+.radiobutton__input:checked,
+.radiobutton__input:not(:checked)
+    position: absolute
+    z-index: -1
+    opacity: 0
+
+.radiobutton__input:checked +label,
+.radiobutton__input:not(:checked) +label
+    display: inline-block
+    position: relative
+    padding-left: 30px
+    line-height: 20px
+    cursor: pointer
+
+.radiobutton__input:checked +label:before,
+.radiobutton__input:not(:checked) +label:before
+    content: ""
+    position: absolute
+    left: 0px
+    top: 0px
+    width: 20px
+    height: 20px
+    border: 1px solid rgba(188, 156, 255, 1)
+    background-color: #ffffff
+    border-radius: 100%
+
+.radiobutton__input:not(:checked) +label:before
+    content: ""
+    position: absolute
+    left: 0px
+    top: 0px
+    width: 20px
+    height: 20px
+    border: 1px solid rgba(31, 32, 65, 0.25)
+    background-color: #ffffff
+    border-radius: 100%
+
+.radiobutton__input:checked +label:after,
+.radiobutton__input:not(:checked) +label:after
+    content: ""
+    position: absolute
+    -webkit-transition: all 0.5s ease
+    -moz-transition: all 0.5s ease
+    -o-transition: all 0.5s ease
+    transition: all 0.5s ease
+    top: 5px 
+    left: 5px 
+    width: 12px
+    height: 12px
+    border-radius: 100%
+    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%)
+
+
+.radiobutton__input:not(:checked) +label:after
+    opacity: 0
+
+.radiobutton__input:checked +label:after
+    opacity: 1
+
+    

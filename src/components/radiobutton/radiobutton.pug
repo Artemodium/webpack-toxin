@@ -1,0 +1,6 @@
+mixin radiobutton(buttons)
+    div.radiobutton__buttons
+        each el in buttons
+            div.radiobutton__button
+                input.radiobutton__input(type="radio" id=el.id checked=el.checked name=el.name)
+                label.radiobutton__label(for=el.id)= el.text

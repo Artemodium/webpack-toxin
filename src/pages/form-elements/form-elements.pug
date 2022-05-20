@@ -3,7 +3,14 @@ include ../../components/headerUI/headerUI.pug
 include ../../components/fields/fields.pug
 include ../../components/date-fields/date-fields.pug
 include ../../components/checkbox/checkbox.pug
-
+include ../../components/radiobutton/radiobutton.pug
+include ../../components/toggle/toggle.pug
+include ../../components/like-button/like-button.pug
+include ../../components/rate-button/rate-button.pug
+include ../../components/range-slider/range-slider.pug
+include ../../components/buttons/button.pug
+include ../../components/pagination/pagination.pug
+include ../../components/dropdown/dropdown.pug
 
 block title  
     title Form elements
@@ -26,11 +33,77 @@ block content
         div.form-elements-content
             div.fields-and-buttons
                 div.fields
-                    +fields(text_fields_props)   
-                    +date-fields(date_field_props)
-                    +fields([{modificator:'subscription', title:'SUBSCRIPTION TEXT FIELD', comment:'', placeholder:'Email', checkmark:false}])
+                    +fields({modificator:'normal', title:'TEXT FIELD', comment:'DEFAULT', placeholder:'Email'})   
+                    +fields({modificator:'hovered-focused', title:'TEXT FIELD', comment:'HOVER / FOCUS', placeholder:'This is pretty awesome'})
+                    +dropdown({status:'', size:'large', title:'DROPDOWN', comment:'', placeholder:'Сколько гостей', checkmark:true})
+                    +fields({modificator:'normal', title:'MASKED TEXT FIELD', comment:'', placeholder:'ДД.ММ.ГГГГ'})
+                    div.date-fields-short
+                        +date-fields({size: 'short', title:'DATE DROPDOWN', placeholder:'ДД.ММ.ГГГГ'})
+                        +date-fields({size: 'short', title:'DATE DROPDOWN', placeholder:'19.08.2019'})
+                    div.date-fields-large
+                        +date-fields({size: 'large', title:'FILTER DATE DROPDOWN', placeholder:'19.08.2019'})
+                    +fields({modificator:'subscription', title:'SUBSCRIPTION TEXT FIELD', comment:'', placeholder:'Email'})
                 div.toggles-and-buttons
-                    form.checkboxes
-                        +checkbox('CHECKBOX BUTTONS', [{label:'Можно курить', id:'smoke'},
-                                                        {label:'Можно с питомцами', checked:'checked', id:'pet'},
-                                                        {label:'Можно пригласить друзей (до 10 человек)', checked:'checked', id:'friends'}])
+                    div.toggles-and-buttons__checkboxes                       
+                        p.title_like-checkbox='CHECKBOX BUTTONS'
+                        div.checkboxes
+                            +checkbox([{label:'Можно курить', id:'smoke'},
+                                                            {label:'Можно с питомцами', checked:'checked', id:'pet'},
+                                                            {label:'Можно пригласить друзей (до 10 человек)', checked:'checked', id:'friends'}])
+                    div.toggles-and-buttons__radio                       
+                        p.title_like-radio='RADIO BUTTONS'
+                        div.radio-button 
+                            +radiobutton([{text:'Мужчина', checked:'checked', id:'1', name:'sex'}, {text:'Женщина', id:'2', name:'sex'}])
+                    div.toggles-and-buttons__toggles                       
+                        p.title_like-toggle='TOGGLE'
+                        div.toggle-button
+                            +toggle([{text:'Получать спецпредложения', checked:'checked', id:'1.1'},
+                                                {text:'Получать спецпредложения', id:'2.2'}])
+                    div.toggles-and-buttons__likes                       
+                        p.title_like-button='LIKE BUTTONS'
+                        div.like-button
+                            +like([{dislike:2, like:12}])
+                    div.toggles-and-buttons__rates
+                        p.title_rate-button= 'RATE BUTTON'    
+                        div.rate-button
+                            +rate({rate: 4})
+                            +rate({rate: 5})
+                div.range-slider-and-buttons
+                    div.slider
+                        +range-slider({title: 'RANGE SLIDER', start: '5000', end: '10000'})
+                    div.buttons
+                        p.title-buttons BUTTONS
+                        div.buttons__button
+                            +button({theme: '_painted', font: '_white-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
+                            +button({theme: '_painted-hovered', font: '_white-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
+                            +button({theme: '_bordered', font: '_color-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
+                            +button({theme: '_bordered-hovered', font: '_color-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
+                            +button({theme: '_unbordered', font: '_color-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
+                            +button({theme: '_unbordered-hovered', font: '_grey-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
+                        div.buttons__large-button
+                            +button({theme: '_painted', font: '_white-font', placeholder: 'перейти к оплате', size: 'large', isArrow: true})
+                    div.pagination
+                        p.title-pagination pagination 
+                            div.pagination__paginator
+                                +pagination({start: 1, end: 12, step: 12})
+            div.dropdowns
+                div.dropdowns__dropdown-one
+                    div.reduced
+                        +dropdown({status:'', size:'default', title:'DROPDOWN', comment:'default', placeholder:'2 спальни, 2 кровати...', checkmark:true})
+                    div.expanded
+                        +dropdown({status:'-expandable', size:'default', title:'DROPDOWN', comment:'expanded', placeholder:'2 спальни, 2 кровати...', checkmark:true, 
+                                    content: {'спальни': 2, 'кровати': 2, 'ванные комнаты': 0}, clear: '', apply: ''})
+                div.dropdowns__dropdown-two
+                    div.expanded
+                        +dropdown({status:'-expandable', size:'large', title:'DROPDOWN', comment:'', placeholder:'Сколько гостей', checkmark:true, 
+                                    content: {'взрослые': 0, 'дети': 0, 'младенцы': 0}, clear: '', apply: 'применить'})
+                div.dropdowns__dropdown-three
+                    div.expanded
+                        +dropdown({status:'-expandable', size:'large', title:'DROPDOWN', comment:'', placeholder:'3 гостя', checkmark:true, 
+                                    content: {'взрослые': 2, 'дети': 1, 'младенцы': 0}, clear: 'очистить', apply: 'применить'})
+
+    script(type='text/javascript' src='../../libs/jquery/jquery-3.6.0.js')
+
+
+
+                                        

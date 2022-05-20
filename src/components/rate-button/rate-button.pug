@@ -1,0 +1,6 @@
+mixin rate(rates)
+    div.rate__block
+        -for (let i=0; i<5; i++)
+            - var star = i < rates.rate ? 'star' : 'star_border'
+            - var className = i <= rates.rate-1 ? 'rate__block-star ' + i + ' current' : 'rate__block-star ' + i
+                span(class=className)=star

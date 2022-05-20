@@ -1,0 +1,6 @@
+mixin toggle(buttons)
+    div.toggle__buttons
+        each el in buttons
+            div.toggle__button
+                input.switch(type="checkbox" id=el.id checked=el.checked)
+                label.toggle__label(for=el.id)= el.text

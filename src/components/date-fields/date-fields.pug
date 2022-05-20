@@ -1,14 +1,10 @@
-include ../checkmark/checkmark.pug
-
 mixin date-fields(args)
-    div.column-one__field__date
-        each element in args
-            div(class= 'column-one__field__date' + '_' + element.size)
-                div.desc
-                    p.title= element.title
-                div(class= 'date-dropdown')
-                    div.internal
-                        div.placeholder
-                            p.placeholder-text= element.placeholder
-                        div.checkmark-box
-                            +checkmark
+    div(class= 'date-dropdown' + '_' + args.size)
+        div.date-dropdown__desc
+            p.desc__title= args.title
+        div(class= 'date-dropdown__date-field_' + args.size)
+            div(class= 'date-field_' + args.size)
+                div.placeholder
+                    p.placeholder-text= args.placeholder
+                div.checkmark-box
+                    span.checkmark-box__checkmark &#xe5cf;

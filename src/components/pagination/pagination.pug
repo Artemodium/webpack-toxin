@@ -1,0 +1,23 @@
+mixin pagination(props)
+    -var i=2
+    div.pagination__content
+        div.pagination__paginator
+            div(class='paginator__element ' + 'paginator__element_' + 'start')
+                span.paginator__element-start-count= props.start
+            while i < props.end
+                if i <= 3
+                    div(class='paginator__element ' + 'paginator__element_' + 'middle')
+                        span.paginator__element-middle-count= i
+                else
+                    continue
+                -i++
+            div(class='paginator__element ' + 'paginator__element_' + 'middle')
+                span.paginator__element-middle-count= '...'
+            div(class='paginator__element ' + 'paginator__element_' + 'pre-end')
+                span.paginator__element-pre-end-count= props.end
+            div(class='paginator__element ' + 'paginator__element_' + 'end')
+                span.paginator__element-end-count= 'arrow_forward'
+        div.paginator__desc
+            span.paginator__desc-text= `${props.start} – ${props.end} из 100+ вариантов аренды`
+    
+        

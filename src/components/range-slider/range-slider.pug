@@ -1,0 +1,14 @@
+mixin range-slider(range)
+    div.range-slider
+        div.range-slider__title
+            p.title-desc= range.title
+            div.title-range
+                p.title-range-values= `${range.start}Р - ${range.end}Р`
+        div.range-slider__content
+            div(id="my-slider" se-min="2000" se-step="100" se-min-value=range.start se-max-value=range.end se-max="15000" class="slider-wrapper")
+                div.slider-left
+                    span.left
+                div.slider-right
+                    span.right
+                div.slider-line
+                    span.line

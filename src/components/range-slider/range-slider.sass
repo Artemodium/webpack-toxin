@@ -1,0 +1,78 @@
+.range-slider
+    display: flex
+    flex-direction: column
+    width: 266px
+    height: 47px
+
+.range-slider__title
+    display: flex
+    justify-content: space-between
+    margin: 0 0 20px 0
+    
+.title-desc
+    margin: 0
+    margin: 0
+    font-size: 12px
+    font-weight: 700
+    line-height: 15px
+    letter-spacing: 0em
+    text-align: left
+    color: #1F2041
+
+.title-range
+    display: flex
+
+.range-slider__content
+    margin: 0
+
+.title-range-values
+    font-style: normal
+    font-weight: 400
+    font-size: 12px
+    line-height: 15px
+    text-align: right
+    text-transform: uppercase
+    color: rgba(31, 32, 65, 0.5)
+    margin: 0
+
+.slider-wrapper
+    display: block
+    position: relative
+    height: 6px
+    width: 266px
+    
+.slider-left,
+.slider-right
+    display: block
+    position: absolute
+    height: 12px
+    width: 12px
+    top: -4.5px
+    border-radius: 10px
+    background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%)
+    border: 2px solid #FFFFFF
+    order-radius: 10px
+    cursor: pointer
+    z-index: 2
+
+.slider-line
+    display: block
+    position: absolute
+    height: 4px
+    width: 264px
+    border-radius: 6px
+    border: 1px solid rgba(31, 32, 65, 0.25)
+    overflow: hidden
+    z-index: 0
+    -webkit-user-select: none
+    -moz-user-select: none
+    -ms-user-select: none
+    -o-user-select: none
+    user-select: none
+    .line
+        display: block
+        position: absolute
+        top: -1px
+        height: 6px
+        background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%)
+        z-index: 1
