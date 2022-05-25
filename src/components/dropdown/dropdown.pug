@@ -20,7 +20,7 @@ mixin dropdown(args)
                         each key, val in args.content
                             div.content__item
                                 span.item__name=`${val}`
-                                div.item__count
+                                div(class = 'item__count' + args.type)
                                     div.count__minus
                                         span.count__minus-symb= '-' 
                                     span.item__key= `${key}`
@@ -34,10 +34,4 @@ mixin dropdown(args)
                                             +button({theme: '_unbordered', font: '_color-font', placeholder: 'очистить', size: 'small', isArrow: false})
                                     if args.apply
                                         div.btn__apply
-                                            +button({theme: '_unbordered', font: '_color-font', placeholder: 'применить', size: 'small', isArrow: false})   
-                            
-                                        
-
-
-
-    
+                                            +button({theme: '_unbordered', font: '_color-font', placeholder: 'применить', size: 'small', isArrow: false})

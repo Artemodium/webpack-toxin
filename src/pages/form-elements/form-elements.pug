@@ -35,7 +35,7 @@ block content
                 div.fields
                     +fields({modificator:'normal', title:'TEXT FIELD', comment:'DEFAULT', placeholder:'Email'})   
                     +fields({modificator:'hovered-focused', title:'TEXT FIELD', comment:'HOVER / FOCUS', placeholder:'This is pretty awesome'})
-                    +dropdown({status:'', size:'large', title:'DROPDOWN', comment:'', placeholder:'Сколько гостей', checkmark:true})
+                    +dropdown({type: ' guests', status:'', size:'large', title:'DROPDOWN', comment:'', placeholder:'Сколько гостей', checkmark:true})
                     +fields({modificator:'normal', title:'MASKED TEXT FIELD', comment:'', placeholder:'ДД.ММ.ГГГГ'})
                     div.date-fields-short
                         +date-fields({size: 'short', title:'DATE DROPDOWN', placeholder:'ДД.ММ.ГГГГ'})
@@ -89,17 +89,17 @@ block content
             div.dropdowns
                 div.dropdowns__dropdown-one
                     div.reduced
-                        +dropdown({status:'', size:'default', title:'DROPDOWN', comment:'default', placeholder:'2 спальни, 2 кровати...', checkmark:true})
+                        +dropdown({type: ' rooms', status:'', size:'default', title:'DROPDOWN', comment:'default', placeholder:'2 спальни, 2 кровати...', checkmark:true})
                     div.expanded
-                        +dropdown({status:'-expandable', size:'default', title:'DROPDOWN', comment:'expanded', placeholder:'2 спальни, 2 кровати...', checkmark:true, 
+                        +dropdown({type: ' rooms', status:'-expandable', size:'default', title:'DROPDOWN', comment:'expanded', placeholder:'2 спальни, 2 кровати...', checkmark:true, 
                                     content: {'спальни': 2, 'кровати': 2, 'ванные комнаты': 0}, clear: '', apply: ''})
                 div.dropdowns__dropdown-two
                     div.expanded
-                        +dropdown({status:'-expandable', size:'large', title:'DROPDOWN', comment:'', placeholder:'Сколько гостей', checkmark:true, 
+                        +dropdown({type: ' guests', status:'-expandable', size:'large', title:'DROPDOWN', comment:'', placeholder:'Сколько гостей', checkmark:true, 
                                     content: {'взрослые': 0, 'дети': 0, 'младенцы': 0}, clear: '', apply: 'применить'})
                 div.dropdowns__dropdown-three
                     div.expanded
-                        +dropdown({status:'-expandable', size:'large', title:'DROPDOWN', comment:'', placeholder:'3 гостя', checkmark:true, 
+                        +dropdown({type: ' guests', status:'-expandable', size:'large', title:'DROPDOWN', comment:'', placeholder:'3 гостя', checkmark:true, 
                                     content: {'взрослые': 2, 'дети': 1, 'младенцы': 0}, clear: 'очистить', apply: 'применить'})
 
     script(type='text/javascript' src='../../libs/jquery/jquery-3.6.0.js')
