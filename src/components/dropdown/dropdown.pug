@@ -9,6 +9,10 @@ mixin dropdown(args)
             .header__desc= args.comment
         div(class=className + '__field-and-content')
             div(class=className + '__field')
+                div.show-hint
+                    p.bedrooms
+                    p.beds 
+                    p.baths
                 div(class='field__text-field_' + args.size + args.status)
                     .text-field__placeholder
                         span.text-field__placeholder-text= args.placeholder
@@ -27,11 +31,11 @@ mixin dropdown(args)
                                     div.count__plus
                                         span.count__plus-symb=  '+'
                         if args.clear || args.apply
-                            div.buttns-wrapper
+                            div.content__item
                                 div.buttns
                                     if args.clear
                                         div.btn__clear
-                                            +button({theme: '_unbordered', font: '_color-font', placeholder: 'очистить', size: 'small', isArrow: false})
+                                            +button({theme: '_unbordered', font: '_color-font clear', placeholder: 'очистить', size: 'small', isArrow: false})
                                     if args.apply
                                         div.btn__apply
                                             +button({theme: '_unbordered', font: '_color-font', placeholder: 'применить', size: 'small', isArrow: false})

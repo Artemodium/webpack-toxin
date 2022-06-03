@@ -1,0 +1,91 @@
+.expandable-checkbox__head
+    display: flex
+    justify-content: space-between
+    align-items: center
+    width: 266px
+    height: 44px
+
+.head__tittle
+    font-style: normal
+    font-weight: 700
+    font-size: 12px
+    line-height: 15px
+    text-transform: uppercase
+    color: #1F2041
+
+.head__checkmark
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 44px
+    height: 44px
+    font-family: 'Material Icons'
+    font-style: normal
+    font-weight: 400
+    font-size: 24px
+    line-height: 24px
+    color: rgba(31, 32, 65, 0.5)
+    cursor: pointer
+
+.expandable-checkbox__content-item
+    display: flex
+    justify-content: flex-start
+    align-items: center
+    margin-bottom: 13px
+
+.content-item
+    position: absolute
+    z-index: -1
+    opacity: 0
+
+.content-item:checked +label,
+.content-item:not(:checked) +label
+    display: inline-block
+    position: relative
+    padding-left: 20px
+    line-height: 20px
+    cursor: pointer
+
+.content-item:checked +label:before,
+.content-item:not(:checked) +label:before
+    content: ""
+    position: absolute
+    left: 0px
+    top: 0px
+    width: 18px
+    height: 18px
+    border: 1px solid rgba(31, 32, 65, 0.25)
+    border-radius: 4px
+    background-color: #ffffff
+
+.content-item:checked +label:after,
+.content-item:not(:checked) +label:after
+    content: ""
+    position: absolute
+    -webkit-transition: all 0.5s ease
+    -moz-transition: all 0.5s ease
+    -o-transition: all 0.5s ease
+    transition: all 0.5s ease
+
+.content-item:checked +label:after,
+.content-item:not(:checked) +label:after
+    left: 4.5px
+    top: 4px
+    width: 8px
+    height: 6px
+    border-left: 3px solid
+    border-bottom: 3px solid
+    -moz-border-image: -moz-linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%)
+    -webkit-border-image: -webkit-linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%)
+    border-image-slice: 1 
+    -webkit-transform: rotate(-45deg)
+    -moz-transform: rotate(-45deg)
+    -o-transform: rotate(-45deg)
+    -ms-transform: rotate(-45deg)
+    transform: rotate(-45deg)
+
+.content-item:checked +label:after
+    opacity: 1
+
+.content-item:not(:checked) +label:after
+    opacity: 0

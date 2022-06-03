@@ -11,6 +11,8 @@ include ../../components/range-slider/range-slider.pug
 include ../../components/buttons/button.pug
 include ../../components/pagination/pagination.pug
 include ../../components/dropdown/dropdown.pug
+include ../../components/expandable-checkbox/expandable-checkbox.pug
+include ../../components/rich-checkbox/rich-checkbox.pug
 
 block title  
     title Form elements
@@ -27,7 +29,7 @@ block variables
                             {size: 'long', title:'FILTER DATE DROPDOWN', placeholder:'19.08.2019'}]
 
 block content
-    div.wrapper
+    div.form-elements-wrapper
         div.header
             +logo
         div.form-elements-content
@@ -41,7 +43,7 @@ block content
                         +date-fields({size: 'short', title:'DATE DROPDOWN', placeholder:'ДД.ММ.ГГГГ'})
                         +date-fields({size: 'short', title:'DATE DROPDOWN', placeholder:'19.08.2019'})
                     div.date-fields-large
-                        +date-fields({size: 'large', title:'FILTER DATE DROPDOWN', placeholder:'19.08.2019'})
+                        +date-fields({size: 'large', title:'FILTER DATE DROPDOWN', placeholder:'19 авг - 23 авг'})
                     +fields({modificator:'subscription', title:'SUBSCRIPTION TEXT FIELD', comment:'', placeholder:'Email'})
                 div.toggles-and-buttons
                     div.toggles-and-buttons__checkboxes                       
@@ -49,7 +51,7 @@ block content
                         div.checkboxes
                             +checkbox([{label:'Можно курить', id:'smoke'},
                                                             {label:'Можно с питомцами', checked:'checked', id:'pet'},
-                                                            {label:'Можно пригласить друзей (до 10 человек)', checked:'checked', id:'friends'}])
+                                                            {label:'Можно пригласить гостей (до 10 человек)', checked:'checked', id:'friends'}])
                     div.toggles-and-buttons__radio                       
                         p.title_like-radio='RADIO BUTTONS'
                         div.radio-button 
@@ -60,7 +62,7 @@ block content
                             +toggle([{text:'Получать спецпредложения', checked:'checked', id:'1.1'},
                                                 {text:'Получать спецпредложения', id:'2.2'}])
                     div.toggles-and-buttons__likes                       
-                        p.title_like-button='LIKE BUTTONS'
+                        p.title_like-button='LIKE BUTTON'
                         div.like-button
                             +like([{dislike:2, like:12}])
                     div.toggles-and-buttons__rates
@@ -74,12 +76,18 @@ block content
                     div.buttons
                         p.title-buttons BUTTONS
                         div.buttons__button
-                            +button({theme: '_painted', font: '_white-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
-                            +button({theme: '_painted-hovered', font: '_white-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
-                            +button({theme: '_bordered', font: '_color-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
-                            +button({theme: '_bordered-hovered', font: '_color-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
-                            +button({theme: '_unbordered', font: '_color-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
-                            +button({theme: '_unbordered-hovered', font: '_grey-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
+                            div.button-container
+                                +button({theme: '_painted', font: '_white-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
+                            div.button-container
+                                +button({theme: '_painted-hovered', font: '_white-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
+                            div.button-container
+                                +button({theme: '_bordered', font: '_color-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
+                            div.button-container
+                                +button({theme: '_bordered-hovered', font: '_color-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
+                            div.button-container
+                                +button({theme: '_unbordered', font: '_color-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
+                            div.button-container
+                                +button({theme: '_unbordered-hovered', font: '_grey-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
                         div.buttons__large-button
                             +button({theme: '_painted', font: '_white-font', placeholder: 'перейти к оплате', size: 'large', isArrow: true})
                     div.pagination
@@ -101,9 +109,22 @@ block content
                     div.expanded
                         +dropdown({type: ' guests', status:'-expandable', size:'large', title:'DROPDOWN', comment:'', placeholder:'3 гостя', checkmark:true, 
                                     content: {'взрослые': 2, 'дети': 1, 'младенцы': 0}, clear: 'очистить', apply: 'применить'})
+            div.expandable-checkboxes
+                div.checkboxes__checkbox-one
+                    .checkbox_reduced
+                        +expandable-checkbox({tittle: 'expandable checkbox list'})
+                    .checkbox_expanded
+                        +expandable-checkbox({tittle: 'expandable checkbox list', content:[{label:'Завтрак', id:'breakfast'},
+                                                            {label:'Письменный стол', checked:'checked', id:'table'},
+                                                            {label:'Стул для кормления', checked:'checked', id:'chair'},
+                                                            {label:'Кроватка', checked:'checked', id:'bed'},
+                                                            {label:'Телевизор', id:'tv'},
+                                                            {label:'Шампунь', id:'shampoo'},
+                                                            {label:'Телевизор', id:'tv1'},
+                                                            {label:'Шампунь', id:'shampoo1'}]})
+                div.checkboxes__checkbox-two
+                    .rich-checkboxes 
+                        +rich-checkbox({tittle: 'rich Checkbox Buttons', content: [{desc_short:'Широкий коридор', desc_corr:'Ширина коридоров в номере не менее 91 см.', checked: false, id:'hall'},
+                                        {desc_short:'Помощник для инвалидов', desc_corr:'На 1 этаже вас встретит специалист  и проводит до номера.', checked: false, id:'help'}]})
 
     script(type='text/javascript' src='../../libs/jquery/jquery-3.6.0.js')
-
-
-
-                                        

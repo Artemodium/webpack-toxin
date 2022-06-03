@@ -1,3 +1,7 @@
+function divideByDelimeter(x, delimiter) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, delimiter || " ");
+}
+
 var Slider = function(id) {
     var self = this;
     var startX = 0,
@@ -62,7 +66,7 @@ var Slider = function(id) {
         touchLeft.style.left = Math.ceil(ratio * (slider.offsetWidth - (touchLeft.offsetWidth + normalizeFact))) + 'px';
         lineSpan.style.marginLeft = touchLeft.offsetLeft + 'px';
         lineSpan.style.width = (touchRight.offsetLeft - touchLeft.offsetLeft) + 'px';
-        slider.setAttribute('se-min-value', minValue);
+        slider.setAttribute('se-min-value', divideByDelimeter(minValue, ' '));
     }
 
     self.setMaxValue = function(maxValue) {
@@ -70,7 +74,7 @@ var Slider = function(id) {
         touchRight.style.left = Math.ceil(ratio * (slider.offsetWidth - (touchLeft.offsetWidth + normalizeFact)) + normalizeFact) + 'px';
         lineSpan.style.marginLeft = touchLeft.offsetLeft + 'px';
         lineSpan.style.width = (touchRight.offsetLeft - touchLeft.offsetLeft) + 'px';
-        slider.setAttribute('se-max-value', maxValue);
+        slider.setAttribute('se-max-value', divideByDelimeter(maxValue, ' '));
     }
 
     self.reset();
@@ -183,8 +187,8 @@ var Slider = function(id) {
             maxValue = step * multi;
         }
 
-        slider.setAttribute('se-min-value', minValue);
-        slider.setAttribute('se-max-value', maxValue);
+        slider.setAttribute('se-min-value', divideByDelimeter(minValue, ' '));
+        slider.setAttribute('se-max-value', divideByDelimeter(maxValue), ' ');
     }
 
     touchLeft.addEventListener('mousedown', onStart);
@@ -195,10 +199,11 @@ var Slider = function(id) {
 
 var newRangeSlider = new Slider('my-slider');
 
+
 newRangeSlider.onChange = function(min, max) {
-    document.querySelector('.title-range-values').innerHTML = `${min}Р - ${max}Р`;
+    document.querySelector('.title-range-values').innerHTML = `${divideByDelimeter(min, ' ')}Р - ${divideByDelimeter(max, ' ')}Р`;
 }
 
 newRangeSlider.didChanged = function(min, max) {
-    document.querySelector('.title-range-values').innerHTML = `${min}Р - ${max}Р`;
+    document.querySelector('.title-range-values').innerHTML = `${divideByDelimeter(min, ' ')}Р - ${divideByDelimeter(max, ' ')}Р`;
 }

@@ -1,0 +1,14 @@
+mixin expandable-checkbox(checkboxlist)
+    div.expandable-checkbox__head
+        p.head__tittle= checkboxlist.tittle
+        if checkboxlist.content
+            p.head__checkmark &#xe5ce;
+        else 
+            p.head__checkmark &#xe5cf;
+    if checkboxlist.content
+        div.expandable-checkbox__content  
+            each el in checkboxlist.content
+                div.expandable-checkbox__content-item
+                    input.content-item(type='checkbox' id=el.id checked=el.checked)
+                    label.content-item-label(for=el.id)
+                        p.label__text=el.label

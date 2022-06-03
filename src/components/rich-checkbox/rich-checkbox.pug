@@ -1,0 +1,10 @@
+mixin rich-checkbox(args)
+    div.rich-checkbox__head
+        p.rich-checkbox__head-tittle= args.tittle
+    div.rich-checkbox__content  
+        each el in args.content
+            div.rich-checkbox__content-item
+                input.rich-checkbox-inp(type='checkbox' id=el.id checked=el.checked)
+                label.rich-checkbox-label(for=el.id)
+                    p.rich-checkbox-label-text-short=el.desc_short
+                    p.rich-checkbox-label-text-corr=el.desc_corr

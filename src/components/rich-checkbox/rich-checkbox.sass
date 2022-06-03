@@ -1,0 +1,88 @@
+.rich-checkbox__head-tittle
+    font-style: normal
+    font-weight: 700
+    font-size: 12px
+    line-height: 15px
+    text-transform: uppercase
+    color: #1F2041
+
+.rich-checkbox-label-text-short
+    font-style: normal
+    font-weight: 700
+    font-size: 14px
+    line-height: 18px
+    color: rgba(31, 32, 65, 0.75)
+    margin-top: 4px
+    margin-bottom: 6px
+
+.rich-checkbox-label-text-corr
+    font-style: normal
+    font-weight: 400
+    font-size: 12px
+    line-height: 14px
+    color: rgba(31, 32, 65, 0.5)
+    margin-top: 0px
+    margin-bottom: 6px
+    width: 225px
+    
+.rich-checkbox__content-item
+    display: flex
+    justify-content: flex-start
+    align-items: center
+
+.rich-checkbox-inp
+    position: absolute
+    opacity: 0
+    z-index: -1
+
+.rich-checkbox-inp:checked +label,
+.rich-checkbox-inp:not(:checked) +label
+    display: inline-block
+    position: relative
+    padding-left: 30px
+    line-height: 20px
+    cursor: pointer
+
+.rich-checkbox-inp:checked +label:before,
+.rich-checkbox-inp:not(:checked) +label:before
+    content: ""
+    position: absolute
+    left: 0px
+    top: 3px
+    width: 18px
+    height: 18px
+    border: 1px solid rgba(31, 32, 65, 0.25)
+    border-radius: 4px
+    background-color: #ffffff
+
+.rich-checkbox-inp:checked +label:after,
+.rich-checkbox-inp:not(:checked) +label:after
+    content: ""
+    position: absolute
+    -webkit-transition: all 0.5s ease
+    -moz-transition: all 0.5s ease
+    -o-transition: all 0.5s ease
+    transition: all 0.5s ease
+
+.rich-checkbox-inp:checked +label:after,
+.rich-checkbox-inp:not(:checked) +label:after
+    left: 4.5px
+    top: 7px
+    width: 8px
+    height: 6px
+    border-left: 3px solid
+    border-bottom: 3px solid
+    -moz-border-image: -moz-linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%)
+    -webkit-border-image: -webkit-linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%)
+    border-image-slice: 1 
+    -webkit-transform: rotate(-45deg)
+    -moz-transform: rotate(-45deg)
+    -o-transform: rotate(-45deg)
+    -ms-transform: rotate(-45deg)
+    transform: rotate(-45deg)
+
+.rich-checkbox-inp:checked +label:after
+    opacity: 1
+
+.rich-checkbox-inp:not(:checked) +label:after
+    opacity: 0
