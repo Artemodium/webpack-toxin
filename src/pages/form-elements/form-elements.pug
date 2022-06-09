@@ -13,6 +13,9 @@ include ../../components/pagination/pagination.pug
 include ../../components/dropdown/dropdown.pug
 include ../../components/expandable-checkbox/expandable-checkbox.pug
 include ../../components/rich-checkbox/rich-checkbox.pug
+include ../../components/bullet-list/bullet-list.pug
+include ../../components/advantages/advantages.pug
+include ../../components/comments/comments.pug
 
 block title  
     title Form elements
@@ -124,7 +127,20 @@ block content
                                                             {label:'Шампунь', id:'shampoo1'}]})
                 div.checkboxes__checkbox-two
                     .rich-checkboxes 
-                        +rich-checkbox({tittle: 'rich Checkbox Buttons', content: [{desc_short:'Широкий коридор', desc_corr:'Ширина коридоров в номере не менее 91 см.', checked: false, id:'hall'},
+                        +rich-checkbox({tittle: 'rich Checkbox Buttons', content: [{desc_short:'Широкий коридор', desc_corr:`Ширина коридоров в номере не менее 91 см.`, checked: false, id:'hall'},
                                         {desc_short:'Помощник для инвалидов', desc_corr:'На 1 этаже вас встретит специалист  и проводит до номера.', checked: false, id:'help'}]})
+                div.checkboxes__checkbox-three
+                    div.bullet-list 
+                        +bullet-list({tittle: 'bullet list', content: ['Нельзя с питомцами', 'Без вечеринок и мероприятий', `Время прибытия — после 13:00, а выезд до 12:00`]})
+            div.advantages-and-comments
+                div.advantages
+                    +advantages([{icon: 'mood', name:'Комфорт', comm:'Шумопоглощающие стены'}, {icon:'location_city', name:'Удобство', comm:'Окно в каждой из спален'}])
+                div.comments
+                    +comments([{path: '../../img/photos/murad.png',
+                            name:'Мурад Сарафанов', 
+                            date: '5 дней назад', 
+                            likes: '12', 
+                            text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'}])
+
 
     script(type='text/javascript' src='../../libs/jquery/jquery-3.6.0.js')

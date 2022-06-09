@@ -1,12 +1,14 @@
 mixin like(buttons)
     div.like__buttons
-        div(class='like__button dislike')
-            div.like__button-heart 
-                span(class='dislike__heart') &#xe87e; 
-            div.like__button-count
-                span(class='dislike__button-count-counter counter')=buttons[0].dislike
-        div(class='like__button like')
-            div.like__button-heart 
-                span(class='like__heart') &#xe87d;
-            div.like__button-count
-                span(class='like__button-count-counter counter')=buttons[0].like
+        if buttons[0].dislike
+            div(class='like__button dislike')
+                div.like__button-heart 
+                    span(class='dislike__heart') &#xe87e; 
+                div.like__button-count
+                    span(class='dislike__button-count-counter counter')=buttons[0].dislike
+        if buttons[0].like            
+            div(class='like__button like')
+                div.like__button-heart 
+                    span(class='like__heart') &#xe87d;
+                div.like__button-count
+                    span(class='like__button-count-counter counter')=buttons[0].like

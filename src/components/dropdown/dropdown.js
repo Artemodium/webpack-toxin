@@ -91,7 +91,6 @@ $('.dropdown-default').on('click', function(e) {
         if (counts[i] != '')
             rooms[key] = counts[i]
     })
-    console.log(rooms)
 
     let bedrooms
     let beds

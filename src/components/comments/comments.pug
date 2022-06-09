@@ -1,0 +1,16 @@
+include ../../components/like-button/like-button.pug
+
+mixin comments(args)
+    each el in args
+        div.comment
+            div.comment_describe
+                div.comment__photo
+                    img.photo-user(src=el.path, alt='photo-user')
+                div.comment__photo-info
+                    div.photo-desc__name= el.name
+                    div.photo-desc__date= el.date
+            div.comment__content
+                div.comment__content-likes
+                    +like([{like:el.likes}])
+                div.comment__content-text
+                    p.content-text= el.text        
