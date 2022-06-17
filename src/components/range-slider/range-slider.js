@@ -196,14 +196,15 @@ var Slider = function(id) {
     touchLeft.addEventListener('touchstart', onStart);
     touchRight.addEventListener('touchstart', onStart);
 };
+if ($(location).attr('pathname') == '/form-elements.html') {
+    var newRangeSlider = new Slider('my-slider');
 
-var newRangeSlider = new Slider('my-slider');
 
+    newRangeSlider.onChange = function(min, max) {
+        document.querySelector('.title-range-values').innerHTML = `${divideByDelimeter(min, ' ')}Р - ${divideByDelimeter(max, ' ')}Р`;
+    }
 
-newRangeSlider.onChange = function(min, max) {
-    document.querySelector('.title-range-values').innerHTML = `${divideByDelimeter(min, ' ')}Р - ${divideByDelimeter(max, ' ')}Р`;
-}
-
-newRangeSlider.didChanged = function(min, max) {
-    document.querySelector('.title-range-values').innerHTML = `${divideByDelimeter(min, ' ')}Р - ${divideByDelimeter(max, ' ')}Р`;
+    newRangeSlider.didChanged = function(min, max) {
+        document.querySelector('.title-range-values').innerHTML = `${divideByDelimeter(min, ' ')}Р - ${divideByDelimeter(max, ' ')}Р`;
+    }
 }

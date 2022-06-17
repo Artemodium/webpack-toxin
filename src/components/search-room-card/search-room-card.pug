@@ -1,0 +1,17 @@
+include ../../components/date-fields/date-fields.pug
+include ../../components/dropdown/dropdown.pug
+include ../../components/buttons/button.pug
+
+mixin search-room-card()
+    div.search-room-card__wrapper
+        div.search-room-card-border
+            div.search-room-card__container
+                div.search-room-card__header
+                    p.search-room-card__header-text= 'Найдём номера под ваши пожелания'
+                div.search-room-card__dates
+                    +date-fields({size: 'short', title:'прибытие', placeholder:'ДД.ММ.ГГГГ'})
+                    +date-fields({size: 'short', title:'выезд', placeholder:'ДД.ММ.ГГГГ'})
+                div.search-room-card__guests
+                    +dropdown({type: ' guests', status:'', size:'large', title:'гости', comment:'', placeholder:'Сколько гостей', checkmark:true})
+                div.search-room-card__search-button
+                    +button({theme: '_painted', font: '_white-font', placeholder: 'подобрать номер', size: 'large', isArrow: true})

@@ -32,115 +32,113 @@ block variables
                             {size: 'long', title:'FILTER DATE DROPDOWN', placeholder:'19.08.2019'}]
 
 block content
-    div.form-elements-wrapper
-        div.header
-            +logo
-        div.form-elements-content
-            div.fields-and-buttons
-                div.fields
-                    +fields({modificator:'normal', title:'TEXT FIELD', comment:'DEFAULT', placeholder:'Email'})   
-                    +fields({modificator:'hovered-focused', title:'TEXT FIELD', comment:'HOVER / FOCUS', placeholder:'This is pretty awesome'})
+    div.form-elements-content
+        div.fields-and-buttons
+            div.fields
+                +fields({modificator:'normal', title:'TEXT FIELD', comment:'DEFAULT', placeholder:'Email'})   
+                +fields({modificator:'hovered-focused', title:'TEXT FIELD', comment:'HOVER / FOCUS', placeholder:'This is pretty awesome'})
+                div.fields__dropdown
                     +dropdown({type: ' guests', status:'', size:'large', title:'DROPDOWN', comment:'', placeholder:'Сколько гостей', checkmark:true})
-                    +fields({modificator:'normal', title:'MASKED TEXT FIELD', comment:'', placeholder:'ДД.ММ.ГГГГ'})
-                    div.date-fields-short
-                        +date-fields({size: 'short', title:'DATE DROPDOWN', placeholder:'ДД.ММ.ГГГГ'})
-                        +date-fields({size: 'short', title:'DATE DROPDOWN', placeholder:'19.08.2019'})
-                    div.date-fields-large
-                        +date-fields({size: 'large', title:'FILTER DATE DROPDOWN', placeholder:'19 авг - 23 авг'})
-                    +fields({modificator:'subscription', title:'SUBSCRIPTION TEXT FIELD', comment:'', placeholder:'Email'})
-                div.toggles-and-buttons
-                    div.toggles-and-buttons__checkboxes                       
-                        p.title_like-checkbox='CHECKBOX BUTTONS'
-                        div.checkboxes
-                            +checkbox([{label:'Можно курить', id:'smoke'},
-                                                            {label:'Можно с питомцами', checked:'checked', id:'pet'},
-                                                            {label:'Можно пригласить гостей (до 10 человек)', checked:'checked', id:'friends'}])
-                    div.toggles-and-buttons__radio                       
-                        p.title_like-radio='RADIO BUTTONS'
-                        div.radio-button 
-                            +radiobutton([{text:'Мужчина', checked:'checked', id:'1', name:'sex'}, {text:'Женщина', id:'2', name:'sex'}])
-                    div.toggles-and-buttons__toggles                       
-                        p.title_like-toggle='TOGGLE'
-                        div.toggle-button
-                            +toggle([{text:'Получать спецпредложения', checked:'checked', id:'1.1'},
-                                                {text:'Получать спецпредложения', id:'2.2'}])
-                    div.toggles-and-buttons__likes                       
-                        p.title_like-button='LIKE BUTTON'
-                        div.like-button
-                            +like([{dislike:2, like:12}])
-                    div.toggles-and-buttons__rates
-                        p.title_rate-button= 'RATE BUTTON'    
-                        div.rate-button
-                            +rate({rate: 4})
-                            +rate({rate: 5})
-                div.range-slider-and-buttons
-                    div.slider
-                        +range-slider({title: 'RANGE SLIDER', start: '5000', end: '10000'})
-                    div.buttons
-                        p.title-buttons BUTTONS
-                        div.buttons__button
-                            div.button-container
-                                +button({theme: '_painted', font: '_white-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
-                            div.button-container
-                                +button({theme: '_painted-hovered', font: '_white-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
-                            div.button-container
-                                +button({theme: '_bordered', font: '_color-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
-                            div.button-container
-                                +button({theme: '_bordered-hovered', font: '_color-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
-                            div.button-container
-                                +button({theme: '_unbordered', font: '_color-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
-                            div.button-container
-                                +button({theme: '_unbordered-hovered', font: '_grey-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
-                        div.buttons__large-button
-                            +button({theme: '_painted', font: '_white-font', placeholder: 'перейти к оплате', size: 'large', isArrow: true})
-                    div.pagination
-                        p.title-pagination pagination 
-                            div.pagination__paginator
-                                +pagination({start: 1, end: 12, step: 12})
-            div.dropdowns
-                div.dropdowns__dropdown-one
-                    div.reduced
-                        +dropdown({type: ' rooms', status:'', size:'default', title:'DROPDOWN', comment:'default', placeholder:'2 спальни, 2 кровати...', checkmark:true})
-                    div.expanded
-                        +dropdown({type: ' rooms', status:'-expandable', size:'default', title:'DROPDOWN', comment:'expanded', placeholder:'2 спальни, 2 кровати...', checkmark:true, 
-                                    content: {'спальни': 2, 'кровати': 2, 'ванные комнаты': 0}, clear: '', apply: ''})
-                div.dropdowns__dropdown-two
-                    div.expanded
-                        +dropdown({type: ' guests', status:'-expandable', size:'large', title:'DROPDOWN', comment:'', placeholder:'Сколько гостей', checkmark:true, 
-                                    content: {'взрослые': 0, 'дети': 0, 'младенцы': 0}, clear: '', apply: 'применить'})
-                div.dropdowns__dropdown-three
-                    div.expanded
-                        +dropdown({type: ' guests', status:'-expandable', size:'large', title:'DROPDOWN', comment:'', placeholder:'3 гостя', checkmark:true, 
-                                    content: {'взрослые': 2, 'дети': 1, 'младенцы': 0}, clear: 'очистить', apply: 'применить'})
-            div.expandable-checkboxes
-                div.checkboxes__checkbox-one
-                    .checkbox_reduced
-                        +expandable-checkbox({tittle: 'expandable checkbox list'})
-                    .checkbox_expanded
-                        +expandable-checkbox({tittle: 'expandable checkbox list', content:[{label:'Завтрак', id:'breakfast'},
-                                                            {label:'Письменный стол', checked:'checked', id:'table'},
-                                                            {label:'Стул для кормления', checked:'checked', id:'chair'},
-                                                            {label:'Кроватка', checked:'checked', id:'bed'},
-                                                            {label:'Телевизор', id:'tv'},
-                                                            {label:'Шампунь', id:'shampoo'},
-                                                            {label:'Телевизор', id:'tv1'},
-                                                            {label:'Шампунь', id:'shampoo1'}]})
-                div.checkboxes__checkbox-two
-                    .rich-checkboxes 
-                        +rich-checkbox({tittle: 'rich Checkbox Buttons', content: [{desc_short:'Широкий коридор', desc_corr:`Ширина коридоров в номере не менее 91 см.`, checked: false, id:'hall'},
-                                        {desc_short:'Помощник для инвалидов', desc_corr:'На 1 этаже вас встретит специалист  и проводит до номера.', checked: false, id:'help'}]})
-                div.checkboxes__checkbox-three
-                    div.bullet-list 
-                        +bullet-list({tittle: 'bullet list', content: ['Нельзя с питомцами', 'Без вечеринок и мероприятий', `Время прибытия — после 13:00, а выезд до 12:00`]})
-            div.advantages-and-comments
-                div.advantages
-                    +advantages([{icon: 'mood', name:'Комфорт', comm:'Шумопоглощающие стены'}, {icon:'location_city', name:'Удобство', comm:'Окно в каждой из спален'}])
-                div.comments
-                    +comments([{path: '../../img/photos/murad.png',
-                            name:'Мурад Сарафанов', 
-                            date: '5 дней назад', 
-                            likes: '12', 
-                            text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'}])
+                +fields({modificator:'normal', title:'MASKED TEXT FIELD', comment:'', placeholder:'ДД.ММ.ГГГГ'})
+                div.date-fields-short
+                    +date-fields({size: 'short', title:'DATE DROPDOWN', placeholder:'ДД.ММ.ГГГГ'})
+                    +date-fields({size: 'short', title:'DATE DROPDOWN', placeholder:'19.08.2019'})
+                div.date-fields-large
+                    +date-fields({size: 'large', title:'FILTER DATE DROPDOWN', placeholder:'19 авг - 23 авг'})
+                +fields({modificator:'subscription', title:'SUBSCRIPTION TEXT FIELD', comment:'', placeholder:'Email'})
+            div.toggles-and-buttons
+                div.toggles-and-buttons__checkboxes                       
+                    p.title_like-checkbox='CHECKBOX BUTTONS'
+                    div.checkboxes
+                        +checkbox([{label:'Можно курить', id:'smoke'},
+                                                        {label:'Можно с питомцами', checked:'checked', id:'pet'},
+                                                        {label:'Можно пригласить гостей (до 10 человек)', checked:'checked', id:'friends'}])
+                div.toggles-and-buttons__radio                       
+                    p.title_like-radio='RADIO BUTTONS'
+                    div.radio-button 
+                        +radiobutton([{text:'Мужчина', checked:'checked', id:'1', name:'sex'}, {text:'Женщина', id:'2', name:'sex'}])
+                div.toggles-and-buttons__toggles                       
+                    p.title_like-toggle='TOGGLE'
+                    div.toggle-button
+                        +toggle([{text:'Получать спецпредложения', checked:'checked', id:'1.1'},
+                                            {text:'Получать спецпредложения', id:'2.2'}])
+                div.toggles-and-buttons__likes                       
+                    p.title_like-button='LIKE BUTTON'
+                    div.like-button
+                        +like([{dislike:2, like:12}])
+                div.toggles-and-buttons__rates
+                    p.title_rate-button= 'RATE BUTTON'    
+                    div.rate-button
+                        +rate({rate: 4})
+                        +rate({rate: 5})
+            div.range-slider-and-buttons
+                div.slider
+                    +range-slider({title: 'RANGE SLIDER', start: '5000', end: '10000'})
+                div.buttons
+                    p.title-buttons BUTTONS
+                    div.buttons__button
+                        div.button-container
+                            +button({theme: '_painted', font: '_white-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
+                        div.button-container
+                            +button({theme: '_painted-hovered', font: '_white-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
+                        div.button-container
+                            +button({theme: '_bordered', font: '_color-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
+                        div.button-container
+                            +button({theme: '_bordered-hovered', font: '_color-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
+                        div.button-container
+                            +button({theme: '_unbordered', font: '_color-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
+                        div.button-container
+                            +button({theme: '_unbordered-hovered', font: '_grey-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
+                    div.buttons__large-button
+                        +button({theme: '_painted', font: '_white-font', placeholder: 'перейти к оплате', size: 'large', isArrow: true})
+                div.pagination
+                    p.title-pagination pagination 
+                        div.pagination__paginator
+                            +pagination({start: 1, end: 12, step: 12})
+        div.dropdowns
+            div.dropdowns__dropdown-one
+                div.reduced
+                    +dropdown({type: ' rooms', status:'', size:'default', title:'DROPDOWN', comment:'default', placeholder:'2 спальни, 2 кровати...', checkmark:true})
+                div.expanded
+                    +dropdown({type: ' rooms', status:'-expandable', size:'default', title:'DROPDOWN', comment:'expanded', placeholder:'2 спальни, 2 кровати...', checkmark:true, 
+                                content: {'спальни': 2, 'кровати': 2, 'ванные комнаты': 0}, clear: '', apply: ''})
+            div.dropdowns__dropdown-two
+                div.expanded
+                    +dropdown({type: ' guests', status:'-expandable', size:'large', title:'DROPDOWN', comment:'', placeholder:'Сколько гостей', checkmark:true, 
+                                content: {'взрослые': 0, 'дети': 0, 'младенцы': 0}, clear: '', apply: 'применить'})
+            div.dropdowns__dropdown-three
+                div.expanded
+                    +dropdown({type: ' guests', status:'-expandable', size:'large', title:'DROPDOWN', comment:'', placeholder:'3 гостя', checkmark:true, 
+                                content: {'взрослые': 2, 'дети': 1, 'младенцы': 0}, clear: 'очистить', apply: 'применить'})
+        div.expandable-checkboxes
+            div.checkboxes__checkbox-one
+                .checkbox_reduced
+                    +expandable-checkbox({tittle: 'expandable checkbox list'})
+                .checkbox_expanded
+                    +expandable-checkbox({tittle: 'expandable checkbox list', content:[{label:'Завтрак', id:'breakfast'},
+                                                        {label:'Письменный стол', checked:'checked', id:'table'},
+                                                        {label:'Стул для кормления', checked:'checked', id:'chair'},
+                                                        {label:'Кроватка', checked:'checked', id:'bed'},
+                                                        {label:'Телевизор', id:'tv'},
+                                                        {label:'Шампунь', id:'shampoo'},
+                                                        {label:'Телевизор', id:'tv1'},
+                                                        {label:'Шампунь', id:'shampoo1'}]})
+            div.checkboxes__checkbox-two
+                .rich-checkboxes 
+                    +rich-checkbox({tittle: 'rich Checkbox Buttons', content: [{desc_short:'Широкий коридор', desc_corr:`Ширина коридоров в номере не менее 91 см.`, checked: false, id:'hall'},
+                                    {desc_short:'Помощник для инвалидов', desc_corr:'На 1 этаже вас встретит специалист  и проводит до номера.', checked: false, id:'help'}]})
+            div.checkboxes__checkbox-three
+                div.bullet-list 
+                    +bullet-list({tittle: 'bullet list', content: ['Нельзя с питомцами', 'Без вечеринок и мероприятий', `Время прибытия — после 13:00, а выезд до 12:00`]})
+        div.advantages-and-comments
+            div.advantages
+                +advantages([{icon: 'mood', name:'Комфорт', comm:'Шумопоглощающие стены'}, {icon:'location_city', name:'Удобство', comm:'Окно в каждой из спален'}])
+            div.comments
+                +comments([{path: '../../img/photos/murad.png',
+                        name:'Мурад Сарафанов', 
+                        date: '5 дней назад', 
+                        likes: '12', 
+                        text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'}])
 
 
     script(type='text/javascript' src='../../libs/jquery/jquery-3.6.0.js')

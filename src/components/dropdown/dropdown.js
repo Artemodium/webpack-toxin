@@ -56,27 +56,30 @@ $('.item__count').on('click', function(e) {
     }
 })
 
-$('.dropdown-large').on('click', function(e) {
-    if (['button__placeholder_color-font clear'].includes(e.target.className)) {
-        $(this).find('.item__key').text(0)
-    }
-    let str = $(this).find('.content__item').text()
-    str = str.split('+')
-    names = str.map(i => i.slice(0, i.indexOf('-')))
-    counts = str.map(i => i.slice(i.indexOf('-') + 1))
-    let guests = {}
-    names.forEach((key, i) => guests[key] = counts[i])
-    count = Object.values(guests).map(i => parseInt(i)).filter(val => !Number.isNaN(val))
-    count = count.reduce((summ, curr) => summ + curr)
-    if (count === 0)
-        $(this).find('.text-field__placeholder-text').text('Сколько гостей')
-    else if (('' + count).slice(-1) === '1' && ('' + count).slice(-2) !== '11')
-        $(this).find('.text-field__placeholder-text').text(`${count} гость`)
-    else if (['2', '3', '4'].includes(('' + count).slice(-1)) && !(['12', '13', '14'].includes('' + count)) && !(['11', '12', '13', '14'].includes(('' + count).slice(-2))))
-        $(this).find('.text-field__placeholder-text').text(`${count} гостя`)
-    else
-        $(this).find('.text-field__placeholder-text').text(`${count} гостей`)
-})
+if ($(location).attr('pathname') == '/form-elements.html') {
+    $('.dropdown-large').on('click', function(e) {
+        if (['button__placeholder_color-font clear'].includes(e.target.className)) {
+            $(this).find('.item__key').text(0)
+        }
+        let str = $(this).find('.content__item').text()
+        str = str.split('+')
+        names = str.map(i => i.slice(0, i.indexOf('-')))
+        counts = str.map(i => i.slice(i.indexOf('-') + 1))
+        let guests = {}
+        names.forEach((key, i) => guests[key] = counts[i])
+        count = Object.values(guests).map(i => parseInt(i)).filter(val => !Number.isNaN(val))
+        count = count.reduce((summ, curr) => summ + curr)
+        if (count === 0)
+            $(this).find('.text-field__placeholder-text').text('Сколько гостей')
+        else if (('' + count).slice(-1) === '1' && ('' + count).slice(-2) !== '11')
+            $(this).find('.text-field__placeholder-text').text(`${count} гость`)
+        else if (['2', '3', '4'].includes(('' + count).slice(-1)) && !(['12', '13', '14'].includes('' + count)) && !(['11', '12', '13', '14'].includes(('' + count).slice(-2))))
+            $(this).find('.text-field__placeholder-text').text(`${count} гостя`)
+        else
+            $(this).find('.text-field__placeholder-text').text(`${count} гостей`)
+    })
+}
+
 
 $('.dropdown-default').on('click', function(e) {
     if (['button__placeholder_color-font'].includes(e.target.className)) {

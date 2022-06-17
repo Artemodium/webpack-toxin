@@ -1,0 +1,20 @@
+extends ../../../src/baseTemplates/iuBaseTemplate.pug
+include ../../components/headerUI/headerUI.pug
+include ../../components/search-room-card/search-room-card.pug
+include ../../components/booking-room-card/booking-room-card.pug
+include ../../components/calendar/calendar.pug
+
+block title  
+    title Cards
+
+block variables
+    
+        
+block content
+    div.cards-content
+        +search-room-card
+        +booking-room-card
+        +calendar
+
+
+    script(type='text/javascript' src='../../libs/jquery/jquery-3.6.0.js')

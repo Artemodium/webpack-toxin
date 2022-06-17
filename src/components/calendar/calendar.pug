@@ -1,0 +1,31 @@
+include ../../components/buttons/button.pug
+
+mixin calendar()
+    -var n=0
+    div.calendar__wrapper
+        div.calendar-border
+            div.calendar__content
+                div.calendar__content__header
+                    span.header__arrow-back &#xe5c4;
+                    p.header__date
+                        span.header__month= ''
+                        span.header__year= ''
+                    span.header__arrow-forward &#xe5c8;
+                div.calendar__content__days
+                    div.days__weekday
+                        span.weekday= 'Пн'
+                        span.weekday= 'Вт'
+                        span.weekday= 'Ср'
+                        span.weekday= 'Чт'
+                        span.weekday= 'Пт'
+                        span.weekday= 'Сб'
+                        span.weekday= 'Вс'
+                    div.days__monthday
+                        while n<42
+                            div.days__monthday-field
+                                span.monthday-field
+                                    -n++
+                div.calendar__content__buttons
+                    div.buttons__btns
+                        +button({theme: '_unbordered', font: '_color-font', placeholder: 'очистить', size: 'small', isArrow: false})
+                        +button({theme: '_unbordered', font: '_color-font', placeholder: 'применить', size: 'small', isArrow: false})
