@@ -85,20 +85,25 @@
     align-items: center
     justify-content: center
 
-.days__monthday-field_active
-    min-width: 40px
-    min-height: 40px
-    border-radius: 22px
-    display: flex
-    align-items: center
-    justify-content: center
+.days__monthday-field_today
+    background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%)
 
 .monthday-field
     font-style: normal
     font-weight: 400
     font-size: 12px
     line-height: 15px
+    color: rgba(31, 32, 65, 0.25)
+
+.monthday-field_current
+    color: rgba(31, 32, 65, 0.5)
+
+.monthday-field_other
+    color: rgba(31, 32, 65, 0.25)
     
+.monthday-field_today
+    color: rgb(253, 255, 255)
+
 .buttons__btns
     display: flex
     justify-content: space-between
