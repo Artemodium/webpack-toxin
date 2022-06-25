@@ -26,8 +26,23 @@ function Calendar() {
     function getCurrentMonthFirstWeekDay(currentYear, currentMonth) {
         return new Date(currentYear, currentMonth, 1).getDay() - 1 >= 0 ? new Date(currentYear, currentMonth, 1).getDay() - 1 : 6
     }
+    function displayDayToday () { // отметить сегодняшний день
+        Array.from($('.days__monthday-field')).map(elem => { 
+            currentMonth === getMonth() && $($(elem.firstElementChild)).text() == new Date().getDate() && currentYear == getYear() ? 
+            $(elem).addClass('days__monthday-field_today') && $($(elem.firstElementChild)).addClass('monthday-field_today') : '' })
+    }
+    function highlightCurrentMonthDays (currentMonthFirstWeekDay, lengthCurrentMonth) { // выделить дни текущего месяца
+        Array.from($('.monthday-field').slice(currentMonthFirstWeekDay, currentMonthFirstWeekDay + lengthCurrentMonth)).map(elem => {
+            $(elem).addClass('monthday-field_current') })
+    }
+    function prepareAnotherMonth() { // удалить все классы перед отрисовкой другого месяца
+        $('.monthday-field').removeClass('monthday-field_current')
+        $('.days__monthday-field').removeClass('monthday-field_current')
+        $('.monthday-field').removeClass('monthday-field_today')
+        $('.days__monthday-field').removeClass('days__monthday-field_today')
+    }
 
-    function displayDays(currentMonthFirstWeekDay, lastMonthLastDay, lengthCurrentMonth) {
+    function displayDays(currentMonthFirstWeekDay, lastMonthLastDay, lengthCurrentMonth) { //расчитать календарь на текущий месяц
         for (let i = currentMonthFirstWeekDay - 1; i >= 0; i--) { //дни предыдущего месяца
             $('.monthday-field')[i].innerText = lastMonthLastDay--
         }
@@ -51,17 +66,15 @@ function Calendar() {
         let lastMonthLastDay = getMonthLastDay(currentYear, currentMonth)
         let lengthCurrentMonth = getLengthCurrentMonth(currentYear, currentMonth)
 
-        displayDays(currentMonthFirstWeekDay, lastMonthLastDay, lengthCurrentMonth)
-
-        Array.from($('.monthday-field').slice(currentMonthFirstWeekDay, currentMonthFirstWeekDay + lengthCurrentMonth)).map(elem => { $(elem).addClass('monthday-field_current') }) // цвет шрифта текущего месяца
-        Array.from($('.days__monthday-field').slice(currentMonthFirstWeekDay - 1, currentMonthFirstWeekDay + lengthCurrentMonth)).map(elem => { currentMonth === new Date().getMonth() && $($(elem.firstElementChild)).text() == new Date().getDate() ? $(elem).addClass('days__monthday-field_today') && $($(elem.firstElementChild)).addClass('monthday-field_today') : '' }) // сегодняшний день
+        displayDays(currentMonthFirstWeekDay, lastMonthLastDay, lengthCurrentMonth) 
+        highlightCurrentMonthDays (currentMonthFirstWeekDay, lengthCurrentMonth)
+        displayDayToday ()
     });
 
     $('.header__arrow-back').click(function() {
         currentMonth == 0 ? currentMonth = 12 : ''
         currentMonth == 12 ? currentYear-- : ''
         currentMonth -= 1
-        console.log(currentMonth)
         $('.header__month').text(monthList[currentMonth])
         $('.header__year').text(currentYear)
 
@@ -69,22 +82,27 @@ function Calendar() {
         let lastMonthLastDay = getMonthLastDay(currentYear, currentMonth)
         let lengthCurrentMonth = getLengthCurrentMonth(currentYear, currentMonth)
 
+        prepareAnotherMonth()
         displayDays(currentMonthFirstWeekDay, lastMonthLastDay, lengthCurrentMonth)
-
-        $('.monthday-field').removeClass('monthday-field_current')
-        $('.days__monthday-field').removeClass('monthday-field_current')
-        Array.from($('.monthday-field').slice(currentMonthFirstWeekDay, currentMonthFirstWeekDay + lengthCurrentMonth)).map(elem => { $(elem).addClass('monthday-field_current') }) // цвет шрифта текущего месяца
-        Array.from($('.monthday-field')).map(elem => { elem.classList.contains('monthday-field_today') ? $(elem).removeClass('monthday-field_today') : '' })
-        Array.from($('.days__monthday-field')).map(elem => { elem.classList.contains('days__monthday-field_today') ? $(elem).removeClass('days__monthday-field_today') : '' })
+        highlightCurrentMonthDays (currentMonthFirstWeekDay, lengthCurrentMonth)
+        displayDayToday ()
     });
 
     $('.header__arrow-forward').click(function() {
         currentMonth == 11 ? currentMonth = -1 : ''
         currentMonth == -1 ? currentYear++ : ''
         currentMonth += 1
-
         $('.header__month').text(monthList[currentMonth])
         $('.header__year').text(currentYear)
+
+        let currentMonthFirstWeekDay = getCurrentMonthFirstWeekDay(currentYear, currentMonth)
+        let lastMonthLastDay = getMonthLastDay(currentYear, currentMonth)
+        let lengthCurrentMonth = getLengthCurrentMonth(currentYear, currentMonth)
+
+        prepareAnotherMonth()
+        displayDays(currentMonthFirstWeekDay, lastMonthLastDay, lengthCurrentMonth)
+        highlightCurrentMonthDays (currentMonthFirstWeekDay, lengthCurrentMonth)
+        displayDayToday ()
     });
 }
 
