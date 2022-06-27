@@ -77,6 +77,9 @@
     display: flex
     flex-wrap: wrap
 
+.days__monthday-field-period
+    background: rgb(253, 255, 255, 0)
+
 .days__monthday-field
     min-width: 40px
     min-height: 40px
@@ -103,6 +106,42 @@
     
 .monthday-field_today
     color: rgb(253, 255, 255)
+
+.days__monthday-field_hovered,
+.days__monthday-field_choosen
+    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%)
+
+.monthday-field_hovered,
+.monthday-field_choosen
+    color: rgb(253, 255, 255)
+
+.days__monthday-field-period
+    min-width: 40px
+    min-height: 40px
+    display: flex
+    align-items: center
+    justify-content: center
+
+.days__monthday-field-period-start
+    border-top-left-radius: 20px
+    border-bottom-left-radius: 20px
+    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%)
+    opacity: 0.25
+
+.days__monthday-field-period-between
+    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%)
+    opacity: 0.25
+    
+.days__monthday-field-period-end
+    border-top-right-radius: 20px
+    border-bottom-right-radius: 20px
+    min-width: 40px
+    min-height: 40px
+    display: flex
+    align-items: center
+    justify-content: center
+    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%)
+    opacity: 0.25
 
 .buttons__btns
     display: flex
