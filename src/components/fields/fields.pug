@@ -1,19 +1,23 @@
 mixin fields(args)
         if args.modificator === 'hovered-focused'
             div(class= 'text-field ' + 'text-field_hovered-focused')
-                div.text-field__desc
-                    p.desc__title= args.title
-                    if args.comment
-                        p.desc__comment= args.comment
+                if args.title ||  args.comment
+                    div.text-field__desc
+                        if args.title
+                            p.desc__title= args.title
+                        if args.comment
+                            p.desc__comment= args.comment
                 div.text-field__field
                     div(class= 'field ' + 'field_hovered-focused')
                         span(class= 'field__placeholder ' + 'field__placeholder_hovered-focused')= args.placeholder           
         else if args.modificator === 'subscription'
             div(class= 'text-field ' + 'text-field_subscription')
-                div.text-field__desc
-                    p.desc__title= args.title
-                    if args.comment
-                        p.desc__comment= args.comment
+                if args.title ||  args.comment
+                    div.text-field__desc
+                        if args.title   
+                            p.desc__title= args.title
+                        if args.comment
+                            p.desc__comment= args.comment
                 div(class= 'text-field__field' + '_subscription')
                     div(class= 'field' + '_subscription')
                         div(class= 'field__placeholder ' + 'field__placeholder_subscription')
@@ -22,10 +26,12 @@ mixin fields(args)
                             span.arrow-box_subscription= 'arrow_forward'
         else    
             div(class= 'text-field ' + 'text-field_default')
-                div.text-field__desc
-                    p.desc__title= args.title
-                    if args.comment
-                        p.desc__comment= args.comment
+                if args.title ||  args.comment
+                    div.text-field__desc
+                        if args.title  
+                            p.desc__title= args.title
+                        if args.comment
+                            p.desc__comment= args.comment
                 div.text-field__field
                     div.field
                         span.field__placeholder= args.placeholder

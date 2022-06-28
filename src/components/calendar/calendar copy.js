@@ -159,7 +159,6 @@ function Calendar() {
     });
 
     $('.buttons__button-clear').on('click', function() {
-        console.log('click')
         clearPeriod()
     });
 }

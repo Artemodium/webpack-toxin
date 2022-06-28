@@ -1,0 +1,34 @@
+include ../../components/fields/fields.pug
+include ../../components/radiobutton/radiobutton.pug
+include ../../components/toggle/toggle.pug
+include ../../components/buttons/button.pug
+
+mixin registration-form()
+    div.registration-form__wrapper
+        div.registration-form-border
+            div.registration-form__container
+                div.registration-form__header
+                    span.registration-form__header-text= 'Регистрация аккаунта'
+                div.registration-form__fio
+                    div.fio__text-field-name
+                        +fields({modificator:'normal', title:'', comment:'', placeholder:'Имя'})
+                    div.fio__text-field-fam
+                        +fields({modificator:'normal', title:'', comment:'', placeholder:'Фамилия'})
+                div.registration-form-radiobuttons
+                    +radiobutton([{text:'Мужчина', checked:'checked', id:'1', name:'sex'}, {text:'Женщина', id:'2', name:'sex'}])
+                div.registration-form-birthday
+                    +fields({modificator:'normal', title:'дата рождения', comment:'', placeholder:'ДД.ММ.ГГГГ'})
+                div.registration-form__login
+                    div.login__text-field-email
+                        +fields({modificator:'normal', title:'данные для входа в сервис', comment:'', placeholder:'Email'})
+                    div.login__text-field-password
+                        +fields({modificator:'normal', title:'', comment:'', placeholder:'Пароль'})
+                div.registration-form__toggle-button
+                    +toggle([{text:'Получать спецпредложения', id:'offer'}])
+                div.registration-form__button-submit
+                    +button({theme: '_painted', font: '_white-font', placeholder: 'перейти к оплате', size: 'large', isArrow: true})
+                div.registration-form__footer
+                    div.registration-form__footer-text
+                        p.footer-text= 'Уже есть аккаунт на Toxin'
+                    div.registration-form__footer-button
+                        +button({theme: '_bordered', font: '_color-font', placeholder: 'войти', size: 'small', isArrow: false})
