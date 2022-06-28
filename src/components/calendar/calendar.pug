@@ -24,9 +24,11 @@ mixin calendar()
                         while n<42
                             div.days__monthday-field
                                 div.days__monthday-field-period
-                                    span.monthday-field
-                                        -n++
+                                span.monthday-field
+                                    -n++
                 div.calendar__content__buttons
-                    div.buttons__btns
-                        +button({theme: '_unbordered', font: '_color-font', placeholder: 'очистить', size: 'small', isArrow: false})
-                        +button({theme: '_unbordered', font: '_color-font', placeholder: 'применить', size: 'small', isArrow: false})
+                    div.buttons__container
+                        div.buttons__button-clear
+                            +button({theme: '_unbordered', font: '_color-font', placeholder: 'очистить', size: 'small', isArrow: false})
+                        div.buttons__button-apply    
+                            +button({theme: '_unbordered', font: '_color-font', placeholder: 'применить', size: 'small', isArrow: false})

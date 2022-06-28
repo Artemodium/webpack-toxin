@@ -77,26 +77,33 @@
     display: flex
     flex-wrap: wrap
 
-.days__monthday-field-period
-    background: rgb(253, 255, 255, 0)
-
 .days__monthday-field
+    position: relative
     min-width: 40px
     min-height: 40px
     border-radius: 22px
     display: flex
     align-items: center
     justify-content: center
+    z-index: 20
+
+.days__monthday-field-period
+    position: absolute
+    background: rgb(253, 255, 255, 0)
+    z-index: -10
 
 .days__monthday-field_today
     background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%)
+    z-index: 20
 
 .monthday-field
+    position: absolute
     font-style: normal
     font-weight: 400
     font-size: 12px
     line-height: 15px
     color: rgba(31, 32, 65, 0.25)
+    z-index: 30
 
 .monthday-field_current
     color: rgba(31, 32, 65, 0.5)
@@ -143,6 +150,6 @@
     background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%)
     opacity: 0.25
 
-.buttons__btns
+.buttons__container
     display: flex
     justify-content: space-between

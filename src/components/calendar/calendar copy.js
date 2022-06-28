@@ -29,8 +29,8 @@ function Calendar() {
 
     function displayDayToday() { // отметить сегодняшний день
         Array.from($('.days__monthday-field')).map(elem => {
-            currentMonth === getMonth() && $($(elem.firstElementChild)).text() == new Date().getDate() && currentYear == getYear() ?
-                $(elem).addClass('days__monthday-field_today') && $($(elem.firstElementChild.firstElementChild)).addClass('monthday-field_today') : ''
+            currentMonth === getMonth() && $($(elem.lastElementChild)).text() == new Date().getDate() && currentYear == getYear() ?
+                $(elem).addClass('days__monthday-field_today') && $($(elem.lastElementChild)).addClass('monthday-field_today') : ''
         })
     }
 
@@ -45,6 +45,12 @@ function Calendar() {
         $('.days__monthday-field').removeClass('monthday-field_current')
         $('.monthday-field').removeClass('monthday-field_today')
         $('.days__monthday-field').removeClass('days__monthday-field_today')
+    }
+
+    function clearPeriod() {
+        $('.days__monthday-field-period').removeClass(['days__monthday-field-period-start', 'days__monthday-field-period-end', 'days__monthday-field-period-between'])
+        $('.days__monthday-field').removeClass(['days__monthday-field_choosen'])
+        $('.monthday-field').removeClass(['monthday-field_choosen'])
     }
 
     function displayDays(currentMonthFirstWeekDay, lastMonthLastDay, lengthCurrentMonth) { //расчитать календарь на текущий месяц
@@ -88,6 +94,7 @@ function Calendar() {
         let lengthCurrentMonth = getLengthCurrentMonth(currentYear, currentMonth)
 
         prepareAnotherMonth()
+        clearPeriod()
         displayDays(currentMonthFirstWeekDay, lastMonthLastDay, lengthCurrentMonth)
         highlightCurrentMonthDays(currentMonthFirstWeekDay, lengthCurrentMonth)
         displayDayToday()
@@ -105,6 +112,7 @@ function Calendar() {
         let lengthCurrentMonth = getLengthCurrentMonth(currentYear, currentMonth)
 
         prepareAnotherMonth()
+        clearPeriod()
         displayDays(currentMonthFirstWeekDay, lastMonthLastDay, lengthCurrentMonth)
         highlightCurrentMonthDays(currentMonthFirstWeekDay, lengthCurrentMonth)
         displayDayToday()
@@ -146,12 +154,13 @@ function Calendar() {
             }
         }
         if (start == end) {
-            for (let i = 0; i <= 42; i++) {
-                $($('.days__monthday-field-period')[i]).removeClass('days__monthday-field-period-start')
-                $($('.days__monthday-field-period')[i]).removeClass('days__monthday-field-period-end')
-                $($('.days__monthday-field-period')[i]).removeClass('days__monthday-field-period-between')
-            }
+            $('.days__monthday-field-period').removeClass(['days__monthday-field-period-start', 'days__monthday-field-period-end', 'days__monthday-field-period-between'])
         }
+    });
+
+    $('.buttons__button-clear').on('click', function() {
+        console.log('click')
+        clearPeriod()
     });
 }
 
