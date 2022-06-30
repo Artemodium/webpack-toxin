@@ -3,38 +3,83 @@ function Calendar() {
     let currentMonth = new Date().getMonth()
     let monthList = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"]
 
-    $(document).ready(function() {
-        $('.header__month').text(monthList[currentMonth])
-        $('.header__year').text(currentYear)
+    function getYear() {
+        return new Date().getFullYear()
+    }
 
-        let lengthCurrentMonth = new Date(currentYear, currentMonth + 1, 0).getDate()
-        let lastMonthLastDay = new Date(currentYear, currentMonth, 0).getDate()
-        let currentMonthFirstWeekDay = new Date(currentYear, currentMonth, 1).getDay() - 1 >= 0 ? new Date(currentYear, currentMonth, 1).getDay() - 1 : 6
+    function getMonth() {
+        return new Date().getMonth()
+    }
 
-        Array.from($('.monthday-field').slice(currentMonthFirstWeekDay - 1, currentMonthFirstWeekDay + lengthCurrentMonth)).map(elem => { $(elem).css({ 'color': 'rgba(31, 32, 65, 0.5)' }) })
-        Array.from($('.monthday-field').slice(0, currentMonthFirstWeekDay)).map(elem => { $(elem).css({ 'color': 'rgba(31, 32, 65, 0.25)' }) })
-        Array.from($('.monthday-field').slice(currentMonthFirstWeekDay + lengthCurrentMonth, 42)).map(elem => { $(elem).css({ 'color': 'rgba(31, 32, 65, 0.25)' }) })
+    function getMonthName() {
+        return monthList[currentMonth]
+    }
 
-        for (let i = currentMonthFirstWeekDay - 1; i >= 0; i--) {
+    function getLengthCurrentMonth(currentYear, currentMonth) {
+        return new Date(currentYear, currentMonth + 1, 0).getDate()
+    }
+
+    function getMonthLastDay(currentYear, currentMonth) {
+        return new Date(currentYear, currentMonth, 0).getDate()
+    }
+
+    function getCurrentMonthFirstWeekDay(currentYear, currentMonth) {
+        return new Date(currentYear, currentMonth, 1).getDay() - 1 >= 0 ? new Date(currentYear, currentMonth, 1).getDay() - 1 : 6
+    }
+
+    function displayDayToday(currentMonthFirstWeekDay, lengthCurrentMonth) { // отметить сегодняшний день
+        Array.from($('.days__monthday-field').slice(currentMonthFirstWeekDay, currentMonthFirstWeekDay + lengthCurrentMonth)).map(elem => {
+            currentMonth === getMonth() && $($(elem.lastElementChild)).text() == new Date().getDate() && currentYear == getYear() ?
+                $(elem).addClass('days__monthday-field_today') && $($(elem.lastElementChild)).addClass('monthday-field_today') : ''
+        })
+    }
+
+    function highlightCurrentMonthDays(currentMonthFirstWeekDay, lengthCurrentMonth) { // выделить дни текущего месяца
+        Array.from($('.monthday-field').slice(currentMonthFirstWeekDay, currentMonthFirstWeekDay + lengthCurrentMonth)).map(elem => {
+            $(elem).addClass('monthday-field_current')
+        })
+    }
+
+    function prepareAnotherMonth() { // удалить все классы перед отрисовкой другого месяца
+        $('.monthday-field').removeClass('monthday-field_current')
+        $('.days__monthday-field').removeClass('monthday-field_current')
+        $('.monthday-field').removeClass('monthday-field_today')
+        $('.days__monthday-field').removeClass('days__monthday-field_today')
+    }
+
+    function clearPeriod() {
+        $('.days__monthday-field-period').removeClass(['days__monthday-field-period-start', 'days__monthday-field-period-end', 'days__monthday-field-period-between'])
+        $('.days__monthday-field').removeClass(['days__monthday-field_choosen'])
+        $('.monthday-field').removeClass(['monthday-field_choosen'])
+    }
+
+    function displayDays(currentMonthFirstWeekDay, lastMonthLastDay, lengthCurrentMonth) { //расчитать календарь на текущий месяц
+        for (let i = currentMonthFirstWeekDay - 1; i >= 0; i--) { //дни предыдущего месяца
             $('.monthday-field')[i].innerText = lastMonthLastDay--
         }
         let count = currentMonthFirstWeekDay
-        for (let i = 1; i <= lengthCurrentMonth; i++) {
+        for (let i = 1; i <= lengthCurrentMonth; i++) { //дни текущего месяца
             $('.monthday-field')[count].innerText = i
                 ++count
         }
-        for (let i = lengthCurrentMonth + currentMonthFirstWeekDay, day = 1; i < 42; i++) {
+        for (let i = lengthCurrentMonth + currentMonthFirstWeekDay, day = 1; i < 42; i++) { //дни следующего месяца
             $('.monthday-field')[i].innerText = day++
         }
+    }
 
-        Array.from($('.days__monthday-field').slice(currentMonthFirstWeekDay - 1, currentMonthFirstWeekDay + lengthCurrentMonth)).map(elem => {
-            if ($(elem.firstElementChild).text() == new Date().getDate() && !elem.classList.contains('active')) {
-                $(elem.firstElementChild).css({ 'color': 'rgba(255, 255, 255, 1)' }) && $(elem).css({ 'background': 'linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%)' })
-            }
-            if ($(elem.firstElementChild).text() == new Date().getDate() && elem.classList.contains('active')) {
-                $(elem.firstElementChild).css({ 'color': 'rgba(255, 255, 255, 1)' }) && $(elem).css({ 'background': 'linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%)' })
-            }
-        })
+    $(document).ready(function() {
+        currentMonth = getMonth()
+        year = getYear()
+        $('.header__month').text(getMonthName(currentMonth))
+        $('.header__year').text(getYear())
+
+        let currentMonthFirstWeekDay = getCurrentMonthFirstWeekDay(currentYear, currentMonth)
+        let lastMonthLastDay = getMonthLastDay(currentYear, currentMonth)
+        let lengthCurrentMonth = getLengthCurrentMonth(currentYear, currentMonth)
+
+        displayDays(currentMonthFirstWeekDay, lastMonthLastDay, lengthCurrentMonth)
+        highlightCurrentMonthDays(currentMonthFirstWeekDay, lengthCurrentMonth)
+        displayDayToday(currentMonthFirstWeekDay, lengthCurrentMonth)
     });
 
     $('.header__arrow-back').click(function() {
@@ -44,103 +89,77 @@ function Calendar() {
         $('.header__month').text(monthList[currentMonth])
         $('.header__year').text(currentYear)
 
-        let lengthCurrentMonth = new Date(currentYear, currentMonth + 1, 0).getDate()
-        let lastMonthLastDay = new Date(currentYear, currentMonth, 0).getDate()
-        let currentMonthFirstWeekDay = new Date(currentYear, currentMonth, 1).getDay() - 1 >= 0 ? new Date(currentYear, currentMonth, 1).getDay() - 1 : 6
+        let currentMonthFirstWeekDay = getCurrentMonthFirstWeekDay(currentYear, currentMonth)
+        let lastMonthLastDay = getMonthLastDay(currentYear, currentMonth)
+        let lengthCurrentMonth = getLengthCurrentMonth(currentYear, currentMonth)
 
-        Array.from($('.monthday-field').slice(currentMonthFirstWeekDay, currentMonthFirstWeekDay + lengthCurrentMonth)).map(elem => { $(elem).css({ 'color': 'rgba(31, 32, 65, 0.5)' }) })
-        Array.from($('.monthday-field').slice(0, currentMonthFirstWeekDay)).map(elem => { $(elem).css({ 'color': 'rgba(31, 32, 65, 0.25)' }) })
-        Array.from($('.monthday-field').slice(currentMonthFirstWeekDay + lengthCurrentMonth, 42)).map(elem => { $(elem).css({ 'color': 'rgba(31, 32, 65, 0.25)' }) })
-
-        for (let i = currentMonthFirstWeekDay - 1; i >= 0; i--) {
-            $('.monthday-field')[i].innerText = lastMonthLastDay--
-        }
-        let count = currentMonthFirstWeekDay
-        for (let i = 1; i <= lengthCurrentMonth; i++) {
-            $('.monthday-field')[count].innerText = i
-                ++count
-        }
-        for (let i = lengthCurrentMonth + currentMonthFirstWeekDay, day = 1; i < 42; i++) {
-            $('.monthday-field')[i].innerText = day++
-        }
-        Array.from($('.days__monthday-field').slice(currentMonthFirstWeekDay - 1, currentMonthFirstWeekDay + lengthCurrentMonth)).map(elem => {
-            currentMonth !== new Date().getMonth() ?
-                $(elem).css({ 'background': 'white' }) : ''
-        })
-        Array.from($('.days__monthday-field').slice(currentMonthFirstWeekDay - 1, currentMonthFirstWeekDay + lengthCurrentMonth)).map(elem => {
-            currentMonth === new Date().getMonth() && currentYear === new Date().getFullYear() ?
-                $($('.days__monthday-field')[new Date().getDate() + 1]).css({ 'background': 'linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%' }) &&
-                $($('.monthday-field')[new Date().getDate() + 1]).css({ 'color': 'white' }) :
-                $(elem).css({ 'background': 'white' })
-        })
+        prepareAnotherMonth()
+        clearPeriod()
+        displayDays(currentMonthFirstWeekDay, lastMonthLastDay, lengthCurrentMonth)
+        highlightCurrentMonthDays(currentMonthFirstWeekDay, lengthCurrentMonth)
+        displayDayToday(currentMonthFirstWeekDay, lengthCurrentMonth)
     });
 
     $('.header__arrow-forward').click(function() {
         currentMonth == 11 ? currentMonth = -1 : ''
         currentMonth == -1 ? currentYear++ : ''
         currentMonth += 1
-
         $('.header__month').text(monthList[currentMonth])
         $('.header__year').text(currentYear)
 
-        let lengthCurrentMonth = new Date(currentYear, currentMonth + 1, 0).getDate()
-        let lastMonthLastDay = new Date(currentYear, currentMonth, 0).getDate()
-        let currentMonthFirstWeekDay = new Date(currentYear, currentMonth, 1).getDay() - 1 >= 0 ? new Date(currentYear, currentMonth, 1).getDay() - 1 : 6
+        let currentMonthFirstWeekDay = getCurrentMonthFirstWeekDay(currentYear, currentMonth)
+        let lastMonthLastDay = getMonthLastDay(currentYear, currentMonth)
+        let lengthCurrentMonth = getLengthCurrentMonth(currentYear, currentMonth)
 
-        Array.from($('.monthday-field').slice(currentMonthFirstWeekDay, currentMonthFirstWeekDay + lengthCurrentMonth)).map(elem => { $(elem).css({ 'color': 'rgba(31, 32, 65, 0.5)' }) })
-        Array.from($('.monthday-field').slice(0, currentMonthFirstWeekDay)).map(elem => { $(elem).css({ 'color': 'rgba(31, 32, 65, 0.25)' }) })
-        Array.from($('.monthday-field').slice(currentMonthFirstWeekDay + lengthCurrentMonth, 42)).map(elem => { $(elem).css({ 'color': 'rgba(31, 32, 65, 0.25)' }) })
-
-        for (let i = currentMonthFirstWeekDay - 1; i >= 0; i--) {
-            $('.monthday-field')[i].innerText = lastMonthLastDay--
-        }
-        let count = currentMonthFirstWeekDay
-        for (let i = 1; i <= lengthCurrentMonth; i++) {
-            $('.monthday-field')[count].innerText = i
-                ++count
-        }
-        for (let i = lengthCurrentMonth + currentMonthFirstWeekDay, day = 1; i < 42; i++) {
-            $('.monthday-field')[i].innerText = day++
-        }
-        Array.from($('.days__monthday-field').slice(currentMonthFirstWeekDay - 1, currentMonthFirstWeekDay + lengthCurrentMonth)).map(elem => {
-            currentMonth === new Date().getMonth() && currentYear === new Date().getFullYear() ?
-                $($('.days__monthday-field')[new Date().getDate() + 1]).css({ 'background': 'linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%' }) &&
-                $($('.monthday-field')[new Date().getDate() + 1]).css({ 'color': 'white' }) :
-                $(elem).css({ 'background': 'white' })
-        })
+        prepareAnotherMonth()
+        clearPeriod()
+        displayDays(currentMonthFirstWeekDay, lastMonthLastDay, lengthCurrentMonth)
+        highlightCurrentMonthDays(currentMonthFirstWeekDay, lengthCurrentMonth)
+        displayDayToday(currentMonthFirstWeekDay, lengthCurrentMonth)
     });
 
     $('.days__monthday-field').on('mouseover', function() {
-        $(this, '.days__monthday-field').css({ 'background': 'linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%)' }) &&
-            $('.monthday-field', this).css({ 'color': 'white' })
+        $(this, '.days__monthday-field').addClass('days__monthday-field_hovered')
+        $('.monthday-field', this).addClass('monthday-field_hovered')
     });
 
     $('.days__monthday-field').on('mouseout', function() {
-        let start = new Date($('.header__year').text(), monthList.indexOf($('.header__month').text())).getDay() - 1 >= 0 ?
-            new Date($('.header__year').text(), monthList.indexOf($('.header__month').text())).getDay() - 1 : 6
-        let end = start + new Date($('.header__year').text(), monthList.indexOf($('.header__month').text()) + 1, 0).getDate()
-        let normal = 'rgba(31, 32, 65, 0.5)'
-        let light = 'rgba(31, 32, 65, 0.25)'
+        $(this, '.days__monthday-field').removeClass('days__monthday-field_hovered')
+        $('.monthday-field', this).removeClass('monthday-field_hovered')
+    })
 
-        if (!this.classList.contains('active')) {
-            $(this, '.days__monthday-field').css({ 'background': 'white' }) &&
-                $('.monthday-field', this).css({ 'color': light })
+    $('.days__monthday-field').on('click', function() {
+        if ((Array.from($('.days__monthday-field_choosen')).length) < 3) {
+            $(this, '.days__monthday-field').toggleClass('days__monthday-field_choosen')
+            $('.monthday-field', this).toggleClass('monthday-field_choosen')
+        }
+        if ((Array.from($('.days__monthday-field_choosen')).length) > 2) {
+            $(this, '.days__monthday-field').removeClass('days__monthday-field_choosen')
+            $('.monthday-field', this).removeClass('monthday-field_choosen')
+        }
 
-            Array.from($('.monthday-field').slice(start, end)).map(elem => {
-                $(elem).css({ 'color': elem.classList.contains('active') ? 'white' : normal })
-            })
-
-            Array.from($('.monthday-field')).map(elem => {
-                currentMonth === new Date().getMonth() && currentYear === new Date().getFullYear() ?
-                    $($('.days__monthday-field')[new Date().getDate() + 1]).css({ 'background': 'linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%' }) &&
-                    $($('.monthday-field')[new Date().getDate() + 1]).css({ 'color': 'white' }) : ''
-            })
+        arr = Array.from($('.days__monthday-field')).map(el => el.classList.contains('days__monthday-field_choosen'))
+        start = arr.indexOf(true)
+        end = arr.lastIndexOf(true)
+        if (start != end) {
+            for (let i = start; i <= end; i++) {
+                if (i == start) {
+                    $($('.days__monthday-field-period')[i]).addClass('days__monthday-field-period-start')
+                }
+                if (i == end) {
+                    $($('.days__monthday-field-period')[i]).addClass('days__monthday-field-period-end')
+                } else {
+                    $($('.days__monthday-field-period')[i]).addClass('days__monthday-field-period-between')
+                }
+            }
+        }
+        if (start == end) {
+            $('.days__monthday-field-period').removeClass(['days__monthday-field-period-start', 'days__monthday-field-period-end', 'days__monthday-field-period-between'])
         }
     });
 
-    $('.days__monthday-field').on('click', function() {
-        $(this).toggleClass('active')
-        $('.monthday-field', this).toggleClass('active')
+    $('.buttons__button-clear').on('click', function() {
+        clearPeriod()
     });
 }
 

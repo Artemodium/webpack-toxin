@@ -1,0 +1,21 @@
+include ../../components/fields/fields.pug
+include ../../components/buttons/button.pug
+
+mixin login-form()
+    div.login-form__wrapper
+        div.login-form-border
+            div.login-form__container
+                div.login-form__header
+                    span.login-form__header-text= 'Войти'
+                div.login-form__email-pass
+                    div.email__text
+                        +fields({modificator:'normal', title:'', comment:'', placeholder:'Email'})
+                    div.pass__password
+                        +fields({modificator:'normal', title:'', comment:'', placeholder:'Пароль'})
+                div.login-form__button-submit
+                    +button({theme: '_painted', font: '_white-font', placeholder: 'войти', size: 'large', isArrow: true})
+                div.login-form__footer
+                    div.login-form__footer
+                        p.login-form__footer-text= 'Нет аккаунта на Toxin?'
+                    div.login-form__footer-button
+                        +button({theme: '_bordered', font: '_color-font', placeholder: 'создать', size: 'small', isArrow: false})

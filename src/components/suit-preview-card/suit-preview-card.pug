@@ -1,0 +1,33 @@
+include ../../components/rate-button/rate-button.pug
+
+mixin suit-preview-card(props)
+    div.suit-preview-card__wrapper
+        div.suit-preview-card-border
+            div.suit-preview-card__container
+                div.suit-preview-card__img-container
+                    img.img-preview(src= props.img alt="siute preview")
+                    if props.nav
+                        p.nav-preview
+                            span.nav-preview-left &#xe5cb;
+                            span.nav-preview-right &#xe5cc;
+                    div.nav-preview-pages
+                        span.nav-preview-page.nav-preview-page_current
+                        span.nav-preview-page
+                        span.nav-preview-page
+                        span.nav-preview-page
+                div.nav-preview-pages__siute-desc
+                    div.siute-desc
+                        p.siute-desc-col-one
+                            span.siute-desc-symb= '№ '
+                            span.siute-desc-number= `${props.number}`
+                            span.siute-desc-type= ' люкс'
+                        p.siute-desc-col-one 
+                            span.siute-desc-price= `${props.price}₽` 
+                            span.siute-desc-price-text= ' в сутки'
+                    div.feedback-line        
+                    div.siute-desc__feedback
+                        div.feedback-rates
+                            +rate({rate: 5})
+                        div.feedback-counts
+                            span.feedback-counts-count= `${props.feedbacks} `
+                            span.feedback-counts-text= '  Отзывов'
