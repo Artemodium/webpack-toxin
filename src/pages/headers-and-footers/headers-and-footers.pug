@@ -1,5 +1,7 @@
 extends ../../../src/baseTemplates/iuBaseTemplate.pug
 include ../../components/headerUI/headerUI.pug
+include ../../components/header/header.pug
+
 
 block title  
     title Headers-and-footers
@@ -8,6 +10,6 @@ block variables
 
 block content
     div.headers-and-footers-content
-        
+        +header()    
 
     script(type='text/javascript' src='../../libs/jquery/jquery-3.6.0.js')

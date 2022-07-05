@@ -1,1 +1,7 @@
-mixin header(args)
+include ../../components/logo/logo.pug
+
+mixin header()
+    div.header-container
+        div.header__content
+            div.header__content-logo
+                +logo()

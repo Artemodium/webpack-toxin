@@ -9,9 +9,6 @@ include ../../components/like-button/like-button.pug
 include ../../components/rate-button/rate-button.pug
 include ../../components/range-slider/range-slider.pug
 include ../../components/buttons/button.pug
-
-include ../../components/semantic-tags/semantic-button.pug
-
 include ../../components/pagination/pagination.pug
 include ../../components/dropdown/dropdown.pug
 include ../../components/expandable-checkbox/expandable-checkbox.pug
@@ -81,25 +78,23 @@ block content
                     p.title-buttons BUTTONS
                     div.buttons__button
                         div.button-container
-                            +button({theme: '_painted', font: '_white-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
+                            +button({theme: '_painted', hover:'', font: '_white-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
                         div.button-container
-                            +button({theme: '_painted-hovered', font: '_white-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
+                            +button({theme: '_painted', hover:'-disabled', font: '_white-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
                         div.button-container
-                            +button({theme: '_bordered', font: '_color-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
+                            +button({theme: '_bordered', hover:'', font: '_color-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
                         div.button-container
-                            +button({theme: '_bordered-hovered', font: '_color-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
+                            +button({theme: '_bordered', hover:'-disabled', font: '_color-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
                         div.button-container
-                            +button({theme: '_unbordered', font: '_color-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
+                            +button({theme: '_unbordered', hover:'', font: '_color-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
                         div.button-container
-                            +button({theme: '_unbordered-hovered', font: '_grey-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
-                    div.buttons__large-button
-                        +button({theme: '_painted', font: '_white-font', placeholder: 'перейти к оплате', size: 'large', isArrow: true})
+                            +button({theme: '_unbordered', hover:'-disabled', font: '_grey-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
+                    div.buttons__large-button-container
+                        +button({theme: '_painted', hover:'', font: '_white-font', placeholder: 'перейти к оплате', size: 'large', isArrow: true})
                 div.pagination
                     p.title-pagination pagination 
                         div.pagination__paginator
                             +pagination({start: 1, end: 12, step: 12})
-                div.button-container
-                        +semantic-button({theme: '_unbordered-hovered', font: '_grey-font', placeholder: 'CLICK ME', size: 'small', isArrow: false})
         div.dropdowns
             div.dropdowns__dropdown-one
                 div.reduced

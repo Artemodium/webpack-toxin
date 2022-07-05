@@ -17,8 +17,6 @@ import "../../components/bullet-list/bullet-list.sass"
 import "../../components/advantages/advantages.sass"
 import "../../components/comments/comments.sass"
 
-import "../../components/semantic-tags/semantic-button.sass"
-
 import "../../components/like-button/like-button.js"
 import "../../components/rate-button/rate-button.js"
 import "../../components/range-slider/range-slider.js"
@@ -29,5 +27,3 @@ import "../../components/rich-checkbox/rich-checkbox.js"
 import "../../components/bullet-list/bullet-list.js"
 import "../../components/advantages/advantages.js"
 import "../../components/comments/comments.js"
-
-import "../../components/semantic-tags/semantic-button.js"

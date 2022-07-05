@@ -1,15 +1,8 @@
 .button
-    position: relative
+    border: 0
     border-radius: 22px
-    font-style: normal
-    font-weight: 700
-    font-size: 12px
-    line-height: 15px
-    text-transform: uppercase
-    cursor: pointer
 
 .button__small_painted
-    position: relative
     display: flex
     justify-content: center
     align-items: center
@@ -17,108 +10,83 @@
     height: 44px
     background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%)
     cursor: pointer
-
-.button__small_painted-hovered
-    position: relative
-    display: flex
-    justify-content: center
-    align-items: center
-    width: 99px
-    height: 44px
-    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%)
-    opacity: .5
-    cursor: pointer
-
-.button__inner
-    display: flex
-    justify-content: space-between
-    align-items: center
 
 .button__small_bordered
-    position: relative
-    display: flex
-    justify-content: center
-    align-items: center
     width: 99px
     height: 44px
-    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%)
-    .button__inner_small
-        position: absolute
-        display: flex
-        justify-content: center
-        align-items: center
-        width: 95px
-        height: 40px
-        border-radius: 22px
-        background-color: #fff
-
-.button__small_bordered-hovered
-    position: relative
-    display: flex
-    justify-content: center
-    align-items: center
-    width: 99px
-    height: 44px
-    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%)
-    opacity: .5
-    .button__inner_small
-        position: absolute
-        display: flex
-        justify-content: center
-        align-items: center
-        width: 95px
-        height: 40px
-        border-radius: 22px
-        background-color: #fff
-
-.button__small_unbordered,
-.button__small_unbordered-hovered
-    margin-bottom: 0px
+    box-shadow: 0 0 6px 0 rgba(157, 96, 212, 0.5)
+    border: solid 3px transparent
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%)
+    background-origin: border-box
+    background-clip: content-box, border-box
+    box-shadow: 2px 1000px 1px #fff inset
 
 .button__large_painted
-    position: relative
     display: flex
-    justify-content: space-between
+    justify-content: center
     align-items: center
     width: 320px
     height: 44px
     background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%)
     cursor: pointer
-    .button__inner_large
-        display: flex
-        justify-content: space-between
-        align-items: center
-        width: 100%
-        .button__inner-placeholder
-            display: flex
-            justify-content: center
-            align-items: center
-            width: 256px
-            margin-left: 40px
-        .button__checkmark
-            width: 44px
-            height: 44px
-            display: flex
-            justify-content: center
-            align-items: center
-            .checkmark
-                font-family: 'Material Icons'
-                font-style: normal
-                font-weight: 400
-                font-size: 24px
-                line-height: 24px
-                text-transform: none
-                color: #fff
-        
 
-.button__placeholder_white-font
-    color: #fff
+.button__small_painted-disabled,
+.button__small_bordered-disabled
+    opacity: .5
 
-.button__placeholder_color-font
+.button__small_unbordered
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 80px
+    height: 15px
+    background-color: #FFFFFF
+    cursor: pointer
+
+.button-text_small_white-font
+    font-style: normal
+    font-weight: 700
+    font-size: 12px
+    line-height: 15px
+    text-transform: uppercase
+    color: #FFFFFF
+    cursor: pointer
+
+.button-text_small_color-font,
+.button-text_small_color-font_unbordered
+    font-style: normal
+    font-weight: 700
+    font-size: 12px
+    line-height: 15px
+    text-transform: uppercase
     color: #BC9CFF
+    cursor: pointer
 
-.button__placeholder_grey-font
+.button-text_small_grey-font_unbordered
+    font-style: normal
+    font-weight: 700
+    font-size: 12px
+    line-height: 15px
+    text-transform: uppercase
     color: rgba(31, 32, 65, 0.5)
+    cursor: pointer
 
-.button:nth-child(even)
-    margin-right: 0px
+.button-text_large_white-font
+    width: 100%
+    font-style: normal
+    font-weight: 700
+    font-size: 12px
+    line-height: 15px
+    text-transform: uppercase
+    color: #FFFFFF
+    cursor: pointer
+    padding-left: 25px
+
+.button-arrow_white-font
+    font-family: 'Material Icons'
+    font-style: normal
+    font-weight: 400
+    font-size: 24px
+    line-height: 24px
+    color: #FFFFFF
+    padding-right: 7px

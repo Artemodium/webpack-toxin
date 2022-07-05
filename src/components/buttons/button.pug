@@ -1,11 +1,6 @@
 mixin button(props)
     - var className = 'button__' + props.size + props.theme
-        div(class= 'button ' +  className)
-            div(class='button__inner_' + props.size)
-                div.button__inner-placeholder
-                    span(class = 'button__placeholder' + props.font)= props.placeholder
-                if props.isArrow
-                    div.button__checkmark
-                        span.checkmark= 'arrow_forward'
-
-        
+        button(class= 'button ' + className + (props.hover ? ' ' + className + props.hover : ''))
+            span(class= 'button-text_' + props.size + props.font + (props.theme =='_unbordered' ? props.theme : ''))= props.placeholder
+            if (props.isArrow)
+                span(class= 'button-arrow' + props.font)= 'arrow_forward'
