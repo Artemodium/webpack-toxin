@@ -3,7 +3,7 @@ include ../../components/buttons/button.pug
 mixin dropdown(args)
     -var className= 'dropdown-' + args.size
 
-    div(class=className)
+    div(class= (args.status ? className : className + '-ex'))
         div(class=className + '__header')
             .header__title= args.title
             .header__desc= args.comment
