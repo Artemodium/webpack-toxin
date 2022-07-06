@@ -1,1 +1,9 @@
 mixin nav(args)
+    nav.header__nav
+        ul.nav__ul
+            each val in args
+                if val.expandable
+                    li.nav__li-exp= val.name
+                        span.val__li-arrow= "expand_more"
+                else
+                    li.nav__li= val.name

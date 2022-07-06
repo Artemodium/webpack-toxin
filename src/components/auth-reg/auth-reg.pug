@@ -1,0 +1,8 @@
+include ../../components/buttons/button.pug
+
+mixin auth-reg()
+    div.auth-reg
+        div.auth-reg__auth
+            +button({theme: '_bordered', hover:'', font: '_color-font', placeholder: 'ВОЙТИ', size: 'small_for_nav', isArrow: false})
+        div.auth-reg-reg
+            +button({theme: '_painted', hover:'', font: '_white-font', placeholder: 'зарегистрироваться', size: 'large_for_nav'})    
