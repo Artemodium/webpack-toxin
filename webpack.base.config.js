@@ -96,6 +96,7 @@ module.exports = {
                 { from: `${PATHS.src}/favicons`, to: 'favicons' },
                 { from: `${PATHS.src}/img`, to: `img` },
                 { from: `${PATHS.src}/libs`, to: `libs` },
+                { from: `${PATHS.src}/fonts`, to: `fonts` }
             ],
         }),
         ...PAGES.map(

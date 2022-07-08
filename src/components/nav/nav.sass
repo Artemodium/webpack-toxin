@@ -1,6 +1,9 @@
 .header__nav
     width: 467px
 
+.header__nav-vert
+    width: inherit
+
 .nav__ul
     display: flex
     justify-content: space-between
@@ -12,13 +15,32 @@
     color: rgba(31, 32, 65, 0.5)
     padding: 0
 
+.nav__ul-vert
+    font-style: normal
+    font-weight: 400
+    font-size: 14px
+    line-height: 24px
+    color: rgba(31, 32, 65, 0.5)
+    padding: 0
+    margin-top: 5px
+
 .nav__li:first-of-type
     font-weight: 700
     font-size: 14px
     line-height: 17px
     color: rgba(31, 32, 65, 0.75)
 
-.nav__li-exp
+.nav__li-vert:first-of-type
+    font-style: normal
+    font-weight: 700
+    font-size: 12px
+    line-height: 15px
+    color: #1F2041
+    text-transform: uppercase
+    margin-top: 0
+
+.nav__li-exp,
+.nav__li-vert-exp
     position: relative
     display: inline-block
     list-style-type: none
@@ -29,6 +51,12 @@
     display: inline-block
     list-style-type: none
     margin-right: 20px
+    cursor: pointer
+
+.nav__li-vert
+    list-style-type: none
+    margin-top: 15px
+    cursor: pointer
 
 .val__li-arrow
     position: absolute

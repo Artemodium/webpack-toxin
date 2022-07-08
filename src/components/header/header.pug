@@ -10,7 +10,8 @@ mixin header(args)
                 +logo()
             div.header-filler
             div.header-content-nav
-                +nav({li_1: {name: 'О нас'}, li_2: {name: 'Услуги', expandable:{items:''}}, li_3: {name: 'Вакансии'}, li_4: {name: 'Новости'}, li_5: {name: 'Соглашения', expandable:{items:''}}})
+                +nav({orientation:'gorizontal', 
+                items:{li_1: {name: 'О нас'}, li_2: {name: 'Услуги', expandable:{items:''}}, li_3: {name: 'Вакансии'}, li_4: {name: 'Новости'}, li_5: {name: 'Соглашения', expandable:{items:''}}}})
             div.header-content-auth-reg
                 if(!args.logIn)
                     +auth-reg()

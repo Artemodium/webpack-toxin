@@ -1,6 +1,7 @@
 extends ../../../src/baseTemplates/iuBaseTemplate.pug
 include ../../components/headerUI/headerUI.pug
 include ../../components/header/header.pug
+include ../../components/footer/footer.pug
 
 block title  
     title Headers-and-footers
@@ -13,5 +14,7 @@ block content
             +header({logIn: ''}) 
         div.header__logIn
             +header({logIn: 'Юлий Цезарь'}) 
+        div.footer__large
+            +footer()
 
     script(type='text/javascript' src='../../libs/jquery/jquery-3.6.0.js')

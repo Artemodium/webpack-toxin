@@ -1,9 +1,19 @@
 mixin nav(args)
-    nav.header__nav
-        ul.nav__ul
-            each val in args
-                if val.expandable
-                    li.nav__li-exp= val.name
-                        span.val__li-arrow= "expand_more"
-                else
-                    li.nav__li= val.name
+    if(args.orientation == 'gorizontal')
+        nav.header__nav
+            ul.nav__ul
+                each val in args.items
+                    if val.expandable
+                        li.nav__li-exp= val.name
+                            span.val__li-arrow= "expand_more"
+                    else
+                        li.nav__li= val.name
+    if(args.orientation == 'vertical')
+        nav.header__nav-vert
+            ul.nav__ul-vert
+                each val in args.items
+                    if val.expandable
+                        li.nav__li-vert-exp= val.name
+                            span.val__li-arrow= "expand_more"
+                    else
+                        li.nav__li-vert= val.name

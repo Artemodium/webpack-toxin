@@ -5,11 +5,13 @@ import '../../components/logo/logo.sass'
 import '../../components/nav/nav.sass'
 import '../../components/auth-reg/auth-reg.sass'
 import '../../components/userLogIn/userLogIn.sass'
+import '../../components/footer/footer.sass'
 
 import '../../components/header/header.js'
 import '../../components/logo/logo.js'
 import '../../components/nav/nav.js'
 import '../../components/auth-reg/auth-reg.sass'
 import '../../components/userLogIn/userLogIn.js'
+import '../../components/footer/footer.js'
 
 $(location).attr('pathname') == '/headers-and-footers.html' ? $('body').css('background-color', '#E5E5E5') : ''
