@@ -1,0 +1,15 @@
+include ../../components/copyrights/copyrights.pug
+include ../../components/socials/socials.pug
+include ../../components/logo/logo.pug
+
+mixin copyrights-and-socials(args)
+    if(args.type == "large")
+        div(class= "copyrights-and-socials" + "-large")
+            +copyrights(args.copyrights)
+            +socials(args.socials)
+    if(args.type == "compact")
+        div(class= "copyrights-and-socials" + "-compact")
+            +logo()
+            +copyrights(args.copyrights)
+            +socials(args.socials)
+    

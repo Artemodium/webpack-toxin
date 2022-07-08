@@ -162,5 +162,6 @@ function Calendar() {
         clearPeriod()
     });
 }
-
-Calendar()
+if ($(location).attr('pathname') == '/cards.html') {
+    Calendar()
+}

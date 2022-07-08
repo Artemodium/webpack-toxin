@@ -15,6 +15,8 @@ block content
         div.header__logIn
             +header({logIn: 'Юлий Цезарь'}) 
         div.footer__large
-            +footer()
+            +footer({type:'large'})
+        div.footer__compact
+            +footer({type:'compact'})
 
     script(type='text/javascript' src='../../libs/jquery/jquery-3.6.0.js')
