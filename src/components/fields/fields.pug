@@ -8,21 +8,19 @@ mixin fields(args)
                         if args.comment
                             p.desc__comment= args.comment
                 div.text-field__field
-                    div(class= 'field ' + 'field_hovered-focused')
-                        span(class= 'field__placeholder ' + 'field__placeholder_hovered-focused')= args.placeholder           
+                    input(class= 'field ' + 'field_hovered-focused' placeholder= args.placeholder type=args.type)         
         else if args.modificator === 'subscription'
-            div(class= 'text-field ' + 'text-field_subscription')
-                if args.title ||  args.comment
-                    div.text-field__desc
-                        if args.title   
-                            p.desc__title= args.title
-                        if args.comment
-                            p.desc__comment= args.comment
-                div(class= 'text-field__field' + '_subscription')
-                    div(class= 'field' + '_subscription')
-                        div(class= 'field__placeholder ' + 'field__placeholder_subscription')
-                            span.field__placeholder_subscription= args.placeholder
-                        div(class= 'field__arrow-box ' + 'field__arrow-box_subscription')
+            form.subscription__form
+                div(class= 'text-field ' + 'text-field_subscription')
+                    if args.title ||  args.comment
+                        div.text-field__desc
+                            if args.title   
+                                p.desc__title= args.title
+                            if args.comment
+                                p.desc__comment= args.comment
+                    div(class= 'text-field__field' + '_subscription')
+                        input(class= 'field' + '_subscription' placeholder= args.placeholder type=args.type)
+                        button(class= 'field__arrow-box ' + 'field__arrow-box_subscription')
                             span.arrow-box_subscription= 'arrow_forward'
         else    
             div(class= 'text-field ' + 'text-field_default')
@@ -33,5 +31,4 @@ mixin fields(args)
                         if args.comment
                             p.desc__comment= args.comment
                 div.text-field__field
-                    div.field
-                        span.field__placeholder= args.placeholder
+                    input(class= "field" placeholder= args.placeholder type=args.type)

@@ -2,9 +2,7 @@ mixin date-fields(args)
     div(class= 'date-dropdown' + '_' + args.size)
         div.date-dropdown__desc
             p.desc__title= args.title
-        div(class= 'date-dropdown__date-field_' + args.size)
-            div(class= 'date-field_' + args.size)
-                div.placeholder
-                    p.placeholder-text= args.placeholder
-                div.checkmark-box
-                    span.checkmark-box__checkmark &#xe5cf;
+        div(class= 'date-dropdown__date-field_' + args.size )
+            input(class= 'date-field_' + args.size placeholder= args.placeholder type=args.type)
+            button.checkmark-box
+                span.checkmark-box__checkmark &#xe5cf;

@@ -17,6 +17,8 @@ import "../../components/bullet-list/bullet-list.sass"
 import "../../components/advantages/advantages.sass"
 import "../../components/comments/comments.sass"
 
+import "../../components/fields/fields.js"
+import "../../components/date-fields/date-fields.js"
 import "../../components/like-button/like-button.js"
 import "../../components/rate-button/rate-button.js"
 import "../../components/range-slider/range-slider.js"

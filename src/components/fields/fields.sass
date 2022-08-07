@@ -46,7 +46,7 @@
     width: 267px
     display: flex
     align-items: center
-    justify-content: center
+    justify-content: flex-end
 
 .field
     position: absolute
@@ -58,6 +58,12 @@
     border: 1px solid rgba(31, 32, 65, 0.25)
     border-radius: 4px
     text-indent: 15px
+
+.field[placeholder]
+    font-size: 14px
+    font-weight: 400
+    line-height: 18px
+    color: rgba(31, 32, 65, 0.25)
 
 .field_subscription
     position: absolute
@@ -73,25 +79,39 @@
 .field_hovered-focused
     border: 1px solid rgba(31, 32, 65, 0.5)
 
+.field_hovered-focused[placeholder]
+    color: rgba(31, 32, 65, 0.75)
+
+.field_hovered-focused-add
+    border: 1px solid rgba(31, 32, 65, 0.5)
+
+.field_hovered-focused-add[placeholder]
+    color: rgba(31, 32, 65, 0.75)
+
 .field_subscription
     display: flex
     justify-content: space-between
 
-.field__placeholder
-    font-size: 14px
-    font-weight: 400
-    line-height: 18px
+.field_subscription[placeholder]
     color: rgba(31, 32, 65, 0.25)
 
-.field__placeholder_hovered-focused
-    color: rgba(31, 32, 65, 0.25)
+.field_subscription-hovered-focused-add
+    border: 1px solid rgba(31, 32, 65, 0.5)
+
+.field_subscription-hovered-focused-add[placeholder]
+    color: rgba(31, 32, 65, 0.75)
 
 .field__arrow-box
-    width: 44px
-    height: 44px
+    position: absolute
+    border: 0
+    border-radius: 4px
+    background-color: #fff
+    width: 42px
+    height: 42px
     display: flex
     align-items: center
     justify-content: center
+    margin-right: 1px
 
 .arrow-box_subscription
     font-family: 'Material Icons'
@@ -103,5 +123,4 @@
     background: -webkit-gradient(linear, left top, left bottom, from(#BC9CFF), to(#8BA4F9))
     -webkit-background-clip: text
     -webkit-text-fill-color: transparent
-    margin-right: 15px
     cursor: pointer
