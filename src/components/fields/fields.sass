@@ -48,7 +48,8 @@
     align-items: center
     justify-content: flex-end
 
-.field
+.field,
+.field-date
     position: absolute
     display: flex
     align-items: center
@@ -59,11 +60,17 @@
     border-radius: 4px
     text-indent: 15px
 
-.field[placeholder]
+.field[placeholder],
+.field-date[placeholder]
     font-size: 14px
     font-weight: 400
     line-height: 18px
     color: rgba(31, 32, 65, 0.25)
+
+.date-selector
+    position: absolute
+    top: 44px
+    z-index: 50
 
 .field_subscription
     position: absolute

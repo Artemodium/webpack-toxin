@@ -2,7 +2,9 @@ extends ../../../src/baseTemplates/iuBaseTemplate.pug
 include ../../components/headerUI/headerUI.pug
 include ../../components/search-room-card/search-room-card.pug
 include ../../components/booking-room-card/booking-room-card.pug
-include ../../components/calendar/calendar.pug
+//-include ../../components/calendar/calendar.pug
+
+include ../../components/calendar-class/calendar-class.pug
 include ../../components/registration-form/registration-form.pug
 include ../../components/login-form/login-form.pug
 include ../../components/suit-preview-card/suit-preview-card.pug
@@ -12,7 +14,6 @@ block title
 
 block variables
     
-        
 block content
     div.cards-content
         div.col-one
@@ -27,13 +28,13 @@ block content
                 +login-form
         div.col-three
             div.calendar
-                +calendar
+                +calendar-class
+            div.calendar
+                +calendar-class
             div.suit-preview-cards
                 div.suit-preview-card
                     +suit-preview-card({img: "../../img/siut-preview/suite-one.jpg", nav:'4', number: "888", price:" 9 990", rate: "5", feedbacks: "145"})
                 div.suit-preview-card
                     +suit-preview-card({img: "../../img/siut-preview/suite-two.jpg", nav:'', number: "840", price: "9 990", rate: "4", feedbacks: "65"})
-
-
 
     script(type='text/javascript' src='../../libs/jquery/jquery-3.6.0.js')

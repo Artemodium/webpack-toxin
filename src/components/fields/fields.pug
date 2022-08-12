@@ -1,3 +1,5 @@
+include ../../components/calendar-class/calendar-class.pug
+
 mixin fields(args)
         if args.modificator === 'hovered-focused'
             div(class= 'text-field ' + 'text-field_hovered-focused')
@@ -22,6 +24,18 @@ mixin fields(args)
                         input(class= 'field' + '_subscription' placeholder= args.placeholder type=args.type)
                         button(class= 'field__arrow-box ' + 'field__arrow-box_subscription')
                             span.arrow-box_subscription= 'arrow_forward'
+        else if args.modificator === 'date'
+            div(class= 'text-field ' + 'text-field_date')
+                if args.title ||  args.comment
+                    div.text-field__desc
+                        if args.title  
+                            p.desc__title= args.title
+                        if args.comment
+                            p.desc__comment= args.comment
+                div.text-field__field
+                    input(class= "field-date" placeholder= args.placeholder type=args.type)
+                    div.date-selector
+                        +calendar-class
         else    
             div(class= 'text-field ' + 'text-field_default')
                 if args.title ||  args.comment
@@ -32,3 +46,4 @@ mixin fields(args)
                             p.desc__comment= args.comment
                 div.text-field__field
                     input(class= "field" placeholder= args.placeholder type=args.type)
+                    
