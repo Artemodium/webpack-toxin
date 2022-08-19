@@ -1,4 +1,4 @@
-$('.date-selector').hide()
+$(".field-date").next().hide()
 
 $(".field").mouseenter(function() {
     $(this).addClass("field_hovered-focused-add")
@@ -24,6 +24,6 @@ $(".text-field__field_subscription").mouseleave(function() {
     $(".field_subscription", this).removeClass("field_subscription-hovered-focused-add")
 })
 
-$(".field-date").on("click", function() {
-    $('.date-selector').is(":hidden") ? $('.date-selector').show() : $('.date-selector').hide()
+$(".field-date-listener").on("click", function() {
+    $(".field-date-listener").next().is(":hidden") ? $(".field-date-listener").next().show() : $(".field-date-listener").next().hide()
 })

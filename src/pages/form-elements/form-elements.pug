@@ -41,12 +41,12 @@ block content
                     +fields({modificator:'hovered-focused', title:'TEXT FIELD', comment:'HOVER / FOCUS', placeholder:'This is pretty awesome', type:"text"})
                 div.fields__dropdown
                     +dropdown({type: ' guests', status:'', size:'large', title:'DROPDOWN', comment:'', placeholder:'Сколько гостей', checkmark:true})
-                +fields({modificator:'date', title:'MASKED TEXT FIELD', comment:'', placeholder:'ДД.ММ.ГГГГ', type:"text"})
+                +fields({modificator:'date', title:'MASKED TEXT FIELD', comment:'', placeholder:'ДД.ММ.ГГГГ', type:"text", id:"2"})
                 div.date-fields-short
-                    +date-fields({size: 'short', title:'DATE DROPDOWN', placeholder:'ДД.ММ.ГГГГ', type:"text"})
-                    +date-fields({size: 'short', title:'DATE DROPDOWN', placeholder:'19.08.2019', type:"text"})
+                    +date-fields({size: 'short', title:'DATE DROPDOWN', placeholder:'ДД.ММ.ГГГГ', type:"text", id:4, date_picker:"single"})
+                    +date-fields({size: 'short', title:'DATE DROPDOWN', placeholder:'19.08.2019', type:"text", id:5, date_picker:"single"})
                 div.date-fields-large
-                    +date-fields({size: 'large', title:'FILTER DATE DROPDOWN', placeholder:'19 авг - 23 авг', type:"text"})
+                    +date-fields({size: 'large', title:'FILTER DATE DROPDOWN', placeholder:'19 авг - 23 авг', type:"text", id:6, date_picker:"double"})
                 +fields({modificator:'subscription', title:'SUBSCRIPTION TEXT FIELD', comment:'', placeholder:'Email', type:"text"})
             div.toggles-and-buttons
                 div.toggles-and-buttons__checkboxes                       

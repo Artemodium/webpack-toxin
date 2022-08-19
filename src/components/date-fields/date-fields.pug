@@ -1,8 +1,12 @@
+include ../../components/calendar-class/calendar-class.pug
+
 mixin date-fields(args)
     div(class= 'date-dropdown' + '_' + args.size)
         div.date-dropdown__desc
             p.desc__title= args.title
         div(class= 'date-dropdown__date-field_' + args.size )
-            input(class= 'date-field_' + args.size placeholder= args.placeholder type=args.type)
+            input(class= 'field-date date-field_' + args.size placeholder= args.placeholder type=args.type id=args.id)
+            div.date-selector
+                +calendar-class({id:args.id, date_picker:args.date_picker})
             button.checkmark-box
                 span.checkmark-box__checkmark &#xe5cf;

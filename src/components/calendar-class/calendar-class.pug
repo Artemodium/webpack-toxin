@@ -1,34 +1,35 @@
 include ../../components/buttons/button.pug
 
-mixin calendar-class()
+mixin calendar-class(props)
     -var n=0
-    div.calendar__wrapper
-        div.calendar-border
-            div.calendar__content
-                div.calendar__content__header
-                    span.header__arrow-back &#xe5c4;
-                    p.header__date
-                        span.header__month= ''
-                        span.header__year= ''
-                    span.header__arrow-forward &#xe5c8;
-                div.calendar__content__days
-                    div.days__weekday
-                        span.weekday= 'Пн'
-                        span.weekday= 'Вт'
-                        span.weekday= 'Ср'
-                        span.weekday= 'Чт'
-                        span.weekday= 'Пт'
-                        span.weekday= 'Сб'
-                        span.weekday= 'Вс'
-                    div.days__monthday
-                        while n<42
-                            div.days__monthday-field
-                                div.days__monthday-field-period
-                                span.monthday-field
-                                    -n++
-                div.calendar__content__buttons
-                    div.buttons__container
-                        div.buttons__button-clear
-                            +button({theme: '_unbordered', font: '_color-font', placeholder: 'очистить', size: 'small', isArrow: false})
-                        div.buttons__button-apply    
-                            +button({theme: '_unbordered', font: '_color-font', placeholder: 'применить', size: 'small', isArrow: false})
+    div.calendar(id=props.id, date_picker=props.date_picker)
+        div.calendar__wrapper(id=props.id)
+            div.calendar-border(id=props.id)
+                div.calendar__content(id=props.id)
+                    div.calendar__content__header(id=props.id)
+                        span.header__arrow-back(id=props.id) &#xe5c4;
+                        p.header__date
+                            span.header__month(id=props.id)= ''
+                            span.header__year(id=props.id)= ''
+                        span.header__arrow-forward(id=props.id) &#xe5c8;
+                    div.calendar__content__days
+                        div.days__weekday
+                            span.weekday= 'Пн'
+                            span.weekday= 'Вт'
+                            span.weekday= 'Ср'
+                            span.weekday= 'Чт'
+                            span.weekday= 'Пт'
+                            span.weekday= 'Сб'
+                            span.weekday= 'Вс'
+                        div.days__monthday(id=props.id)
+                            while n<42
+                                div.days__monthday-field(id=props.id)
+                                    div.days__monthday-field-period(id=props.id)
+                                    span.monthday-field(id=props.id)
+                                        -n++
+                    div.calendar__content__buttons(id=props.id)
+                        div.buttons__container(id=props.id)
+                            div.buttons__button-clear(id=props.id)
+                                +button({theme: '_unbordered', font: '_color-font', placeholder: 'очистить', size: 'small', isArrow: false})
+                            div.buttons__button-apply(id=props.id)   
+                                +button({theme: '_unbordered', font: '_color-font', placeholder: 'применить', size: 'small', isArrow: false})

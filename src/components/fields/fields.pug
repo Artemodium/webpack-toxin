@@ -33,9 +33,9 @@ mixin fields(args)
                         if args.comment
                             p.desc__comment= args.comment
                 div.text-field__field
-                    input(class= "field-date" placeholder= args.placeholder type=args.type)
+                    input(class= "field-date field-date-listener" placeholder= args.placeholder type=args.type id=args.id)
                     div.date-selector
-                        +calendar-class
+                        +calendar-class({id:args.id, date_picker:"single"})
         else    
             div(class= 'text-field ' + 'text-field_default')
                 if args.title ||  args.comment

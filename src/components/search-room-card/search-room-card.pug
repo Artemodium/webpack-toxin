@@ -9,8 +9,8 @@ mixin search-room-card()
                 div.search-room-card__header
                     p.search-room-card__header-text= 'Найдём номера под ваши пожелания'
                 div.search-room-card__dates
-                    +date-fields({size: 'short', title:'прибытие', placeholder:'ДД.ММ.ГГГГ'})
-                    +date-fields({size: 'short', title:'выезд', placeholder:'ДД.ММ.ГГГГ'})
+                    +date-fields({size: 'short', title:'прибытие', placeholder:'ДД.ММ.ГГГГ', id:7, date_picker:"single"})
+                    +date-fields({size: 'short', title:'выезд', placeholder:'ДД.ММ.ГГГГ', id:8, date_picker:"single"})
                 div.search-room-card__guests
                     +dropdown({type: ' guests', status:'', size:'large', title:'гости', comment:'', placeholder:'Сколько гостей', checkmark:true})
                 div.search-room-card__search-button

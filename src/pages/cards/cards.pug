@@ -2,8 +2,6 @@ extends ../../../src/baseTemplates/iuBaseTemplate.pug
 include ../../components/headerUI/headerUI.pug
 include ../../components/search-room-card/search-room-card.pug
 include ../../components/booking-room-card/booking-room-card.pug
-//-include ../../components/calendar/calendar.pug
-
 include ../../components/calendar-class/calendar-class.pug
 include ../../components/registration-form/registration-form.pug
 include ../../components/login-form/login-form.pug
@@ -28,9 +26,9 @@ block content
                 +login-form
         div.col-three
             div.calendar
-                +calendar-class
+                +calendar-class({id:0, date_picker:"double"})
             div.calendar
-                +calendar-class
+                +calendar-class({id:1, date_picker:"single"})
             div.suit-preview-cards
                 div.suit-preview-card
                     +suit-preview-card({img: "../../img/siut-preview/suite-one.jpg", nav:'4', number: "888", price:" 9 990", rate: "5", feedbacks: "145"})
