@@ -1,0 +1,21 @@
+include ../../components/calendar-class/calendar-class.pug
+
+mixin double-date-field(args)
+    div.double-date-field-dropdown-area
+        div.double-date-field-dropdown(id=args.id)
+            div.double-date-field-dropdown__start-date(id=args.id)
+                div.start-date__desc
+                    p.desc__title= args.start.title
+                div.start-date-input
+                    input(class= 'fields__field-start' placeholder= args.start.placeholder type=args.start.type id=args.id)
+                    button.checkmark-box
+                        span.checkmark-box__checkmark &#xe5cf;
+            div.double-date-field-dropdown__end-date(id=args.id)
+                div.end-date__desc
+                    p.desc__title= args.end.title
+                div.end-date-input
+                    input(class= 'fields__field-end' placeholder= args.end.placeholder type=args.end.type id=args.id)
+                    button.checkmark-box
+                        span.checkmark-box__checkmark &#xe5cf;            
+        div.date-selector(id=args.id)   
+            +calendar-class({id:args.id, date_picker:args.date_picker})

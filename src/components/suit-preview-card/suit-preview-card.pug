@@ -7,9 +7,11 @@ mixin suit-preview-card(props)
                 div.suit-preview-card__img-container
                     img.img-preview(src= props.img alt="siute preview")
                     if props.nav
-                        p.nav-preview
-                            span.nav-preview-left &#xe5cb;
-                            span.nav-preview-right &#xe5cc;
+                        div.nav-preview-box
+                            div.nav-preview-left-box
+                                span.nav-preview-left &#xe5cb;
+                            div.nav-preview-right-box
+                                span.nav-preview-right &#xe5cc;
                     div.nav-preview-pages
                         span.nav-preview-page.nav-preview-page_current
                         span.nav-preview-page
@@ -27,7 +29,7 @@ mixin suit-preview-card(props)
                     div.feedback-line        
                     div.siute-desc__feedback
                         div.feedback-rates
-                            +rate({rate: 5})
+                            +rate({rate: props.rate})
                         div.feedback-counts
                             span.feedback-counts-count= `${props.feedbacks} `
                             span.feedback-counts-text= '  Отзывов'

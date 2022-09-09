@@ -196,7 +196,7 @@ var Slider = function(id) {
     touchLeft.addEventListener('touchstart', onStart);
     touchRight.addEventListener('touchstart', onStart);
 };
-if ($(location).attr('pathname') == '/form-elements.html') {
+if ($(location).attr('pathname') == '/form-elements.html' || "/search-room.html") {
     var newRangeSlider = new Slider('my-slider');
 
 

@@ -1,15 +1,22 @@
 .copyrights-and-socials-large    
     display: flex
+    flex-wrap: wrap
     justify-content: space-between
     align-items: center
-    width: 1160px
-    height: 70px
+    max-width: 1160px
+    min-height: 70px
+    height: auto
     margin: 0 auto
+
+@media (max-width: 1280px)
+    .copyrights-and-socials-large    
+        margin-left: 1%
+        margin-right: 2%
 
 .copyrights-and-socials-compact    
     display: flex
     flex-direction: column
     justify-content: space-between
     align-items: center
-    width: 380px
-    height: 124px
+    max-width: 380px
+    min-height: 124px

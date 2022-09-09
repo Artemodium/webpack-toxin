@@ -1,5 +1,6 @@
-mixin checkbox(checkboxes)
-    each el in checkboxes
+mixin checkbox(props)
+    p.title_like-checkbox=props.title
+    each el in props.labels
         input.checkbox(type='checkbox' id=el.id checked=el.checked)
         label.checkbox__label(for=el.id)
             p.label__text=el.label

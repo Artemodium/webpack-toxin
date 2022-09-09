@@ -1,0 +1,139 @@
+.pie-chart-wrapper
+    display: flex
+    justify-content: space-between
+    max-width: 311px
+
+.pie-chart-container
+    height: 120px
+    width: 120px
+    position: relative
+    
+.pie-chart-bg
+    position: absolute
+    width: 120px
+    height: 120px
+    border-radius: 100%
+
+.pie-chart-slice
+    position: absolute
+    width: 119px
+    height: 119px
+    border-radius: 100%
+    clip: rect(0px, 150px, 150px, 60px)
+
+.slice  
+    transition: all 1s
+    position: absolute
+    width: 119px
+    height: 119px
+    border-radius: 100%
+    clip: rect(0px, 59px, 150px, 0px)
+    
+#pie-Slice-One .slice 
+    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%)
+    transform: rotate(90deg)
+    
+#pie-Slice-Two
+    transform: rotate(90deg)
+
+#pie-Slice-Two .slice 
+    transform: rotate(90deg)
+    background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%)
+
+#pie-Slice-Three
+    transform: rotate(180deg)
+
+#pie-Slice-Three .slice 
+    transform: rotate(180deg)
+    background: linear-gradient(180deg, #FFE39C 0%, #FFBA9C 100%)
+
+.pie-chart-inner 
+    position: absolute
+    width: 112px
+    height: 112px
+    background-color: #fff
+    border-radius: 100%
+    top: 3.5px
+    left: 3.5px
+    color: white
+
+.pie-chart-inner-content
+    position: absolute
+    display: block
+    width: 120px
+    top: 33.5px
+    left: -5.5px
+
+.content-number
+    margin: 0
+    text-align: center
+    font-weight: bold
+    font-size: 24px
+    line-height: 100%
+    color: #BC9CFF
+    z-index: 10
+
+p.content-text
+    margin: 0
+    text-align: center
+    font-weight: bold 
+    font-size: 15px
+    line-height: 130%
+    color: #BC9CFF
+    z-index: 10
+
+.pie-chart-desc
+    margin-top: 15px
+
+.pie-chart-desc-rates
+    position: relative
+    font-size: 14px 
+    line-height: 140.63%
+    color: rgba(31, 32, 65, 0.75)
+    list-style: none
+
+.rates-highest,
+.rates-high,
+.rates-low,
+.rates-lowest
+    height: 24px
+
+.rates-highest::before
+    position: absolute
+    top: 5px
+    left: 23px
+    width: 10px
+    height: 10px
+    content: ''
+    border-radius: 50%
+    background: linear-gradient(180deg, #FFE39C 0%, #FFBA9C 100%)
+
+.rates-high::before
+    position: absolute
+    top: 28px
+    left: 23px
+    width: 10px
+    height: 10px
+    content: ''
+    border-radius: 50%
+    background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%)
+
+.rates-low::before
+    position: absolute
+    top: 52px
+    left: 23px
+    width: 10px
+    height: 10px
+    content: ''
+    border-radius: 50%
+    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%)
+
+.rates-lowest::before
+    position: absolute
+    top: 76px
+    left: 23px
+    width: 10px
+    height: 10px
+    content: ''
+    border-radius: 50%
+    background:  linear-gradient(180deg, #919191 0%, #3D4975 100%)

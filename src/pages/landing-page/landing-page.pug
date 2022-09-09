@@ -1,0 +1,23 @@
+extends ../../../src/main-template/main-template.pug
+include ../../components/header/header.pug
+include ../../components/footer/footer.pug
+include ../../components/search-room-card/search-room-card.pug
+
+block title  
+    title Landing page
+
+block variables
+    
+block content
+    div.landing-page-content
+        div.landing-page-header
+            +header({logIn: ''})
+        div.landing-page-main 
+            div.landing-page-search-room-card
+                +search-room-card()
+            div.landing-page-text
+                span="Лучшие номера для вашей работы, отдыха и просто вдохновения"
+        div.landing-page-footer
+            +footer({type:'large'})
+
+    script(type='text/javascript' src='../../libs/jquery/jquery-3.6.0.js')

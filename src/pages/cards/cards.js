@@ -14,13 +14,3 @@ import '../../components/login-form/login-form.js'
 import '../../components/suit-preview-card/suit-preview-card.js'
 
 $(location).attr('pathname') == '/cards.html' ? $('body').css('background-color', '#E5E5E5') : ''
-
-jQuery(function($) {
-    $(document).mouseup(function(e) {
-        var cont = $(".date-selector");
-        if (!cont.is(e.target) &&
-            cont.has(e.target).length === 0) {
-            cont.hide();
-        }
-    });
-});

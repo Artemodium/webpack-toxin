@@ -1,0 +1,37 @@
+extends ../../../src/main-template/main-template.pug
+include ../../components/header/header.pug
+include ../../components/footer/footer.pug
+include ../../components/advantages/advantages.pug
+include ../../components/pie-chart/pie-chart.pug
+include ../../components/booking-room-card/booking-room-card.pug
+
+block title  
+    title Room details page
+
+block variables
+    
+block content
+    div.room-details-content
+        div.room-details-header
+            +header({logIn: ''})
+        div.room-details__preview-imgages
+            div.preview-imgages_big
+                img.preview-imgage-big(src="../../img/room-details/image1.jpg", alt="preview imgage big")
+            div.preview-imgages_small
+                img.preview-imgage-small-one(src="../../img/room-details/image21.jpg", alt="preview imgage small one")
+                img.preview-imgage-small-two(src="../../img/room-details/image31.jpg", alt="preview imgage small two")
+        div.room-details__main-content
+            div.room-details__advantages
+                p.room-details__advantages-title="Сведения о номере"
+                +advantages([{icon: 'mood', name:'Комфорт', comm:'Шумопоглощающие стены'}, 
+                            {icon:'location_city', name:'Удобство', comm:'Окно в каждой из спален'},
+                            {icon:'local_fire_department', name:'Уют', comm:'Номер оснащён камином'}])
+            div.room-details__pie-chart
+                p.room-details__pie-chart-title="Впечатления от номера"
+                +pie-chart()
+            div.room-details__booking-room-card
+                +booking-room-card
+        div.room-details-footer
+            +footer({type:'large'})
+
+    script(type='text/javascript' src='../../libs/jquery/jquery-3.6.0.js')

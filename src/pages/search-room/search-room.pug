@@ -1,0 +1,83 @@
+extends ../../../src/main-template/main-template.pug
+include ../../components/header/header.pug
+include ../../components/footer/footer.pug
+include ../../components/date-fields/date-fields.pug
+include ../../components/dropdown/dropdown.pug
+include ../../components/range-slider/range-slider.pug
+include ../../components/checkbox/checkbox.pug
+include ../../components/rich-checkbox/rich-checkbox.pug
+include ../../components/expandable-checkbox/expandable-checkbox.pug
+include ../../components/suit-preview-card/suit-preview-card.pug
+include ../../components/pagination/pagination.pug
+
+block title  
+    title Search room page
+
+block variables
+    
+block content
+    div.search-room-content
+        div.search-room-header
+            +header({logIn: ''})
+        div.search-room-main
+            div.search-room-main__nav
+                div.main__nav
+                    div.main__nav-date
+                        +date-fields({size: 'large', title:'даты пребывания в отеле', placeholder:'19 авг - 23 авг', type:"text", id:"twelve", date_picker:"double"})
+                    div.main__nav-guests
+                        +dropdown({id:"guests", type: ' guests', status:'-expandable', size:'default', title:'гости', comment:'', placeholder:'3 гостя, 1 младенец', checkmark:true, 
+                                content: {'взрослые': 2, 'дети': 1, 'младенцы': 1}, clear: '', apply: ''})
+                    div.main__nav-range-slider-price
+                        +range-slider({title: 'диапазон цены', start: '5000', end: '10000'})
+                    div.main__nav-rules
+                        +checkbox({title: "правила дома", labels:[{label:'Можно курить', id:'smoke'},
+                                                        {label:'Можно с питомцами', checked:'checked', id:'pet'},
+                                                        {label:'Можно пригласить гостей (до 10 человек)', checked:'checked', id:'friends'}]})
+                    div.main__nav-availability
+                        +rich-checkbox({tittle: 'доступность', content: [{desc_short:'Широкий коридор', desc_corr:`Ширина коридоров в номере не менее 91 см.`, checked: false, id:'hall'},
+                                    {desc_short:'Помощник для инвалидов', desc_corr:'На 1 этаже вас встретит специалист  и проводит до номера.', checked: false, id:'help'}]})
+                    div.main__nav-conveniences
+                        +dropdown({type: ' rooms', status:'-expandable', size:'default', title:'удобства номера', comment:'expanded', placeholder:'2 спальни, 2 кровати...', checkmark:true, 
+                                content: {'спальни': 2, 'кровати': 2, 'ванные комнаты': 0}, clear: '', apply: ''})
+                    div.main__nav-addvance-conveniences
+                            +expandable-checkbox({tittle: 'дополнительные удобства', content:[{label:'Завтрак', id:'breakfast'},
+                                                            {label:'Письменный стол', checked:'checked', id:'table'},
+                                                            {label:'Стул для кормления', checked:'checked', id:'chair'},
+                                                            {label:'Кроватка', checked:'checked', id:'bed'},
+                                                            {label:'Телевизор', id:'tv'},
+                                                            {label:'Шампунь', id:'shampoo'},
+                                                            {label:'Телевизор', id:'tv1'},
+                                                            {label:'Шампунь', id:'shampoo1'}]})
+            div.search-room-main__content
+                p.search-room-main__content-header="Номера, которые мы для вас подобрали"
+                div.search-room-main__cards
+                    div.cards__card
+                        +suit-preview-card({img: "../../img/siut-preview/suite-one.jpg", nav:true, number: "888", price:" 9 990", rate: "5", feedbacks: "145"})
+                    div.cards__card
+                        +suit-preview-card({img: "../../img/siut-preview/suite-two.jpg", nav:'', number: "840", price: "9 990", rate: "4", feedbacks: "65"})
+                    div.cards__card
+                        +suit-preview-card({img: "../../img/siut-preview/suite-three.jpg", nav:'', number: "980", price:" 8 500", rate: "3", feedbacks: "35"})
+                    div.cards__card
+                        +suit-preview-card({img: "../../img/siut-preview/suite-four.jpg", nav:'', number: "856", price:" 7 300", rate: "5", feedbacks: "19"})
+                    div.cards__card
+                        +suit-preview-card({img: "../../img/siut-preview/suite-five.jpg", nav:'', number: "740", price:" 6 000", rate: "4", feedbacks: "44"})
+                    div.cards__card
+                        +suit-preview-card({img: "../../img/siut-preview/suite-six.jpg", nav:'', number: "982", price:" 5 800", rate: "3", feedbacks: "56"})
+                    div.cards__card
+                        +suit-preview-card({img: "../../img/siut-preview/suite-seven.jpg", nav:'', number: "678", price:" 5 500", rate: "5", feedbacks: "45"})
+                    div.cards__card
+                        +suit-preview-card({img: "../../img/siut-preview/suite-eight.jpg", nav:'', number: "450", price:" 5 300", rate: "4", feedbacks: "39"})
+                    div.cards__card
+                        +suit-preview-card({img: "../../img/siut-preview/suite-nine.jpg", nav:'', number: "350", price:" 5 000", rate: "3", feedbacks: "77"})
+                    div.cards__card
+                        +suit-preview-card({img: "../../img/siut-preview/suite-ten.jpg", nav:'', number: "666", price:" 5 000", rate: "5", feedbacks: "25"})
+                    div.cards__card
+                        +suit-preview-card({img: "../../img/siut-preview/suite-eleven.jpg", nav:'', number: "444", price:" 5 000", rate: "3", feedbacks: "15"})
+                    div.cards__card
+                        +suit-preview-card({img: "../../img/siut-preview/suite-twelve.jpg", nav:'', number: "352", price:" 5 000", rate: "3", feedbacks: "55"})
+                    div.cards-card-paginator
+                        +pagination({start: 1, end: 12, step: 12})
+        div.search-room-footer
+            +footer({type:'large'})
+
+    script(type='text/javascript' src='../../libs/jquery/jquery-3.6.0.js')

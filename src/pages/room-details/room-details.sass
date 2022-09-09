@@ -1,0 +1,81 @@
+.room-details__preview-imgages
+    display: grid
+    grid-template-areas: "a b"
+    grid-template-columns: 68% 32%
+    height: auto
+
+.preview-imgages_big
+    max-width: 100%
+
+.preview-imgage-big
+    max-width: 100%
+
+.preview-imgages_small
+    font-size: 0
+    max-width: 100%
+
+.preview-imgage-small-one
+    max-width: 99.5%
+
+.preview-imgage-small-two
+    max-width: 99.5%
+
+.room-details__main-content
+    display: grid
+    grid-template-areas: "c c c d d d e e e" "f f f g g g e e e"
+    margin-top: 2%
+    margin-left: 2%
+
+@media (max-width: 1280px)
+    .room-details__main-content
+        grid-template-areas: "c c c d d d d d d" "f f f g g g e e e"
+
+@media (max-width: 768px)
+    .room-details__main-content
+        grid-template-areas: "c c c c c c c c c" "f f f g g g e e e" "h h h j j j k k k"
+
+.room-details__advantages
+    display: grid
+    grid-area: c
+    height: 20%
+    margin-top: 4.5%
+    margin-left: 27%
+
+.room-details__advantages-title  
+    font-style: normal
+    font-weight: 700
+    font-size: 19px
+    line-height: 23px
+    color: #1F2041
+    margin-bottom: 8%
+
+.room-details__pie-chart-title
+    font-style: normal
+    font-weight: 700
+    font-size: 19px
+    line-height: 23px
+    color: #1F2041
+    margin-bottom: 5.5%
+
+.room-details__pie-chart
+    display: grid
+    grid-area: d
+    height: 20%
+    margin-top: 4%
+    margin-left: 13%
+    min-width: 400px
+
+@media (max-width: 768px)
+    .room-details__pie-chart
+        grid-area: h
+
+.room-details__booking-room-card
+    display: grid
+    grid-area: e
+    margin-top: 7%
+    margin-left: 3%
+    min-width: 400px
+
+@media (max-width: 1280px)
+    .room-details__booking-room-card
+        grid-area: f

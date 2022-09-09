@@ -1,0 +1,132 @@
+.search-room-main
+    display: grid
+    grid-template-areas: "a b"
+    grid-template-columns: 450px 990px
+    border-bottom: 1px solid rgba(31, 32, 65, 0.25)
+
+@media (max-width: 1600px) 
+    .search-room-main
+        grid-template-columns: 400px 990px
+
+@media (max-width: 1280px) 
+    .search-room-main
+        grid-template-columns: 400px 720px
+
+@media (max-width: 1024px)
+    .search-room-main
+        grid-template-columns: 400px 450px
+
+@media (max-width: 768px)
+    .search-room-main
+        grid-template-areas: "a" "b"
+        grid-template-columns: 400px
+
+.search-room-main__nav
+    display: grid
+    grid-area: a
+
+.main__nav
+    margin-top: 1px
+    margin-left: 4px
+
+.search-room-main__content
+    display: grid
+    grid-area: b
+    margin-left: 1.3%
+    margin-top: 0.6%
+
+.main__nav-date
+    margin-top: 6.4%
+    margin-left: 31%
+
+.main__nav-guests
+    margin-top: 4.6%
+    margin-left: 30.7%
+
+.main__nav-range-slider-price
+    margin-top: 6.8%
+    margin-left: 30.7%
+
+.main__nav-rules
+    margin-top: 12%
+    margin-left: 30.7%
+
+.main__nav-availability
+    margin-top: 7.6%
+    margin-left: 30.7%
+
+.main__nav-conveniences
+    margin-top: 5.4%
+    margin-left: 30.9%
+
+.main__nav-addvance-conveniences
+    margin-top: 3.5%
+    margin-left: 30.7%
+
+@media (max-width: 768px)
+    .main__nav-date,
+    .main__nav-guests,
+    .main__nav-range-slider-price,
+    .main__nav-rules,
+    .main__nav-availability,
+    .main__nav-conveniences,
+    .main__nav-addvance-conveniences
+        margin-left: 0
+
+.search-room-main__cards
+    display: grid
+    grid-template-areas: "f g h"        
+    grid-template-columns: 270px 270px 270px
+    row-gap: 21px
+    column-gap: 11px
+    margin-left: 0.5%
+
+@media (max-width: 1280px)
+    .search-room-main__cards
+        grid-template-areas: "f g"        
+        grid-template-columns: 270px 270px
+
+
+@media (max-width: 1024px)
+    .search-room-main__cards
+        grid-template-areas: "f"        
+        grid-template-columns: 270px
+
+.search-room-main__content-header
+    margin-bottom: 2.2%
+    font-style: normal
+    font-weight: 700
+    font-size: 1.5rem
+    line-height: 29px
+    letter-spacing: 0.3px
+    color: #1F2041
+
+@media (max-width: 1280px)
+    .search-room-main__content-header
+        font-size: 1.25rem
+
+@media (max-width: 1024px)
+    .search-room-main__content-header
+        font-size: 1rem
+        max-width: 270px
+
+.cards-card-paginator
+    display: grid
+    grid-column: 1 / 4
+    justify-content: center
+    align-content: center
+    margin-top: 2.4%
+    margin-left: -2%
+    margin-bottom: 8.5%
+
+@media (max-width: 1280px)
+    .cards-card-paginator
+        grid-column: 1 / 3
+
+@media (max-width: 1024px)
+    .cards-card-paginator
+        grid-column: 1 / 2
+
+@media (max-width: 768px)
+    .cards-card-paginator
+        grid-column: 1 / 1

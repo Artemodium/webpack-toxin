@@ -1,22 +1,61 @@
 .header-container
     width: 100%
-    height: 70px
+    background-color: #fff
+
+.page__content
+    width: 100%
+    
+.headers-and-footers-content
+    width: 100%
+
+.header__logOff,
+.header__logIn
+    max-width: 100%
     background-color: #fff
 
 .header__content
     display: flex
     align-items: center
-    width: 1260px
-    height: 70px
+    justify-content: space-between
+    flex-wrap: wrap
+    max-width: 1160px
+    min-height: 70px
     margin: 0 auto
-    padding-right: 98px
+
+@media (max-width: 1280px)
+    .header__content
+        margin-left: 2%
+
+@media (max-width: 768px)
+    .header__content
+        flex-direction: column
+        align-items: flex-start
 
 .header__content-logo
-    margin-left: 100px
-    margin-right: 284px
+    margin-left: 0
+    margin-right: 2%
+    
+
+.header-content-nav
+    display: flex
+    flex-direction: row
+    align-items: center
+
+@media (max-width: 1280px)
+    .header-content-nav
+        margin-right: 2%
+
+
+@media (max-width: 1024px)
+    .header-content-nav
+        flex-direction: column
+        align-items: flex-start
+
+@media (max-width: 480px)
+    .nav__ul
+        flex-direction: column
+        align-items: flex-start
 
 .header-content-auth-reg
-    width: auto
-
-.header-filler
-    flex: 1
+    margin-right: 0px
+    

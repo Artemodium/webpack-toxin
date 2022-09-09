@@ -3,17 +3,13 @@ include ../../components/buttons/button.pug
 mixin dropdown(args)
     -var className= 'dropdown-' + args.size
 
-    div(class= (args.status ? className : className + '-ex'))
+    div(class= (args.status ? className : className + '-ex') id=args.id type=args.type)
         div(class=className + '__header')
             .header__title= args.title
             .header__desc= args.comment
         div(class=className + '__field-and-content')
             div(class=className + '__field')
-                div.show-hint
-                    p.bedrooms
-                    p.beds 
-                    p.baths
-                div(class='field__text-field_' + args.size + args.status)
+                div(class='field__text-field_' + args.size + args.status id=args.id type=args.type)
                     .text-field__placeholder
                         span.text-field__placeholder-text= args.placeholder
                     .text-field__chekmark

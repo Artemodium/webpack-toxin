@@ -7,39 +7,40 @@ mixin footer(args)
     if(args.type == "large")
         div.footer__container-main
             div.main__content
-                div.main__content-block
-                    div.block__logo
-                        +logo()
-                        p.block__logo-desc="Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»"
-                    div.block__navigation
-                        +nav({orientation:'vertical', 
-                                items:{li_0: {name: 'Навигация'},
-                                li_1: {name: 'О нас'}, 
-                                li_2: {name: 'Новости'}, 
-                                li_3: {name: 'Служба поддержки'}, 
-                                li_4: {name: 'Услуги'}}})
-                    div.block__aboutUs
-                        +nav({orientation:'vertical', 
-                                items:{li_0: {name: 'О нас'},
-                                li_1: {name: 'О сервисе'}, 
-                                li_2: {name: 'Наша команда'}, 
-                                li_3: {name: 'Вакансии'}, 
-                                li_4: {name: 'Инвесторы'}}})
-                    div.block__supportTeam
-                        +nav({orientation:'vertical', 
-                                items:{li_0: {name: 'Служба поддержки'},
-                                li_1: {name: 'Соглашения'}, 
-                                li_2: {name: 'Сообщества'}, 
-                                li_3: {name: 'Связь с нами'}}})
-                    div.block__subscribe
-                        +nav({orientation:'vertical', 
-                                items:{li_0: {name: 'Подписка'},
-                                li_1: {name: 'Получайте специальные предложения и новости сервиса'}}})
-                        div.block__subscribe-text-field    
-                            +fields({modificator:'subscription', placeholder:'Email'})
-        div.footer__container-copyRights 
-            div.copyRights__content
-                +copyrights-and-socials({type: "large", copyrights: "Copyright © 2018 Toxin отель. Все права защищены.", socials: ["fab-brands fa-twitter", "fab-brands fa-facebook-square", "fab-brands fa-instagram"]})
+                div.main__content-container
+                    div.main__content-block
+                        div.block__logo
+                            +logo()
+                            p.block__logo-desc="Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»"
+                        div.block__navigation
+                            +nav({orientation:'vertical', 
+                                    items:{li_0: {name: 'Навигация'},
+                                    li_1: {name: 'О нас'}, 
+                                    li_2: {name: 'Новости'}, 
+                                    li_3: {name: 'Служба поддержки'}, 
+                                    li_4: {name: 'Услуги'}}})
+                        div.block__aboutUs
+                            +nav({orientation:'vertical', 
+                                    items:{li_0: {name: 'О нас'},
+                                    li_1: {name: 'О сервисе'}, 
+                                    li_2: {name: 'Наша команда'}, 
+                                    li_3: {name: 'Вакансии'}, 
+                                    li_4: {name: 'Инвесторы'}}})
+                        div.block__supportTeam
+                            +nav({orientation:'vertical', 
+                                    items:{li_0: {name: 'Служба поддержки'},
+                                    li_1: {name: 'Соглашения'}, 
+                                    li_2: {name: 'Сообщества'}, 
+                                    li_3: {name: 'Связь с нами'}}})
+                        div.block__subscribe
+                            +nav({orientation:'vertical', 
+                                    items:{li_0: {name: 'Подписка'},
+                                    li_1: {name: 'Получайте специальные предложения и новости сервиса'}}})
+                            div.block__subscribe-text-field    
+                                +fields({modificator:'subscription', placeholder:'Email'})
+            div.footer__container-copyRights 
+                div.copyRights__content
+                    +copyrights-and-socials({type: "large", copyrights: "Copyright © 2018 Toxin отель. Все права защищены.", socials: ["fab-brands fa-twitter", "fab-brands fa-facebook-square", "fab-brands fa-instagram"]})
     if(args.type == "compact")
         div.footer__container-copyRights-compact
             div.copyRights__content-compact
