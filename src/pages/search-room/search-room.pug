@@ -2,7 +2,7 @@ extends ../../../src/main-template/main-template.pug
 include ../../components/header/header.pug
 include ../../components/footer/footer.pug
 include ../../components/date-fields/date-fields.pug
-include ../../components/dropdown/dropdown.pug
+include ../../components/dropdown-class/dropdown-class.pug
 include ../../components/range-slider/range-slider.pug
 include ../../components/checkbox/checkbox.pug
 include ../../components/rich-checkbox/rich-checkbox.pug
@@ -25,7 +25,7 @@ block content
                     div.main__nav-date
                         +date-fields({size: 'large', title:'даты пребывания в отеле', placeholder:'19 авг - 23 авг', type:"text", id:"twelve", date_picker:"double"})
                     div.main__nav-guests
-                        +dropdown({id:"guests", type: ' guests', status:'-expandable', size:'default', title:'гости', comment:'', placeholder:'3 гостя, 1 младенец', checkmark:true, 
+                        +dropdown-class({id:"guests", type: ' guests', status:'-expandable', size:'default', title:'гости', comment:'', placeholder:'3 гостя, 1 младенец', checkmark:true, 
                                 content: {'взрослые': 2, 'дети': 1, 'младенцы': 1}, clear: '', apply: ''})
                     div.main__nav-range-slider-price
                         +range-slider({title: 'диапазон цены', start: '5000', end: '10000'})
@@ -37,7 +37,7 @@ block content
                         +rich-checkbox({tittle: 'доступность', content: [{desc_short:'Широкий коридор', desc_corr:`Ширина коридоров в номере не менее 91 см.`, checked: false, id:'hall'},
                                     {desc_short:'Помощник для инвалидов', desc_corr:'На 1 этаже вас встретит специалист  и проводит до номера.', checked: false, id:'help'}]})
                     div.main__nav-conveniences
-                        +dropdown({type: ' rooms', status:'-expandable', size:'default', title:'удобства номера', comment:'expanded', placeholder:'2 спальни, 2 кровати...', checkmark:true, 
+                        +dropdown-class({type: ' rooms', status:'-expandable', size:'default', title:'удобства номера', comment:'expanded', placeholder:'2 спальни, 2 кровати...', checkmark:true, 
                                 content: {'спальни': 2, 'кровати': 2, 'ванные комнаты': 0}, clear: '', apply: ''})
                     div.main__nav-addvance-conveniences
                             +expandable-checkbox({tittle: 'дополнительные удобства', content:[{label:'Завтрак', id:'breakfast'},

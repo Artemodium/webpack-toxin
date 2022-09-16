@@ -1,5 +1,5 @@
-include ../../components/date-fields/date-fields.pug
-include ../../components/dropdown/dropdown.pug
+include ../../components/double-date-field/double-date-field.pug
+include ../../components/dropdown-class/dropdown-class.pug
 include ../../components/buttons/button.pug
 
 mixin booking-room-card()
@@ -15,10 +15,11 @@ mixin booking-room-card()
                         span.header-text-left__price= '9 990₽ '
                         span.header-text-left__day= 'в сутки'
                 div.booking-room-card__dates
-                    +date-fields({size: 'short', title:'прибытие', placeholder:'19.08.2019', id:9, date_picker:"single"})
-                    +date-fields({size: 'short', title:'выезд', placeholder:'23.08.2019', id:10, date_picker:"single"})
+                    div.booking-room-card__double-date-field
+                        +double-date-field({ id:"twelve", date_picker:"double", start: {title:'прибытие', placeholder:'ДД.ММ.ГГГГ', type:"text"}, 
+                                    end: {title:'выезд', placeholder:'ДД.ММ.ГГГГ', type:"text"}})
                 div.booking-room-card__guests
-                    +dropdown({type: ' guests', status:'', size:'large', title:'гости', comment:'', placeholder:'3 гостя', checkmark:true})
+                    +dropdown-class({type: ' guests', status:'', size:'large', title:'гости', comment:'', placeholder:'3 гостя', checkmark:true})
                 div.booking-room-card__bill
                     div.bill__room 
                         span.bill__room-text= '9 990₽ х 4 суток'

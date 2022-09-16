@@ -1,0 +1,22 @@
+extends ../../../src/main-template/main-template.pug
+include ../../components/header/header.pug
+include ../../components/footer/footer.pug
+include ../../components/login-form/login-form.pug
+
+block title  
+    title Sign-in page
+
+block variables
+    
+block content
+    div.sign-in-page-content
+        div.sign-in-page-header
+            +header({logIn: ''})  
+        div.sign-in-page-main-container
+            img.sign-in-page-img(src="../../img/registration/registration.jpg", alt="preview registration room")
+            div.sign-in-page-registration-form
+                +login-form
+        div.sign-in-page-footer
+            +footer({type:'large'})
+
+    script(type='text/javascript' src='../../libs/jquery/jquery-3.6.0.js')

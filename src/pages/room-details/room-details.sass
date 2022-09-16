@@ -1,3 +1,8 @@
+@media (max-width: 1280px)
+    .room-details-header
+        margin-left: 5%
+        margin-bottom: 3%
+
 .room-details__preview-imgages
     display: grid
     grid-template-areas: "a b"
@@ -20,26 +25,22 @@
 .preview-imgage-small-two
     max-width: 99.5%
 
+.room-details__main-content-container
+    max-width: 1160px
+    margin: 0 auto
+    
 .room-details__main-content
     display: grid
-    grid-template-areas: "c c c d d d e e e" "f f f g g g e e e"
-    margin-top: 2%
-    margin-left: 2%
+    grid-template-areas: "c c c d d d e e e" "f f f d d d e e e"  "h h h h h h h h h"
+    margin-top: 5.7%
 
 @media (max-width: 1280px)
     .room-details__main-content
-        grid-template-areas: "c c c d d d d d d" "f f f g g g e e e"
+        grid-template-areas: "c c d d" "e e e e" "f f f f" "h h h h"
 
 @media (max-width: 768px)
     .room-details__main-content
-        grid-template-areas: "c c c c c c c c c" "f f f g g g e e e" "h h h j j j k k k"
-
-.room-details__advantages
-    display: grid
-    grid-area: c
-    height: 20%
-    margin-top: 4.5%
-    margin-left: 27%
+        grid-template-areas: "c c c" "d d d" "e e e" "f f f" "h h h"
 
 .room-details__advantages-title  
     font-style: normal
@@ -47,7 +48,17 @@
     font-size: 19px
     line-height: 23px
     color: #1F2041
-    margin-bottom: 8%
+    margin: 0 0 8% 0
+
+.room-details__advantages
+    display: grid
+    grid-area: c
+    height: 20%
+    margin-bottom: 3%
+
+@media (max-width: 1280px)
+    .room-details__advantages
+        margin-left: 10%
 
 .room-details__pie-chart-title
     font-style: normal
@@ -55,27 +66,128 @@
     font-size: 19px
     line-height: 23px
     color: #1F2041
-    margin-bottom: 5.5%
+    margin: 0 0 5.7% 0
 
 .room-details__pie-chart
     display: grid
     grid-area: d
     height: 20%
-    margin-top: 4%
-    margin-left: 13%
     min-width: 400px
+    margin-left: 10%
 
-@media (max-width: 768px)
+@media (max-width: 1280px)
     .room-details__pie-chart
-        grid-area: h
+        margin-left: 10%
 
 .room-details__booking-room-card
     display: grid
     grid-area: e
-    margin-top: 7%
-    margin-left: 3%
     min-width: 400px
+    margin-left: 8.5%
 
 @media (max-width: 1280px)
     .room-details__booking-room-card
-        grid-area: f
+        margin-left: 1%
+        margin-bottom: 5%
+
+.room-details__comments-block
+    min-width: 715px
+    display: grid
+    grid-area: f
+    grid-column: 1/7
+
+@media (max-width: 1280px)
+    .room-details__comments-block
+        margin-left: 5%
+
+@media (max-width: 1280px)
+    .room-details__comments-block
+        min-width: 35%
+
+@media (max-width: 520px)
+    .room-details__comments-block
+        max-width: 70%
+
+.room-details__comments-title
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin-top: 0
+    margin-bottom: 3%
+
+@media (max-width: 1280px)
+    .room-details__comments-title
+        max-width: 64%
+
+@media (max-width: 650px)
+    .room-details__comments-title
+        min-width: 380px
+
+.room-details__comments-title-text
+    font-style: normal
+    font-weight: 700
+    font-size: 1.5rem
+    line-height: 23px
+    color: #1F2041
+    letter-spacing: 0.2px
+    margin: 0
+
+@media (max-width: 1280px)
+    .room-details__comments-title-text
+        font-size: 1.15rem
+
+@media (max-width: 520px)
+    .room-details__comments-title-text
+        font-size: 1.1rem
+
+.room-details__comments-title-count
+    font-style: normal
+    font-weight: 400
+    font-size: 14px
+    line-height: 14px
+    text-align: right
+    color: rgba(31, 32, 65, 0.5)
+    margin: 1% 4.8% 0 0
+
+.comments-block_comment
+    margin-bottom: 3%
+
+.room-details__rules-and-cancel
+    display: grid
+    grid-area: h
+    grid-column: 1/7
+    grid-template-columns: 260px 290px
+    margin-bottom: 8%
+
+@media (max-width: 1280px)
+    .room-details__rules-and-cancel
+        margin-left: 5%
+
+@media (max-width: 768px)
+    .room-details__rules-and-cancel
+        grid-template-columns: 290px
+
+.cancel-block
+    margin-left: 28%
+
+@media (max-width: 768px)
+    .cancel-block
+        margin-left: 0
+
+.rules-block__head-title,
+.cancel-block__head-title
+    margin-left: 19px
+    margin-top: 13px
+    margin-bottom: 17px
+    font-style: normal
+    font-weight: 700
+    font-size: 19px
+    line-height: 23px
+    color: #1F2041
+
+.room-details-footer
+    border-top: 1px solid rgba(31, 32, 65, 0.25)
+
+@media (max-width: 1280px)
+    .room-details-footer
+        margin-left: 5%

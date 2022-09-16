@@ -1,6 +1,6 @@
 include ../../components/buttons/button.pug
 
-mixin dropdown(args)
+mixin dropdown-class(args)
     -var className= 'dropdown-' + args.size
 
     div(class= (args.status ? className : className + '-ex') id=args.id type=args.type)
@@ -15,17 +15,15 @@ mixin dropdown(args)
                     .text-field__chekmark
                             span.text-field__placeholder-checkmark &#xe5cf;
             if args.content
-                div(class=className + '__content-wrapper_' + args.size)
-                    div(class=className + '__content_' + args.size)
+                div(class=className + '__content-wrapper_' + args.size id=args.id)
+                    div(class=className + '__content_' + args.size id=args.id)
                         each key, val in args.content
-                            div.content__item
-                                span.item__name=`${val}`
-                                div(class = 'item__count' + args.type)
-                                    div.count__minus
-                                        span.count__minus-symb= '-' 
-                                    span.item__key= `${key}`
-                                    div.count__plus
-                                        span.count__plus-symb=  '+'
+                            div.content__item(id=args.id)
+                                span.item__name(id=args.id)=`${val}`
+                                div(class = 'item__count' + args.type id=args.id)
+                                    div.count__minus(id=args.id)='-' 
+                                    span.item__key(id=args.id)= `${key}`
+                                    div.count__plus(id=args.id)='+'
                         if args.clear || args.apply
                             div.content__item
                                 div.buttns

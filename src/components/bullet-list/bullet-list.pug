@@ -1,10 +1,15 @@
 mixin bullet-list(args)
-    div.bullet-list__head
-        p.bullet-list__head-tittle= args.tittle
-    div.bullet-list__content 
-        ul.bullet-list__content-list 
-            each el in args.content
-                li.content-list
-                    span.content-list-text= el
+    if args.title
+        div.bullet-list__head
+            p.bullet-list__head-tittle= args.tittle
+    if args.content.length>1
+        div.bullet-list__content 
+            ul.bullet-list__content-list 
+                each el in args.content
+                    li.content-list
+                        span.content-list-text= el
+    else                        
+        div.bullet-list__cancel 
+            p.bullet-list__cancel-text=args.content
 
         

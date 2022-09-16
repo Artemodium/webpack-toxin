@@ -1,0 +1,22 @@
+extends ../../../src/main-template/main-template.pug
+include ../../components/header/header.pug
+include ../../components/footer/footer.pug
+include ../../components/registration-form/registration-form.pug
+
+block title  
+    title Registration page
+
+block variables
+    
+block content
+    div.registration-page-content
+        div.registration-page-header
+            +header({logIn: ''})  
+        div.registration-page-main-container
+            img.registration-page-img(src="../../img/registration/registration.jpg", alt="preview registration room")
+            div.registration-page-registration-form
+                +registration-form
+        div.registration-page-footer
+            +footer({type:'large'})
+
+    script(type='text/javascript' src='../../libs/jquery/jquery-3.6.0.js')

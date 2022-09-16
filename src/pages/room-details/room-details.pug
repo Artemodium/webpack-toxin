@@ -4,6 +4,8 @@ include ../../components/footer/footer.pug
 include ../../components/advantages/advantages.pug
 include ../../components/pie-chart/pie-chart.pug
 include ../../components/booking-room-card/booking-room-card.pug
+include ../../components/comments/comments.pug
+include ../../components/bullet-list/bullet-list.pug
 
 block title  
     title Room details page
@@ -20,17 +22,43 @@ block content
             div.preview-imgages_small
                 img.preview-imgage-small-one(src="../../img/room-details/image21.jpg", alt="preview imgage small one")
                 img.preview-imgage-small-two(src="../../img/room-details/image31.jpg", alt="preview imgage small two")
-        div.room-details__main-content
-            div.room-details__advantages
-                p.room-details__advantages-title="Сведения о номере"
-                +advantages([{icon: 'mood', name:'Комфорт', comm:'Шумопоглощающие стены'}, 
-                            {icon:'location_city', name:'Удобство', comm:'Окно в каждой из спален'},
-                            {icon:'local_fire_department', name:'Уют', comm:'Номер оснащён камином'}])
-            div.room-details__pie-chart
-                p.room-details__pie-chart-title="Впечатления от номера"
-                +pie-chart()
-            div.room-details__booking-room-card
-                +booking-room-card
+        div.room-details__main-content-container
+            div.room-details__main-content
+                div.room-details__advantages
+                    p.room-details__advantages-title="Сведения о номере"
+                    +advantages([{icon: 'mood', name:'Комфорт', comm:'Шумопоглощающие стены'}, 
+                                {icon:'location_city', name:'Удобство', comm:'Окно в каждой из спален'},
+                                {icon:'local_fire_department', name:'Уют', comm:'Номер оснащён камином'}])
+                div.room-details__pie-chart
+                    p.room-details__pie-chart-title="Впечатления от номера"
+                    +pie-chart()
+                div.room-details__booking-room-card
+                    +booking-room-card
+                div.room-details__comments-block
+                    div.room-details__comments-title
+                        p.room-details__comments-title-text="Отзывы посетителей номера"
+                        p.room-details__comments-title-count="2 отзыва"
+                    div.comments-block_comment
+                        +comments([{path: '../../img/photos/murad.png',
+                            name:'Мурад Сарафанов', 
+                            date: '5 дней назад', 
+                            likes: '12', 
+                            text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'}])
+                    div.comments-block_comment
+                        +comments([{path: '../../img/photos/Patricia.jpg',
+                            name:'Патрисия Стёклышкова', 
+                            date: 'неделю назад', 
+                            likes: '2', 
+                            text: 'Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент'}])
+                div.room-details__rules-and-cancel
+                    div.rules-block
+                        div.rules-block__head
+                            p.rules-block__head-title='Правила'
+                        +bullet-list({tittle: '', content: ['Нельзя с питомцами', 'Без вечеринок и мероприятий', `Время прибытия — после 13:00, а выезд до 12:00`]})
+                    div.cancel-block
+                        div.cancel-block__head
+                            p.cancel-block__head-title='Отмена'
+                        +bullet-list({tittle: '', content: ['Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.']})
         div.room-details-footer
             +footer({type:'large'})
 

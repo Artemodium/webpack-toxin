@@ -1,3 +1,5 @@
+import Inputmask from "inputmask"
+
 $(".double-date-field-dropdown").next().hide()
 
 $(".double-date-field-dropdown__start-date").mouseenter(function() {
@@ -19,7 +21,7 @@ $(".double-date-field-dropdown__end-date").mouseleave(function() {
 Inputmask({ alias: "datetime", inputFormat: "dd.mm.yyyy", placeholder: "ДД.ММ.ГГГГ" }).mask($(".fields__field-start"))
 Inputmask({ alias: "datetime", inputFormat: "dd.mm.yyyy", placeholder: "ДД.ММ.ГГГГ" }).mask($(".fields__field-end"))
 
-let field = $(".double-date-field-dropdown__start-date")
+//let field = $(".double-date-field-dropdown__start-date")
 
 $(".double-date-field-dropdown__start-date").on("click", function() {
     let id = "#" + $(this).attr("id")

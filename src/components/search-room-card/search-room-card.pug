@@ -1,4 +1,4 @@
-include ../../components/dropdown/dropdown.pug
+include ../../components/dropdown-class/dropdown-class.pug
 include ../../components/buttons/button.pug
 include ../../components/double-date-field/double-date-field.pug
 
@@ -12,7 +12,7 @@ mixin search-room-card()
                     +double-date-field({ id:"eleven", date_picker:"double", start: {title:'прибытие', placeholder:'ДД.ММ.ГГГГ', type:"text"}, 
                                     end: {title:'выезд', placeholder:'ДД.ММ.ГГГГ', type:"text"}})
                 div.search-room-card__guests
-                    +dropdown({type: ' guests', status:'-expandable', size:'large', title:'гости', comment:'', placeholder:'Сколько гостей', checkmark:true, 
+                    +dropdown-class({type: ' guests', status:'-expandable', size:'large', title:'гости', comment:'', placeholder:'Сколько гостей', checkmark:true, 
                                 content: {'взрослые': 0, 'дети': 0, 'младенцы': 0}, clear: 'очистить', apply: 'применить'})
                 div.search-room-card__search-button
                     +button({theme: '_painted', font: '_white-font', placeholder: 'подобрать номер', size: 'large', isArrow: true})

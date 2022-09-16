@@ -12,5 +12,6 @@ import '../../components/calendar-class/calendar-class.js'
 import '../../components/registration-form/registration-form.js'
 import '../../components/login-form/login-form.js'
 import '../../components/suit-preview-card/suit-preview-card.js'
+import '../../components/double-date-field/double-date-field.js'
 
 $(location).attr('pathname') == '/cards.html' ? $('body').css('background-color', '#E5E5E5') : ''
