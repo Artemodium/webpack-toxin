@@ -1,7 +1,7 @@
-# MetaLamp Free Front-end Education programm
+# MetaLamp Free Front-end Education program
 # Second task
 ## UI kit
-  - [Colors & Type](https://Artemodium.github.io/webpack/colors-and-type.html)
+  - [Colors & Type](https://Artemodium.github.io/toxin/colors-and-type.html)
   - [Form Elements]
   - [Cards]
   - [Headers & Footers]
