@@ -36,3 +36,16 @@ $(".date-field_short").on("click", function() {
 $(".date-field_large").on("click", function() {
     $(".date-field_large").next().is(":hidden") ? $(".date-field_large").next().show() : $(".date-field_large").next().hide()
 })
+
+document.addEventListener('click', e => {
+    let target = e.target
+    let id = target.getAttribute('id') ? target.getAttribute('id') : ''
+    let calendar = id !== '' ? $('#' + id + '.date-selector') : ''
+
+    let calendar_is_active = calendar ? calendar.attr('style') === '' : true
+    let its_calendar = id === e.target.getAttribute('id')
+
+    if (calendar_is_active && !its_calendar) {
+        $(".date-field_large").next().hide()
+    }
+})

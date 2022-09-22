@@ -9,14 +9,14 @@ mixin dropdown-class(args)
             .header__desc= args.comment
         div(class=className + '__field-and-content')
             div(class=className + '__field')
-                div(class='field__text-field_' + args.size + args.status id=args.id type=args.type)
+                div(class='field__text-field_' + args.size + args.status + (args.borders ? args.borders: '') id=args.id type=args.type)
                     .text-field__placeholder
-                        span.text-field__placeholder-text= args.placeholder
+                        span.text-field__placeholder-text(id=args.id)= args.placeholder
                     .text-field__chekmark
                             span.text-field__placeholder-checkmark &#xe5cf;
             if args.content
                 div(class=className + '__content-wrapper_' + args.size id=args.id)
-                    div(class=className + '__content_' + args.size id=args.id)
+                    div(class=className + '__content_' + args.size id=args.id style= args.view===false ? 'display:none' : '')
                         each key, val in args.content
                             div.content__item(id=args.id)
                                 span.item__name(id=args.id)=`${val}`

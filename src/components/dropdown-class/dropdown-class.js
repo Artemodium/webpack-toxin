@@ -1,7 +1,9 @@
 class Dropdown {
-    constructor(dropdown_id, e) {
+    constructor(dropdown_id, e, type, view) {
         this.event = e
         this.dropdown_id = dropdown_id
+        this.type = type
+        this.view = view
         this.ExpandableClassListLarge = ['field__text-field_large-expandable',
             'text-field__placeholder',
             'text-field__placeholder-checkmark',
@@ -14,8 +16,6 @@ class Dropdown {
             'text-field__chekmark',
             'text-field__placeholder-text'
         ]
-        this.minus = ['count__minus', 'count__minus-symb']
-        this.plus = ['count__plus', 'count__plus-symb']
     }
     isDropdownShow() {
         $('.dropdown-default__content_default').is(':visible') ?
@@ -26,9 +26,6 @@ class Dropdown {
             $('.field__text-field_large-expandable').css('border', '1px solid rgba(31, 32, 65, 0.5)') :
             $('.field__text-field_large-expandable').css('border', '1px solid rgba(31, 32, 65, 0.25)')
     }
-    toRoundBorders() {
-        $("#guests.field__text-field_default-expandable").addClass("field__text-field_rounded_bottom")
-    }
 
     largeDropdownOnClick() {
         expand = $(this.dropdown_id + '.dropdown-large__content_large')
@@ -36,23 +33,24 @@ class Dropdown {
         if (this.ExpandableClassListLarge.includes(this.event.target.className))
             expand.is(':hidden') ?
             expand.fadeIn() &&
-            textField.css({ 'border': '1px solid rgba(31, 32, 65, 0.5)' }) :
+            textField.css({ 'border': '1px solid rgba(31, 32, 65, 0.5)' }) &&
+            $(this.dropdown_id + '.field__text-field_large-expandable').removeClass("rounded-bottom") :
             expand.fadeOut() &&
-            textField.css({ 'border': '1px solid rgba(31, 32, 65, 0.25)' })
+            textField.css({ 'border': '1px solid rgba(31, 32, 65, 0.25)' }) &&
+            this.type === ' guests' ? $(this.dropdown_id + '.field__text-field_large-expandable').addClass("rounded-bottom") : ''
     }
 
     defaultDropdownClick() {
         let expand = $(this.dropdown_id + '.dropdown-default__content_default')
         let textField = $(this.dropdown_id + '.field__text-field_default-expandable')
-            //let id_field = $(".field__text-field_default-expandable", this).attr("id")
-        if (this.ExpandableClassListLarge.includes(this.event.target.className))
+        if (this.ExpandableClassListDefault.includes(this.event.target.className))
             expand.is(':hidden') ?
             expand.fadeIn() &&
             textField.css('border', '1px solid rgba(31, 32, 65, 0.5)') &&
-            $(".field__text-field_default-expandable", this).removeClass("field__text-field_rounded_bottom") :
+            $(this.dropdown_id + ".field__text-field_default-expandable").removeClass("rounded-bottom") :
             expand.fadeOut() &&
-            textField.css('border', '1px solid rgba(31, 32, 65, 0.25)')
-            //id_field === "guests" ? $(".field__text-field_default-expandable", this).addClass("field__text-field_rounded_bottom") : ""
+            textField.css('border', '1px solid rgba(31, 32, 65, 0.25)') &&
+            this.type === ' guests' ? $(this.dropdown_id + ".field__text-field_default-expandable").addClass("rounded-bottom") : ''
     }
     minusClick() {
         if (this.event.target.className === 'count__minus') {
@@ -68,140 +66,87 @@ class Dropdown {
             $(this.event.target).prev().text(count)
         }
     }
-}
-
-function callDropdown(d) {
-
-    d.defaultDropdownClick()
-    d.largeDropdownOnClick()
-    d.minusClick()
-    d.plusClick()
-
-    //d.plus.includes(d.event.target.className) ? d.arrowClick() : ""
-    //d.minus.includes(d.event.target.className) ? d.arrowClick() : ""
-
-    /*$('.item__count').on('click', function(e) {
-        let count = parseInt($('.item__key', this).text())
-        if (['count__minus-symb', 'count__minus'].includes(e.target.className) && count > 0) {
-            count -= 1
-            $('.item__key', this).text(count)
-        } else if (['count__plus-symb', 'count__plus'].includes(e.target.className)) {
-            count += 1
-            $('.item__key', this).text(count)
+    buttonClearClick() {
+        if (['button-text_small_color-font clear_unbordered'].includes(this.event.target.className)) {
+            $(this.dropdown_id + '.item__key').text(0)
         }
-    })*/
+    }
 
-    /*$('.dropdown-large').on('click', function(e) {
-        if (['button__placeholder_color-font clear'].includes(e.target.className)) {
-            $(this).find('.item__key').text(0)
+    makeGuestsPlaceholder() {
+        if (this.type === ' guests') {
+            allGuests = $(this.dropdown_id + '.item__key').get().map(el => parseInt(el.innerText))
+            adults = allGuests.slice(0, 2).reduce((summ, cur) => summ + cur)
+            babies = allGuests[2]
+            if (adults === 0)
+                placeholderAdults = 'Сколько гостей'
+            else if (('' + adults).slice(-1) === '1' && ('' + adults).slice(-2) !== '11')
+                placeholderAdults = `${adults} гость`
+            else if (['2', '3', '4'].includes(('' + adults).slice(-1)) && !(['12', '13', '14'].includes('' + adults)) &&
+                !(['11', '12', '13', '14'].includes(('' + adults).slice(-2))))
+                placeholderAdults = `${adults} гостя`
+            else
+                placeholderAdults = `${adults} гостей`
+            if (babies === 1)
+                placeholderBabies = ` ${babies} младенец`
+            else if (babies > 1 && babies < 5)
+                placeholderBabies = `${babies} младенца`
+            else if (babies > 4)
+                placeholderBabies = `${babies} младенцев`
+            else
+                placeholderBabies = ''
+            $(this.dropdown_id + '.text-field__placeholder-text').text(`${adults === 0 && babies>0 ? '' : placeholderAdults}${adults>0&&babies>0? ', ':''}${placeholderBabies}`)
         }
-        let str = $(this).find('.content__item').text()
-        str = str.split('+')
-        names = str.map(i => i.slice(0, i.indexOf('-')))
-        counts = str.map(i => i.slice(i.indexOf('-') + 1))
-        let guests = {}
-        names.forEach((key, i) => guests[key] = counts[i])
-        count = Object.values(guests).map(i => parseInt(i)).filter(val => !Number.isNaN(val))
-        count = count.reduce((summ, curr) => summ + curr)
-        if (count === 0)
-            $(this).find('.text-field__placeholder-text').text('Сколько гостей')
-        else if (('' + count).slice(-1) === '1' && ('' + count).slice(-2) !== '11')
-            $(this).find('.text-field__placeholder-text').text(`${count} гость`)
-        else if (['2', '3', '4'].includes(('' + count).slice(-1)) && !(['12', '13', '14'].includes('' + count)) && !(['11', '12', '13', '14'].includes(('' + count).slice(-2))))
-            $(this).find('.text-field__placeholder-text').text(`${count} гостя`)
-        else
-            $(this).find('.text-field__placeholder-text').text(`${count} гостей`)
-    })
+    }
 
-    $('.dropdown-default').on('click', function(e) {
-        if ($(this, '.dropdown-default').attr("type") === " rooms") {
-            if (['button__placeholder_color-font'].includes(e.target.className)) {
-                $(this).find('.item__key').text(0)
-            }
-            let str = $(this).find('.content__item').text()
-            str = str.split('+')
-            names = str.map(i => i.slice(0, i.indexOf('-')))
-            counts = str.map(i => i.slice(i.indexOf('-') + 1))
-            let rooms = {}
-            names.forEach((key, i) => {
-                if (counts[i] != '')
-                    rooms[key] = counts[i]
-            })
-
-            let bedrooms
-            let beds
-            let baths
-
-            if (rooms['спальни'] == 1) {
-                bedrooms = 'спальня'
-            } else if (['2', '3', '4'].includes(rooms['спальни'])) {
-                bedrooms = 'спальни'
+    makeRoomsPlaceholder() {
+        if (this.type === ' rooms') {
+            allRooms = $(this.dropdown_id + '.item__key').get().map(el => parseInt(el.innerText))
+            countBedRooms = allRooms[0]
+            countBeds = allRooms[1]
+            countBathRooms = allRooms[2]
+            if (countBedRooms == 1) {
+                bedRooms = 'спальня'
+            } else if ([2, 3, 4].includes(countBedRooms)) {
+                bedRooms = 'спальни'
             } else {
-                bedrooms = 'спален'
+                bedRooms = 'спален'
             }
-            if (rooms['кровати'] == 1) {
+            if (countBeds == 1) {
                 beds = 'кровать'
-            } else if (['2', '3', '4'].includes(rooms['кровати'])) {
+            } else if ([2, 3, 4].includes(countBeds)) {
                 beds = 'кровати'
             } else {
                 beds = 'кроватей'
             }
-            if (rooms['ванные комнаты'] == 1) {
-                baths = 'ванная комната'
-            } else if (['2', '3', '4'].includes(rooms['ванные комнаты'])) {
-                baths = 'вынных комнаты'
+            if (countBathRooms == 1) {
+                bathRooms = 'ванная комната'
+            } else if ([2, 3, 4].includes(countBathRooms)) {
+                bathRooms = 'вынных комнаты'
             } else {
-                baths = 'вынных комнат'
+                bathRooms = 'вынных комнат'
             }
-
-            $(this).find('.text-field__placeholder-text').text(`${rooms['спальни']} ${bedrooms}, ${rooms['кровати']} ${beds}...`)
-            $(this).find('.bedrooms').text(`${rooms['спальни']} ${bedrooms},`)
-            $(this).find('.beds').text(`${rooms['кровати']} ${beds},`)
-            $(this).find('.baths').text(`${rooms['ванные комнаты']} ${baths}`)
-
-        } else if (($(this, '.dropdown-default').attr("type") === " guests")) {
-            let str = $(this).find('.content__item').text()
-            str = str.split('+')
-            names = str.map(i => i.slice(0, i.indexOf('-')))
-            counts = str.map(i => i.slice(i.indexOf('-') + 1))
-            let guests = {}
-            names.forEach((key, i) => {
-                if (counts[i] != '')
-                    guests[key] = counts[i]
-            })
-
-            let adults
-            let baby
-
-            if (guests['младенцы'] == 1) {
-                baby = 'младенец'
-            } else if (guests['младенцы'] > 1 && guests['младенцы'] < 5) {
-                baby = 'младенца'
-            } else {
-                baby = 'младенцев'
-            }
-
-            sumGuests = parseInt(guests['взрослые']) + parseInt(guests["дети"])
-
-            if (sumGuests == 1) {
-                adults = 'гость'
-            } else if (sumGuests < 5 && sumGuests > 1) {
-                adults = 'гостя'
-            } else {
-                adults = 'гостей'
-            }
-            $(this).find('.text-field__placeholder-text').text(`${sumGuests} ${adults}, ${guests['младенцы']} ${baby}`)
+            placeHolderRooms = `${countBedRooms} ${bedRooms}, ${countBeds} ${beds}...`
+            $(this.dropdown_id + '.text-field__placeholder-text').text(placeHolderRooms)
         }
-    })*/
+    }
+}
+
+function callDropdown(d) {
+    d.defaultDropdownClick()
+    d.largeDropdownOnClick()
+    d.minusClick()
+    d.plusClick()
+    d.buttonClearClick()
+    d.makeGuestsPlaceholder()
+    d.makeRoomsPlaceholder()
 }
 
 $(".dropdown-large").on("click", function(e) {
     let drop = this
-    callDropdown(new Dropdown("#" + drop.getAttribute("id"), e))
+    callDropdown(new Dropdown("#" + drop.getAttribute("id"), e, drop.getAttribute("type"), drop.getAttribute("view")))
 })
 
 $(".dropdown-default").on("click", function(e) {
     let drop = this
-    let dropDown = new Dropdown("#" + drop.getAttribute("id"), e)
-    callDropdown(dropDown)
+    callDropdown(new Dropdown("#" + drop.getAttribute("id"), e, drop.getAttribute("type"), drop.getAttribute("view")))
 })

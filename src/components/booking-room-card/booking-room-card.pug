@@ -19,7 +19,8 @@ mixin booking-room-card()
                         +double-date-field({ id:"twelve", date_picker:"double", start: {title:'прибытие', placeholder:'ДД.ММ.ГГГГ', type:"text"}, 
                                     end: {title:'выезд', placeholder:'ДД.ММ.ГГГГ', type:"text"}})
                 div.booking-room-card__guests
-                    +dropdown-class({type: ' guests', status:'', size:'large', title:'гости', comment:'', placeholder:'3 гостя', checkmark:true})
+                    +dropdown-class({id:'booking-room-card', type: ' guests', status:'-expandable', view:false, size:'large', title:'гости', comment:'', placeholder:'3 гостя', checkmark:true,
+                                    content: {'взрослые': 2, 'дети': 1, 'младенцы': 0}, clear: 'очистить', apply: 'применить', borders:' rounded-bottom'})
                 div.booking-room-card__bill
                     div.bill__room 
                         span.bill__room-text= '9 990₽ х 4 суток'

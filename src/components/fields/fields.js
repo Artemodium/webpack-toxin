@@ -27,3 +27,16 @@ $(".text-field__field_subscription").mouseleave(function() {
 $(".field-date-listener").on("click", function() {
     $(".field-date-listener").next().is(":hidden") ? $(".field-date-listener").next().show() : $(".field-date-listener").next().hide()
 })
+
+document.addEventListener('click', e => {
+    let target = e.target
+    let id = target.getAttribute('id') ? target.getAttribute('id') : ''
+    let calendar = id !== '' ? $('#' + id + '.date-selector') : ''
+
+    let calendar_is_active = calendar ? calendar.attr('style') === '' : true
+    let its_calendar = id === e.target.getAttribute('id')
+
+    if (calendar_is_active && !its_calendar) {
+        $(".field-date-listener").next().hide()
+    }
+})

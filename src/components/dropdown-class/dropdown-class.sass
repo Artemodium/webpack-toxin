@@ -53,10 +53,6 @@
     border-bottom-left-radius: 0px
     border-bottom-right-radius: 0px
 
-.field__text-field_rounded_bottom
-    border-bottom-left-radius: 4px
-    border-bottom-right-radius: 4px
-
 .field__text-field_default
     position: absolute
     width: 264px
@@ -118,6 +114,12 @@
     border-top-left-radius: 4px
     border-top-right-radius: 4px
 
+.text-field__placeholder
+    width: 100%
+    height: 100%
+    display: flex
+    align-items: center
+
 .text-field__placeholder-text
     margin-left: 15px
     font-style: normal
@@ -169,11 +171,16 @@
     height: auto
     border-left: 1px solid rgba(31, 32, 65, 0.5)
     border-right: 1px solid rgba(31, 32, 65, 0.5)
+    border-top: 1px solid rgba(31, 32, 65, 0.5)
     border-bottom: 1px solid rgba(31, 32, 65, 0.5)
-    margin-top: 0px
+    margin-top: -1px
     border-bottom-left-radius: 4px
     border-bottom-right-radius: 4px
     background-color: #fff
+
+.rounded-bottom
+    border-bottom-left-radius: 4px
+    border-bottom-right-radius: 4px
 
 .content__item
     display: flex

@@ -196,14 +196,14 @@ var Slider = function(id) {
     touchLeft.addEventListener('touchstart', onStart);
     touchRight.addEventListener('touchstart', onStart);
 };
-if ($(location).attr('pathname') == '/form-elements.html' || "/search-room.html") {
-    var newRangeSlider = new Slider('my-slider');
 
+let slider = $('#my-slider')
 
+if (slider.length > 0) {
+    newRangeSlider = new Slider('my-slider')
     newRangeSlider.onChange = function(min, max) {
         document.querySelector('.title-range-values').innerHTML = `${divideByDelimeter(min, ' ')}Р - ${divideByDelimeter(max, ' ')}Р`;
     }
-
     newRangeSlider.didChanged = function(min, max) {
         document.querySelector('.title-range-values').innerHTML = `${divideByDelimeter(min, ' ')}Р - ${divideByDelimeter(max, ' ')}Р`;
     }

@@ -101,18 +101,18 @@ block content
         div.dropdowns
             div.dropdowns__dropdown-one
                 div.reduced
-                    +dropdown-class({id: 'one', type: ' rooms', status:'', size:'default', title:'DROPDOWN', comment:'default', placeholder:'2 спальни, 2 кровати...', checkmark:true})
+                    +dropdown-class({id: 'one', type: ' rooms', status:'', size:'default', title:'DROPDOWN', comment:'default', placeholder:'2 спальни, 2 кровати...', checkmark:true, borders:''})
                 div.expanded
-                    +dropdown-class({id: 'two', type: ' rooms', status:'-expandable', size:'default', title:'DROPDOWN', comment:'expanded', placeholder:'2 спальни, 2 кровати...', checkmark:true, 
-                                content: {'спальни': 2, 'кровати': 2, 'ванные комнаты': 0}, clear: '', apply: ''})
+                    +dropdown-class({id: 'two', type: ' rooms', status:'-expandable', view:true,  size:'default', title:'DROPDOWN', comment:'expanded', placeholder:'2 спальни, 2 кровати...', checkmark:true, 
+                                content: {'спальни': 2, 'кровати': 2, 'ванные комнаты': 0}, clear: '', apply: '', borders:''})
             div.dropdowns__dropdown-two
                 div.expanded
-                    +dropdown-class({id: 'three', type: ' guests', status:'-expandable', size:'large', title:'DROPDOWN', comment:'', placeholder:'Сколько гостей', checkmark:true, 
-                                content: {'взрослые': 0, 'дети': 0, 'младенцы': 0}, clear: '', apply: 'применить'})
+                    +dropdown-class({id: 'three', type: ' guests', status:'-expandable', view:true,  size:'large', title:'DROPDOWN', comment:'', placeholder:'Сколько гостей', checkmark:true, 
+                                content: {'взрослые': 0, 'дети': 0, 'младенцы': 0}, clear: '', apply: 'применить', borders:''})
             div.dropdowns__dropdown-three
                 div.expanded
-                    +dropdown-class({id: 'four', type: ' guests', status:'-expandable', size:'large', title:'DROPDOWN', comment:'', placeholder:'3 гостя', checkmark:true, 
-                                content: {'взрослые': 2, 'дети': 1, 'младенцы': 0}, clear: 'очистить', apply: 'применить'})
+                    +dropdown-class({id: 'four', type: ' guests', status:'-expandable', view:true, size:'large', title:'DROPDOWN', comment:'', placeholder:'3 гостя', checkmark:true, 
+                                content: {'взрослые': 2, 'дети': 1, 'младенцы': 0}, clear: 'очистить', apply: 'применить', borders:''})
         div.expandable-checkboxes
             div.checkboxes__checkbox-one
                 .checkbox_reduced

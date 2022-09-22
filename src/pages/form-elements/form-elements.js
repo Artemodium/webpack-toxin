@@ -25,9 +25,6 @@ import "../../components/like-button/like-button.js"
 import "../../components/rate-button/rate-button.js"
 import "../../components/range-slider/range-slider.js"
 import "../../components/pagination/pagination.js"
-
-import "../../components/dropdown-class/dropdown-class.js"
-
 import "../../components/expandable-checkbox/expandable-checkbox.js"
 import "../../components/rich-checkbox/rich-checkbox.js"
 import "../../components/bullet-list/bullet-list.js"

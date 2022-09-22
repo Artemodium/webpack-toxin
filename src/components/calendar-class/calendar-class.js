@@ -154,33 +154,41 @@ function call(c) {
                     if (i == start) {
                         $($(c.calendar + '.days__monthday-field-period')[i]).addClass('days__monthday-field-period-start')
                         dd_start = $($(c.calendar + '.days__monthday-field-period')[i]).next().text()
-                        if ((!Array.from($(c.calendar + '.days__monthday-field'))[start].lastElementChild.classList.contains('monthday-field_current')) && start < 6) {
-                            mm_start = c.currentMonth
-                            mm_start_name = c.monthListShort[mm_start - 1]
-                        }
-                        if (Array.from($(c.calendar + '.days__monthday-field'))[start].lastElementChild.classList.contains('monthday-field_current')) {
-                            mm_start = c.currentMonth + 1
-                            mm_start_name = c.monthListShort[mm_start - 1]
-                        }
-                        if ((!Array.from($(c.calendar + '.days__monthday-field'))[start].lastElementChild.classList.contains('monthday-field_current')) && start > 30) {
-                            mm_start = c.currentMonth + 2
-                            mm_start_name = c.monthListShort[mm_start - 1]
+                        try {
+                            if ((!Array.from($(c.calendar + '.days__monthday-field'))[start].lastElementChild.classList.contains('monthday-field_current')) && start < 6) {
+                                mm_start = c.currentMonth
+                                mm_start_name = c.monthListShort[mm_start - 1]
+                            }
+                            if (Array.from($(c.calendar + '.days__monthday-field'))[start].lastElementChild.classList.contains('monthday-field_current')) {
+                                mm_start = c.currentMonth + 1
+                                mm_start_name = c.monthListShort[mm_start - 1]
+                            }
+                            if ((!Array.from($(c.calendar + '.days__monthday-field'))[start].lastElementChild.classList.contains('monthday-field_current')) && start > 30) {
+                                mm_start = c.currentMonth + 2
+                                mm_start_name = c.monthListShort[mm_start - 1]
+                            }
+                        } catch (e) {
+
                         }
                     }
                     if (i == end) {
                         $($(c.calendar + '.days__monthday-field-period')[i]).addClass('days__monthday-field-period-end')
                         dd_end = $($(c.calendar + '.days__monthday-field-period')[i]).next().text()
-                        if (!(Array.from($(c.calendar + '.days__monthday-field'))[end].lastElementChild.classList.contains('monthday-field_current')) && end < 6) {
-                            mm_end = c.currentMonth
-                            mm_end_name = c.monthListShort[mm_end - 1]
-                        }
-                        if (Array.from($(c.calendar + '.days__monthday-field'))[end].lastElementChild.classList.contains('monthday-field_current')) {
-                            mm_end = c.currentMonth + 1
-                            mm_end_name = c.monthListShort[mm_end - 1]
-                        }
-                        if ((!Array.from($(c.calendar + '.days__monthday-field'))[end].lastElementChild.classList.contains('monthday-field_current')) && end > 30) {
-                            mm_end = c.currentMonth + 2
-                            mm_end_name = c.monthListShort[mm_end - 1]
+                        try {
+                            if (!(Array.from($(c.calendar + '.days__monthday-field'))[end].lastElementChild.classList.contains('monthday-field_current')) && end < 6) {
+                                mm_end = c.currentMonth
+                                mm_end_name = c.monthListShort[mm_end - 1]
+                            }
+                            if (Array.from($(c.calendar + '.days__monthday-field'))[end].lastElementChild.classList.contains('monthday-field_current')) {
+                                mm_end = c.currentMonth + 1
+                                mm_end_name = c.monthListShort[mm_end - 1]
+                            }
+                            if ((!Array.from($(c.calendar + '.days__monthday-field'))[end].lastElementChild.classList.contains('monthday-field_current')) && end > 30) {
+                                mm_end = c.currentMonth + 2
+                                mm_end_name = c.monthListShort[mm_end - 1]
+                            }
+                        } catch (e) {
+
                         }
                     } else {
                         $($(c.calendar + '.days__monthday-field-period')[i]).addClass('days__monthday-field-period-between')

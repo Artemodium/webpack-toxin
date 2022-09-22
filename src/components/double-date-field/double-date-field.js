@@ -21,7 +21,6 @@ $(".double-date-field-dropdown__end-date").mouseleave(function() {
 Inputmask({ alias: "datetime", inputFormat: "dd.mm.yyyy", placeholder: "ДД.ММ.ГГГГ" }).mask($(".fields__field-start"))
 Inputmask({ alias: "datetime", inputFormat: "dd.mm.yyyy", placeholder: "ДД.ММ.ГГГГ" }).mask($(".fields__field-end"))
 
-//let field = $(".double-date-field-dropdown__start-date")
 
 $(".double-date-field-dropdown__start-date").on("click", function() {
     let id = "#" + $(this).attr("id")
@@ -31,4 +30,17 @@ $(".double-date-field-dropdown__start-date").on("click", function() {
 $(".double-date-field-dropdown__end-date").on("click", function() {
     let id = "#" + $(this).attr("id")
     $(id + ".double-date-field-dropdown").next().is(":hidden") ? $(id + ".double-date-field-dropdown").next().show() : $(id + ".double-date-field-dropdown").next().hide()
+})
+
+document.addEventListener('click', e => {
+    let target = e.target
+    let id = target.getAttribute('id') ? target.getAttribute('id') : ''
+    let calendar = id !== '' ? $('#' + id + '.date-selector') : ''
+
+    let calendar_is_active = calendar ? calendar.attr('style') === '' : true
+    let its_calendar = id === e.target.getAttribute('id')
+
+    if (calendar_is_active && !its_calendar) {
+        $(".double-date-field-dropdown").next().hide()
+    }
 })
