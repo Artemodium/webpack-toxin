@@ -14,4 +14,4 @@ import '../../components/login-form/login-form.js'
 import '../../components/suit-preview-card/suit-preview-card.js'
 import '../../components/double-date-field/double-date-field.js'
 
-$(location).attr('pathname') == '/cards.html' ? $('body').css('background-color', '#E5E5E5') : ''
+$(location).attr('pathname').includes('/cards.html') ? $('body').css('background-color', '#E5E5E5') : ''

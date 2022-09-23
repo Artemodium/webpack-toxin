@@ -17,7 +17,7 @@ mixin registration-form()
                 div.registration-form-radiobuttons
                     +radiobutton([{text:'Мужчина', checked:'checked', id:'1', name:'sex'}, {text:'Женщина', id:'2', name:'sex'}])
                 div.registration-form-birthday
-                    +fields({modificator:'normal', title:'дата рождения', comment:'', placeholder:'ДД.ММ.ГГГГ'})
+                    +fields({modificator:'date', title:'дата рождения', comment:'', placeholder:'ДД.ММ.ГГГГ', type:"text", id:"3"})
                 div.registration-form__login
                     div.login__text-field-email
                         +fields({modificator:'normal', title:'данные для входа в сервис', comment:'', placeholder:'Email'})
